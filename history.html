@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>History &mdash; SDV 0.1.2-dev documentation</title>
+  <title>History &mdash; SDV 0.3.7.dev0 documentation</title>
   
 
   
@@ -23,10 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -37,7 +38,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Credits" href="authors.html" /> 
+    <link rel="prev" title="Contributing" href="contributing.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,43 +82,190 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">SDV - Synthetic Data Vault</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#features">Features:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#coming-soon">Coming soon:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#try-it-out-now">Try it out now!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-with-pip">Install with pip</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#quickstart">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#model-the-dataset-using-sdv">1. Model the dataset using SDV</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#step-1-load-example-data">Step 1: Load example data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#fit-a-model-using-the-sdv-api">2. Fit a model using the SDV API.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#sample-data-from-the-fitted-model">2. Sample data from the fitted model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#join-out-community">Join out community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#citation">Citation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#from-pypi">From PyPi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#from-sources">From sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#development-setup">Development Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/02_Single_Table_Modeling.html">Single Table Modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/02_Single_Table_Modeling.html#Quick-usage">Quick usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/02_Single_Table_Modeling.html#Generate-synthetic-data-from-the-model">Generate synthetic data from the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/02_Single_Table_Modeling.html#Let's-consider-using-CTGAN">Let’s consider using CTGAN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/02_Single_Table_Modeling.html#id1">Generate synthetic data from the model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Advanced Usage</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#preparation-of-the-data">Preparation of the data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#metadata-file-specification">Metadata file specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="usage.html#table-details">Table details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage.html#field-details">Field details</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="usage.html#datetime-fields">Datetime fields</a></li>
-<li class="toctree-l4"><a class="reference internal" href="usage.html#categorical-fields-data-anonymization">Categorical fields ( Data anonymization)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="usage.html#primary-key-fields">Primary key fields</a></li>
-<li class="toctree-l4"><a class="reference internal" href="usage.html#foreign-key-fields">Foreign key fields</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="usage.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#sampling-new-data">Sampling new data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/02_Single_Table_Modeling.html#Frequently-encountered-needs">Frequently encountered needs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/02_Single_Table_Modeling.html#How-can-I-evaluate-the-quality-of-my-synthetic-data?">How can I evaluate the quality of my synthetic data?</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">References</span></p>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/03_Relational_Data_Modeling.html">Relational Data Modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/03_Relational_Data_Modeling.html#About-the-datset">About the datset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/03_Relational_Data_Modeling.html#Data-model-summary">Data model summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/03_Relational_Data_Modeling.html#1.-Load-data">1. Load data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/03_Relational_Data_Modeling.html#2.-Create-an-instance-of-SDV-and-train-the-instance">2. Create an instance of SDV and train the instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials/03_Relational_Data_Modeling.html#3.-Generate-synthetic-data">3. Generate synthetic data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Working with Metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#generate-metadata-from-your-data">Generate Metadata from your data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#load-your-data">Load your data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#create-a-metadata-instance">Create a Metadata instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#add-the-first-table">Add the first table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#add-a-table-specifying-its-parent">Add a table specifying its parent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#add-a-table-specifying-field-properties">Add a table specifying field properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#store-your-metadata-in-a-json-file">Store your Metadata in a JSON file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#metadata-schema">Metadata Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#top-level">Top Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#table">Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#field-details">Field details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#datetime-fields">Datetime fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#categorical-fields-data-anonymization">Categorical fields (Data anonymization)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#primary-key-fields">Primary key fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html#foreign-key-fields">Foreign key fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/sdv.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/sdv.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.constraints.html">sdv.constraints package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.constraints.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.constraints.html#module-sdv.constraints">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.metadata.html">sdv.metadata package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.metadata.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.metadata.html#module-sdv.metadata">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.models.html">sdv.models package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.models.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.models.html#module-sdv.models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.tabular.html">sdv.tabular package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.tabular.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/sdv.tabular.html#module-sdv.tabular">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/sdv.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.benchmark.html">sdv.benchmark module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.demo.html">sdv.demo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.evaluation.html">sdv.evaluation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.modeler.html">sdv.modeler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.sampler.html">sdv.sampler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/sdv.sdv.html">sdv.sdv module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/sdv.html#module-sdv">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.3.6 - 2020-07-23</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.3.5 - 2020-07-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.3.4 - 2020-07-04</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-improvements">General Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.3.3 - 2020-06-26</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">General Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.3.2 - 2020-02-03</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">General Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.3.1 - 2020-01-22</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">General Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">0.3.0 - 2019-12-23</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">New Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">0.2.2 - 2019-12-10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">New Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">0.2.1 - 2019-11-25</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">New Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">0.2.0 - 2019-10-11</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id19">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">General Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bugs-fixed">Bugs Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">0.1.2 - 2019-09-18</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id22">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">General Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Bugs fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#anonymization-of-data">0.1.1 - Anonymization of data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-release">0.1.0 - First Release</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -170,7 +318,7 @@
         
             
             
-              <a href="https://github.com/HDI-Project/SDV/blob/master/docs/history.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/sdv-dev/SDV/blob/master/docs/history.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -184,22 +332,202 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="history">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="history">
 <h1>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>0.3.6 - 2020-07-23<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>This release introduces a new concept of <code class="docutils literal notranslate"><span class="pre">Constraints</span></code>, which allow the user to define
+special relationships between columns that will not be handled via modeling.</p>
+<p>This is done via a new <code class="docutils literal notranslate"><span class="pre">sdv.constraints</span></code> subpackage which defines some well-known pre-defined
+constraints, as well as a generic framework that allows the user to customize the constraints
+to their needs as much as necessary.</p>
+<div class="section" id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Support for Constraints - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/169">Issue #169</a> by &#64;csala</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>0.3.5 - 2020-07-09<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>This release introduces a new subpackage <code class="docutils literal notranslate"><span class="pre">sdv.tabular</span></code> with models designed specifically
+for single table modeling, while still providing all the usual conveniences from SDV, such
+as:</p>
+<ul class="simple">
+<li><p>Seamless multi-type support</p></li>
+<li><p>Missing data handling</p></li>
+<li><p>PII anonymization</p></li>
+</ul>
+<p>Currently implemented models are:</p>
+<ul class="simple">
+<li><p>GaussianCopula: Multivariate distributions modeled using copula functions. This is stronger
+version, with more marginal distributions and options, than the one used to model multi-table
+datasets.</p></li>
+<li><p>CTGAN: GAN-based data synthesizer that can generate synthetic tabular data with high fidelity.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>0.3.4 - 2020-07-04<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>New Features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Support for Multiple Parents - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/162">Issue #162</a> by &#64;csala</p></li>
+<li><p>Sample by default the same number of rows as in the original table - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/163">Issue #163</a> by &#64;csala</p></li>
+</ul>
+</div>
+<div class="section" id="general-improvements">
+<h3>General Improvements<a class="headerlink" href="#general-improvements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add benchmark - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/165">Issue #165</a> by &#64;csala</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>0.3.3 - 2020-06-26<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>General Improvements<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use SDMetrics for evaluation - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/159">Issue #159</a> by &#64;csala</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>0.3.2 - 2020-02-03<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>General Improvements<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Improve metadata visualization - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/151">Issue #151</a> by &#64;csala &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>0.3.1 - 2020-01-22<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>New Features<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add Metadata Validation - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/134">Issue #134</a> by &#64;csala &#64;JDTheRipperPC</p></li>
+<li><p>Add Metadata Visualization - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/135">Issue #135</a> by &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>General Improvements<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add path to metadata JSON - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/143">Issue #143</a> by &#64;JDTheRipperPC</p></li>
+<li><p>Use new Copulas and RDT versions - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/147">Issue #147</a> by &#64;csala &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>0.3.0 - 2019-12-23<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>New Features<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create sdv.models subpackage - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/141">Issue #141</a> by &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>0.2.2 - 2019-12-10<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h3>New Features<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Adapt evaluation to the different data types - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/128">Issue #128</a> by &#64;csala &#64;JDTheRipperPC</p></li>
+<li><p>Extend <code class="docutils literal notranslate"><span class="pre">load_demo</span></code> functionality to load other datasets - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/136">Issue #136</a> by &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>0.2.1 - 2019-11-25<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h3>New Features<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Methods to generate Metadata from DataFrames - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/126">Issue #126</a> by &#64;csala &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>0.2.0 - 2019-10-11<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id19">
+<h3>New Features<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>compatibility with rdt issue 72 - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/120">Issue #120</a> by &#64;csala &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h3>General Improvements<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Error docstring sampler.__fill_text_columns - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/114">Issue #144</a> by &#64;JDTheRipperPC</p></li>
+<li><p>Reach 90% coverage - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/112">Issue #112</a> by &#64;JDTheRipperPC</p></li>
+<li><p>Review unittests - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/111">Issue #111</a> by &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+<div class="section" id="bugs-fixed">
+<h3>Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Time required for sample_all function? - <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/118">Issue #118</a> by &#64;csala &#64;JDTheRipperPC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>0.1.2 - 2019-09-18<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id22">
+<h3>New Features<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add option to model the amount of child rows - Issue <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/93">93</a> by &#64;ManuelAlvarezC</p></li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h3>General Improvements<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Add Evaluation Metrics - Issue <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/52">52</a> by &#64;ManuelAlvarezC</p></li>
+<li><p>Ensure unicity on primary keys on different calls - Issue <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/63">63</a> by &#64;ManuelAlvarezC</p></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h3>Bugs fixed<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>executing readme: ‘not supported between instances of ‘int’ and ‘NoneType’ - Issue <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/104">104</a> by &#64;csala</p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="anonymization-of-data">
 <h2>0.1.1 - Anonymization of data<a class="headerlink" href="#anonymization-of-data" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Add warnings when trying to model an unsupported dataset structure. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/73">GH#73</a></p></li>
-<li><p>Add option to anonymize data. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/51">GH#51</a></p></li>
-<li><p>Add support for modeling data with different distributions, when using <code class="docutils literal notranslate"><span class="pre">GaussianMultivariate</span></code> model. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/68">GH#68</a></p></li>
-<li><p>Add support for <code class="docutils literal notranslate"><span class="pre">VineCopulas</span></code> as a model. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/71">GH#71</a></p></li>
-<li><p>Improve <code class="docutils literal notranslate"><span class="pre">GaussianMultivariate</span></code> parameter sampling, avoiding warnings and unvalid parameters. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/58">GH#58</a></p></li>
-<li><p>Fix issue that caused that sampled categorical values sometimes got numerical values mixed. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/81">GH#81</a></p></li>
-<li><p>Improve the validation of extensions. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/69">GH#69</a></p></li>
-<li><p>Update examples. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/61">GH#61</a></p></li>
-<li><p>Replaced <code class="docutils literal notranslate"><span class="pre">Table</span></code> class with a <code class="docutils literal notranslate"><span class="pre">NamedTuple</span></code>. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/92">GH#92</a></p></li>
-<li><p>Fix inconsistent dependencies and add upper bound to dependencies. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/96">GH#96</a></p></li>
-<li><p>Fix error when merging extension in <code class="docutils literal notranslate"><span class="pre">Modeler.CPA</span></code> when running examples. <a class="reference external" href="https://github.com/HDI-Project/SDV/issues/86">GH#86</a></p></li>
+<li><p>Add warnings when trying to model an unsupported dataset structure. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/73">GH#73</a></p></li>
+<li><p>Add option to anonymize data. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/51">GH#51</a></p></li>
+<li><p>Add support for modeling data with different distributions, when using <code class="docutils literal notranslate"><span class="pre">GaussianMultivariate</span></code> model. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/68">GH#68</a></p></li>
+<li><p>Add support for <code class="docutils literal notranslate"><span class="pre">VineCopulas</span></code> as a model. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/71">GH#71</a></p></li>
+<li><p>Improve <code class="docutils literal notranslate"><span class="pre">GaussianMultivariate</span></code> parameter sampling, avoiding warnings and unvalid parameters. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/58">GH#58</a></p></li>
+<li><p>Fix issue that caused that sampled categorical values sometimes got numerical values mixed. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/81">GH#81</a></p></li>
+<li><p>Improve the validation of extensions. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/69">GH#69</a></p></li>
+<li><p>Update examples. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/61">GH#61</a></p></li>
+<li><p>Replaced <code class="docutils literal notranslate"><span class="pre">Table</span></code> class with a <code class="docutils literal notranslate"><span class="pre">NamedTuple</span></code>. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/92">GH#92</a></p></li>
+<li><p>Fix inconsistent dependencies and add upper bound to dependencies. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/96">GH#96</a></p></li>
+<li><p>Fix error when merging extension in <code class="docutils literal notranslate"><span class="pre">Modeler.CPA</span></code> when running examples. <a class="reference external" href="https://github.com/sdv-dev/SDV/issues/86">GH#86</a></p></li>
 </ul>
 </div>
 <div class="section" id="first-release">
@@ -219,7 +547,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="authors.html" class="btn btn-neutral float-left" title="Credits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

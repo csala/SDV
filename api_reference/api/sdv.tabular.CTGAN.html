@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sdv.tabular.CTGAN &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,7 +17,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="sdv.tabular.CTGAN.fit" href="sdv.tabular.CTGAN.fit.html" />
@@ -59,7 +60,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Changelogs</a>
+            <a class="nav-link" href="../../history.html">Release Notes</a>
         </li>
         
         
@@ -114,26 +115,94 @@
       
         
           
+
               <li class="active">
-                  <a href="../tabular.html">Tabular Models</a>
+                  <a href="../tabular.html">sdv.tabular</a>
+                  <ul>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.html">sdv.tabular.GaussianCopula</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.fit.html">sdv.tabular.GaussianCopula.fit</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.sample.html">sdv.tabular.GaussianCopula.sample</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.get_metadata.html">sdv.tabular.GaussianCopula.get_metadata</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.get_parameters.html">sdv.tabular.GaussianCopula.get_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.set_parameters.html">sdv.tabular.GaussianCopula.set_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.from_parameters.html">sdv.tabular.GaussianCopula.from_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.save.html">sdv.tabular.GaussianCopula.save</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.load.html">sdv.tabular.GaussianCopula.load</a>
+                      </li>
+                  
+                      <li class="active">
+                          <a href="">sdv.tabular.CTGAN</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.fit.html">sdv.tabular.CTGAN.fit</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.sample.html">sdv.tabular.CTGAN.sample</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.get_metadata.html">sdv.tabular.CTGAN.get_metadata</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.from_parameters.html">sdv.tabular.CTGAN.from_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.save.html">sdv.tabular.CTGAN.save</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.load.html">sdv.tabular.CTGAN.load</a>
+                      </li>
+                  
+                  </ul>
               </li>
           
         
           
               <li class="">
-                  <a href="../metadata.html">Metadata</a>
+                  <a href="../metadata.html">sdv.metadata</a>
               </li>
           
         
           
               <li class="">
-                  <a href="../constraints.html">Constraints</a>
+                  <a href="../constraints.html">sdv.constraints</a>
               </li>
           
         
           
               <li class="">
-                  <a href="../demo.html">Demos</a>
+                  <a href="../demo.html">sdv.demo</a>
               </li>
           
         
@@ -171,9 +240,9 @@
                 
   <div class="section" id="sdv-tabular-ctgan">
 <h1>sdv.tabular.CTGAN<a class="headerlink" href="#sdv-tabular-ctgan" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="sdv.tabular.CTGAN">
-<em class="property">class </em><code class="sig-prename descclassname">sdv.tabular.</code><code class="sig-name descname">CTGAN</code><span class="sig-paren">(</span><em class="sig-param">field_names=None</em>, <em class="sig-param">primary_key=None</em>, <em class="sig-param">field_types=None</em>, <em class="sig-param">anonymize_fields=None</em>, <em class="sig-param">constraints=None</em>, <em class="sig-param">table_metadata=None</em>, <em class="sig-param">epochs=300</em>, <em class="sig-param">log_frequency=True</em>, <em class="sig-param">embedding_dim=128</em>, <em class="sig-param">gen_dim=(256</em>, <em class="sig-param">256)</em>, <em class="sig-param">dis_dim=(256</em>, <em class="sig-param">256)</em>, <em class="sig-param">l2scale=1e-06</em>, <em class="sig-param">batch_size=500</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">sdv.tabular.</code><code class="sig-name descname">CTGAN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">primary_key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_types</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anonymize_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">constraints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table_metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">300</span></em>, <em class="sig-param"><span class="n">log_frequency</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">embedding_dim</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">gen_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">dis_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">l2scale</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Model wrapping <code class="docutils literal notranslate"><span class="pre">CTGANSynthesizer</span></code> model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -215,9 +284,9 @@ Layer will be created for each one of the values provided. Defaults to (256, 256
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="sdv.tabular.CTGAN.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">field_names=None</em>, <em class="sig-param">primary_key=None</em>, <em class="sig-param">field_types=None</em>, <em class="sig-param">anonymize_fields=None</em>, <em class="sig-param">constraints=None</em>, <em class="sig-param">table_metadata=None</em>, <em class="sig-param">epochs=300</em>, <em class="sig-param">log_frequency=True</em>, <em class="sig-param">embedding_dim=128</em>, <em class="sig-param">gen_dim=(256</em>, <em class="sig-param">256)</em>, <em class="sig-param">dis_dim=(256</em>, <em class="sig-param">256)</em>, <em class="sig-param">l2scale=1e-06</em>, <em class="sig-param">batch_size=500</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">primary_key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_types</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anonymize_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">constraints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table_metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">300</span></em>, <em class="sig-param"><span class="n">log_frequency</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">embedding_dim</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">gen_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">dis_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">l2scale</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -240,13 +309,13 @@ Layer will be created for each one of the values provided. Defaults to (256, 256
 <tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.get_metadata.html#sdv.tabular.CTGAN.get_metadata" title="sdv.tabular.CTGAN.get_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata</span></code></a>()</p></td>
 <td><p>Get metadata about the table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.get_parameters.html#sdv.tabular.CTGAN.get_parameters" title="sdv.tabular.CTGAN.get_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parameters</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parameters</span></code>()</p></td>
 <td><p>Get the parameters learned from the data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.load.html#sdv.tabular.CTGAN.load" title="sdv.tabular.CTGAN.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path)</p></td>
 <td><p>Load a TabularModel instance from a given path.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.sample.html#sdv.tabular.CTGAN.sample" title="sdv.tabular.CTGAN.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>([num_rows, values, max_retries])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.sample.html#sdv.tabular.CTGAN.sample" title="sdv.tabular.CTGAN.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>([num_rows, max_retries])</p></td>
 <td><p>Sample rows from this table.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.save.html#sdv.tabular.CTGAN.save" title="sdv.tabular.CTGAN.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
@@ -295,7 +364,7 @@ Layer will be created for each one of the values provided. Defaults to (256, 256
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

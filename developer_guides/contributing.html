@@ -2,10 +2,11 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Contributing &#8212; SDV 0.3.7.dev0 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributing to SDV &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
@@ -16,11 +17,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="History" href="../history.html" />
-    <link rel="prev" title="SDV Architecture" href="architecture.html" />
+    <link rel="next" title="Release Notes" href="../history.html" />
+    <link rel="prev" title="Constraints" href="sdv/constraints.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
   </head>
@@ -59,7 +60,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../history.html">Changelogs</a>
+            <a class="nav-link" href="../history.html">Release Notes</a>
         </li>
         
         
@@ -117,13 +118,13 @@
         
           
               <li class="">
-                  <a href="architecture.html">SDV Architecture</a>
+                  <a href="overview.html">The Synthetic Data Vault</a>
               </li>
           
         
           
               <li class="active">
-                  <a href="">Contributing</a>
+                  <a href="">Contributing to SDV</a>
               </li>
           
         
@@ -148,18 +149,10 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#types-of-contributions" class="nav-link">Types of Contributions</a><ul class="nav section-nav flex-column">
+            <a href="#types-of-contributions" class="nav-link">Types of contributions</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#report-bugs" class="nav-link">Report Bugs</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#fix-bugs" class="nav-link">Fix Bugs</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#implement-features" class="nav-link">Implement Features</a>
+            <a href="#reporting-issues" class="nav-link">Reporting Issues</a>
         </li>
     
         <li class="nav-item toc-entry toc-h3">
@@ -167,7 +160,7 @@
         </li>
     
         <li class="nav-item toc-entry toc-h3">
-            <a href="#submit-feedback" class="nav-link">Submit Feedback</a>
+            <a href="#contribute-code" class="nav-link">Contribute code</a>
         </li>
     
             </ul>
@@ -212,49 +205,44 @@
               
               <div>
                 
-  <div class="section" id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
-<p>Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.</p>
-<p>You can contribute in many ways:</p>
+  <div class="section" id="contributing-to-sdv">
+<span id="contributing"></span><h1>Contributing to SDV<a class="headerlink" href="#contributing-to-sdv" title="Permalink to this headline">¶</a></h1>
+<p>The Synthetic Data Vault project is a collection of several open source libraries with purposes
+that range from simple reversible transformations to the most complex state-of-the-art Generative
+Deep Learning models.</p>
+<p>Building and maintining all these libraries is a community driven effort which relies on the work
+of developers from all around the world that contribute their knowledge, code and feedback to make
+the project grow and improve over time.</p>
+<p>Are you ready to join this community? If so, please feel welcome and keep reading!</p>
 <div class="section" id="types-of-contributions">
-<h2>Types of Contributions<a class="headerlink" href="#types-of-contributions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="report-bugs">
-<h3>Report Bugs<a class="headerlink" href="#report-bugs" title="Permalink to this headline">¶</a></h3>
-<p>Report bugs at the <a class="reference external" href="https://github.com/sdv-dev/SDV/issues">GitHub Issues page</a>.</p>
-<p>If you are reporting a bug, please include:</p>
+<h2>Types of contributions<a class="headerlink" href="#types-of-contributions" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways to contribute to a project like <strong>SDV</strong>, and they do not always involve
+coding.</p>
+<p>If you want to contribute but do not know where to start, consider one of the following options:</p>
+<div class="section" id="reporting-issues">
+<h3>Reporting Issues<a class="headerlink" href="#reporting-issues" title="Permalink to this headline">¶</a></h3>
+<p>If there is something that you would like to see changed in the project, or that you just want
+to ask, please create an issue at the <a class="reference external" href="https://github.com/sdv-dev/SDV/issues">GitHub issues page</a>.</p>
+<p>If you do so, please:</p>
 <ul class="simple">
-<li><p>Your operating system name and version.</p></li>
-<li><p>Any details about your local setup that might be helpful in troubleshooting.</p></li>
-<li><p>Detailed steps to reproduce the bug.</p></li>
+<li><p>Explain in detail what you are requesting.</p></li>
+<li><p>Keep the scope as narrow as possible, to make it easier to implement or respond.</p></li>
+<li><p>Remember that this is a volunteer-driven project and that the maintainers will attend every
+request as soon as possible, but that in some cases this might take some time.</p></li>
 </ul>
-</div>
-<div class="section" id="fix-bugs">
-<h3>Fix Bugs<a class="headerlink" href="#fix-bugs" title="Permalink to this headline">¶</a></h3>
-<p>Look through the GitHub issues for bugs. Anything tagged with “bug” and “help
-wanted” is open to whoever wants to implement it.</p>
-</div>
-<div class="section" id="implement-features">
-<h3>Implement Features<a class="headerlink" href="#implement-features" title="Permalink to this headline">¶</a></h3>
-<p>Look through the GitHub issues for features. Anything tagged with “enhancement”
-and “help wanted” is open to whoever wants to implement it.</p>
 </div>
 <div class="section" id="write-documentation">
 <h3>Write Documentation<a class="headerlink" href="#write-documentation" title="Permalink to this headline">¶</a></h3>
-<p>SDV could always use more documentation, whether as part of the
-official SDV docs, in docstrings, or even on the web in blog posts,
-articles, and such.</p>
+<p>SDV could always use more documentation, whether as part of the official SDV
+docs, in docstrings, or even on the web in blog posts, articles, and such, so feel free to
+contribute any changes that you deem necessary, from fixing a simple typo, to writing whole
+new pages of documentation.</p>
 </div>
-<div class="section" id="submit-feedback">
-<h3>Submit Feedback<a class="headerlink" href="#submit-feedback" title="Permalink to this headline">¶</a></h3>
-<p>The best way to send feedback is to file an issue at the <a class="reference external" href="https://github.com/sdv-dev/SDV/issues">GitHub Issues page</a>.</p>
-<p>If you are proposing a feature:</p>
-<ul class="simple">
-<li><p>Explain in detail how it would work.</p></li>
-<li><p>Keep the scope as narrow as possible, to make it easier to implement.</p></li>
-<li><p>Remember that this is a volunteer-driven project, and that contributions
-are welcome :)</p></li>
-</ul>
+<div class="section" id="contribute-code">
+<h3>Contribute code<a class="headerlink" href="#contribute-code" title="Permalink to this headline">¶</a></h3>
+<p>Obviously, the main element in the SDV library is the code.</p>
+<p>If you are willing to contribute to it, please head for the next sections for detailed guidelines
+about how to do so.</p>
 </div>
 </div>
 <div class="section" id="get-started">
@@ -263,20 +251,20 @@ are welcome :)</p></li>
 <ol class="arabic">
 <li><p>Fork the <cite>SDV</cite> repo on GitHub.</p></li>
 <li><p>Clone your fork locally:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:your_name_here/SDV.git
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:your_name_here/SDV.git
 </pre></div>
 </div>
 </li>
 <li><p>Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed,
 this is how you set up your fork for local development:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkvirtualenv SDV
-$ <span class="nb">cd</span> SDV/
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkvirtualenv SDV
+$ cd SDV/
 $ make install-develop
 </pre></div>
 </div>
 </li>
 <li><p>Create a branch for local development:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout -b name-of-your-bugfix-or-feature
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b name-of-your-bugfix-or-feature
 </pre></div>
 </div>
 <p>Try to use the naming scheme of prefixing your branch with <code class="docutils literal notranslate"><span class="pre">gh-X</span></code> where X is
@@ -288,15 +276,15 @@ username, like <code class="docutils literal notranslate"><span class="pre">gith
 <li><p>While hacking your changes, make sure to cover all your developments with the required
 unit tests, and that none of the old tests fail as a consequence of your changes.
 For this, make sure to run the tests suite and check the code coverage:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make lint       <span class="c1"># Check code styling</span>
-$ make <span class="nb">test</span>       <span class="c1"># Run the tests</span>
-$ make coverage   <span class="c1"># Get the coverage report</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make lint       # Check code styling
+$ make test       # Run the tests
+$ make coverage   # Get the coverage report
 </pre></div>
 </div>
 </li>
 <li><p>When you’re done making changes, check that your changes pass all the styling checks and
 tests, including other Python supported versions, using:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make test-all
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make test-all
 </pre></div>
 </div>
 </li>
@@ -304,13 +292,13 @@ tests, including other Python supported versions, using:</p>
 the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html?showone=Comments#Comments">Google docstrings style</a>.
 If you want to view how your documentation will look like when it is published, you can
 generate and view the docs with this command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make view-docs
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make view-docs
 </pre></div>
 </div>
 </li>
 <li><p>Commit your changes and push your branch to GitHub:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add .
-$ git commit -m <span class="s2">&quot;Your detailed description of your changes.&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add .
+$ git commit -m &quot;Your detailed description of your changes.&quot;
 $ git push origin name-of-your-bugfix-or-feature
 </pre></div>
 </div>
@@ -365,8 +353,8 @@ mocked.</p></li>
 <div class="section" id="tips">
 <h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
 <p>To run a subset of tests:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pytest tests.test_sdv
-$ python -m pytest -k <span class="s1">&#39;foo&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m pytest tests.test_sdv
+$ python -m pytest -k &#39;foo&#39;
 </pre></div>
 </div>
 </div>
@@ -393,17 +381,17 @@ since the last release.</p>
 <p>Once this is done, run of the following commands:</p>
 <ol class="arabic">
 <li><p>If you are releasing a patch version:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">release</span>
 </pre></div>
 </div>
 </li>
 <li><p>If you are releasing a minor version:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release-minor
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">release</span><span class="o">-</span><span class="n">minor</span>
 </pre></div>
 </div>
 </li>
 <li><p>If you are releasing a major version:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release-major
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">release</span><span class="o">-</span><span class="n">major</span>
 </pre></div>
 </div>
 </li>
@@ -414,7 +402,7 @@ since the last release.</p>
 in order to make some of the new features available for testing on other projects before they
 are included in an actual full-blown release.</p>
 <p>In order to perform such an action, you can execute:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make release-candidate
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">release</span><span class="o">-</span><span class="n">candidate</span>
 </pre></div>
 </div>
 <p>This will perform the following actions:</p>
@@ -424,15 +412,15 @@ are included in an actual full-blown release.</p>
 </ol>
 <p>After this is done, the new pre-release can be installed by including the <code class="docutils literal notranslate"><span class="pre">dev</span></code> section in the
 dependency specification, either in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">install_requires</span> <span class="o">=</span> <span class="o">[</span>
-    ...
-    <span class="s1">&#39;sdv&gt;=X.Y.Z.dev&#39;</span>,
-    ...
-<span class="o">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">install_requires</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;sdv&gt;=X.Y.Z.dev&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <p>or in command line:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">&#39;sdv&gt;=X.Y.Z.dev&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s1">&#39;sdv&gt;=X.Y.Z.dev&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -445,8 +433,8 @@ dependency specification, either in <code class="docutils literal notranslate"><
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="architecture.html" title="previous page">SDV Architecture</a>
-    <a class='right-next' id="next-link" href="../history.html" title="next page">History</a>
+    <a class='left-prev' id="prev-link" href="sdv/constraints.html" title="previous page">Constraints</a>
+    <a class='right-next' id="next-link" href="../history.html" title="next page">Release Notes</a>
 
               </div>
               
@@ -461,7 +449,7 @@ dependency specification, either in <code class="docutils literal notranslate"><
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sdv.constraints.base &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
@@ -16,7 +17,7 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +58,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../../history.html">Changelogs</a>
+            <a class="nav-link" href="../../../history.html">Release Notes</a>
         </li>
         
         
@@ -211,23 +212,28 @@
 <span class="sd">    This class is not intended to be used directly and should rather be</span>
 <span class="sd">    subclassed to create different types of constraints.</span>
 
-<span class="sd">    If the attribute ``_handling_strategy`` of a subclass is set to ``transform``</span>
+<span class="sd">    If ``handling_strategy`` is passed with the value ``transform``</span>
 <span class="sd">    or ``reject_sampling``, the ``filter_valid`` or ``transform`` and</span>
-<span class="sd">    ``reverse_transform`` methods will be replaces respectively by a simple</span>
+<span class="sd">    ``reverse_transform`` methods will be replaced respectively by a simple</span>
 <span class="sd">    identity function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">_handling_strategy</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        handling_strategy (str):</span>
+<span class="sd">            How this Constraint should be handled, which can be ``transform``,</span>
+<span class="sd">            ``reject_sampling`` or ``all``. Defaults to ``transform``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_identity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">table_data</span>
 
-<div class="viewcode-block" id="Constraint.__init__"><a class="viewcode-back" href="../../../api_reference/api/sdv.constraints.Constraint.html#sdv.constraints.Constraint.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handling_strategy</span> <span class="o">==</span> <span class="s1">&#39;transform&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="Constraint.__init__"><a class="viewcode-back" href="../../../api_reference/api/sdv.constraints.Constraint.html#sdv.constraints.Constraint.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handling_strategy</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">handling_strategy</span> <span class="o">==</span> <span class="s1">&#39;transform&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">filter_valid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identity</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handling_strategy</span> <span class="o">==</span> <span class="s1">&#39;reject_sampling&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">handling_strategy</span> <span class="o">==</span> <span class="s1">&#39;reject_sampling&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identity</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reverse_transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identity</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reverse_transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identity</span>
+        <span class="k">elif</span> <span class="n">handling_strategy</span> <span class="o">!=</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown handling strategy: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handling_strategy</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Constraint.fit"><a class="viewcode-back" href="../../../api_reference/api/sdv.constraints.Constraint.fit.html#sdv.constraints.Constraint.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;No-op method written for completion. To be optionally overwritten by subclasses.</span>
@@ -395,7 +401,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

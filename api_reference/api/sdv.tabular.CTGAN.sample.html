@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sdv.tabular.CTGAN.sample &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,7 +17,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="sdv.tabular.CTGAN.get_metadata" href="sdv.tabular.CTGAN.get_metadata.html" />
@@ -59,7 +60,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Changelogs</a>
+            <a class="nav-link" href="../../history.html">Release Notes</a>
         </li>
         
         
@@ -114,26 +115,94 @@
       
         
           
+
               <li class="active">
-                  <a href="../tabular.html">Tabular Models</a>
+                  <a href="../tabular.html">sdv.tabular</a>
+                  <ul>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.html">sdv.tabular.GaussianCopula</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.fit.html">sdv.tabular.GaussianCopula.fit</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.sample.html">sdv.tabular.GaussianCopula.sample</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.get_metadata.html">sdv.tabular.GaussianCopula.get_metadata</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.get_parameters.html">sdv.tabular.GaussianCopula.get_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.set_parameters.html">sdv.tabular.GaussianCopula.set_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.from_parameters.html">sdv.tabular.GaussianCopula.from_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.save.html">sdv.tabular.GaussianCopula.save</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.GaussianCopula.load.html">sdv.tabular.GaussianCopula.load</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.html">sdv.tabular.CTGAN</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.fit.html">sdv.tabular.CTGAN.fit</a>
+                      </li>
+                  
+                      <li class="active">
+                          <a href="">sdv.tabular.CTGAN.sample</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.get_metadata.html">sdv.tabular.CTGAN.get_metadata</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.from_parameters.html">sdv.tabular.CTGAN.from_parameters</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.save.html">sdv.tabular.CTGAN.save</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.tabular.CTGAN.load.html">sdv.tabular.CTGAN.load</a>
+                      </li>
+                  
+                  </ul>
               </li>
           
         
           
               <li class="">
-                  <a href="../metadata.html">Metadata</a>
+                  <a href="../metadata.html">sdv.metadata</a>
               </li>
           
         
           
               <li class="">
-                  <a href="../constraints.html">Constraints</a>
+                  <a href="../constraints.html">sdv.constraints</a>
               </li>
           
         
           
               <li class="">
-                  <a href="../demo.html">Demos</a>
+                  <a href="../demo.html">sdv.demo</a>
               </li>
           
         
@@ -171,9 +240,9 @@
                 
   <div class="section" id="sdv-tabular-ctgan-sample">
 <h1>sdv.tabular.CTGAN.sample<a class="headerlink" href="#sdv-tabular-ctgan-sample" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<dl class="py method">
 <dt id="sdv.tabular.CTGAN.sample">
-<code class="sig-prename descclassname">CTGAN.</code><code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">num_rows=None</em>, <em class="sig-param">values=None</em>, <em class="sig-param">max_retries=100</em><span class="sig-paren">)</span><a class="headerlink" href="#sdv.tabular.CTGAN.sample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">CTGAN.</code><code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_rows</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_retries</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdv.tabular.CTGAN.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sample rows from this table.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -181,10 +250,6 @@
 <li><p><strong>num_rows</strong> (<em>int</em>) – Number of rows to sample. If not given the model
 will generate as many rows as there were in the
 data passed to the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p></li>
-<li><p><strong>values</strong> (<em>dict</em>) – &lt;- FUTURE
-Fixed values to use for knowledge-based sampling.
-In case the model does not support knowledge-based
-sampling, a reject+resample strategy will be used.</p></li>
 <li><p><strong>max_retries</strong> (<em>int</em>) – Number of times to retry sampling discarded rows.
 Defaults to 100.</p></li>
 </ul>
@@ -222,7 +287,7 @@ Defaults to 100.</p></li>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

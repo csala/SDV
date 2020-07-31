@@ -1,0 +1,6 @@
+sdv.constraints.tabular.ColumnFormula.is\_valid
+===============================================
+
+.. currentmodule:: sdv.constraints.tabular
+
+.. automethod:: ColumnFormula.is_valid

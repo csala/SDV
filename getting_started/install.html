@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Installation &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
@@ -16,7 +17,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Quickstart" href="../tutorials/01_Quickstart.html" />
@@ -59,7 +60,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../history.html">Changelogs</a>
+            <a class="nav-link" href="../history.html">Release Notes</a>
         </li>
         
         
@@ -190,15 +191,24 @@ you through the process.</p>
 <h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
 <p>The source code of <strong>SDV</strong> can be downloaded from the <a class="reference external" href="https://github.com/sdv-dev/SDV">Github repository</a></p>
 <p>You can clone the repository and install with the following command in your terminal:</p>
+<p>You can clone the repository and install it from source by running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> on the
+<code class="docutils literal notranslate"><span class="pre">stable</span></code> branch:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone git://github.com/sdv-dev/SDV</span>
 <span class="go">cd SDV</span>
+<span class="go">git checkout stable</span>
 <span class="go">make install</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of the SDV repository contains the latest development version.
+If you want to install the latest stable version, make sure not to omit the
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">stable</span></code> indicated above.</p>
 </div>
 <p>If you are installing <strong>SDV</strong> in order to modify its code, the installation must be done
 from its sources, in the editable mode, and also including some additional dependencies in
 order to be able to run the tests and build the documentation. Instructions about this process
-can be found in the <a class="reference external" href="../contributing.html#get-started">Contributing guide</a>.</p>
+can be found in the <a class="reference internal" href="../developer_guides/contributing.html#contributing"><span class="std std-ref">Contributing to SDV</span></a> guide.</p>
 </div>
 </div>
 
@@ -224,7 +234,7 @@ can be found in the <a class="reference external" href="../contributing.html#get
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

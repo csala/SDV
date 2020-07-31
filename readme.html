@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SDV - Synthetic Data Vault &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
@@ -16,7 +17,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +58,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="history.html">Changelogs</a>
+            <a class="nav-link" href="history.html">Release Notes</a>
         </li>
         
         
@@ -313,44 +314,44 @@ function:</p>
 metadata object.</p></li>
 </ol>
 <p>The returned objects contain the following information:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>{
-    &#39;users&#39;:
-            user_id country gender  age
-          0        0     USA      M   34
-          1        1      UK      F   23
-          2        2      ES   None   44
-          3        3      UK      M   22
-          4        4     USA      F   54
-          5        5      DE      M   57
-          6        6      BG      F   45
-          7        7      ES   None   41
-          8        8      FR      F   23
-          9        9      UK   None   30,
-  &#39;sessions&#39;:
-          session_id  user_id  device       os
-          0           0        0  mobile  android
-          1           1        1  tablet      ios
-          2           2        1  tablet  android
-          3           3        2  mobile  android
-          4           4        4  mobile      ios
-          5           5        5  mobile  android
-          6           6        6  mobile      ios
-          7           7        6  tablet      ios
-          8           8        6  mobile      ios
-          9           9        8  tablet      ios,
-  &#39;transactions&#39;:
-          transaction_id  session_id           timestamp  amount  approved
-          0               0           0 2019-01-01 12:34:32   100.0      True
-          1               1           0 2019-01-01 12:42:21    55.3      True
-          2               2           1 2019-01-07 17:23:11    79.5      True
-          3               3           3 2019-01-10 11:08:57   112.1     False
-          4               4           5 2019-01-10 21:54:08   110.0     False
-          5               5           5 2019-01-11 11:21:20    76.3      True
-          6               6           7 2019-01-22 14:44:10    89.5      True
-          7               7           8 2019-01-23 10:14:09   132.1     False
-          8               8           9 2019-01-27 16:09:17    68.0      True
-          9               9           9 2019-01-29 12:10:48    99.9      True
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;users&#39;</span><span class="p">:</span>
+            <span class="n">user_id</span> <span class="n">country</span> <span class="n">gender</span>  <span class="n">age</span>
+          <span class="mi">0</span>        <span class="mi">0</span>     <span class="n">USA</span>      <span class="n">M</span>   <span class="mi">34</span>
+          <span class="mi">1</span>        <span class="mi">1</span>      <span class="n">UK</span>      <span class="n">F</span>   <span class="mi">23</span>
+          <span class="mi">2</span>        <span class="mi">2</span>      <span class="n">ES</span>   <span class="kc">None</span>   <span class="mi">44</span>
+          <span class="mi">3</span>        <span class="mi">3</span>      <span class="n">UK</span>      <span class="n">M</span>   <span class="mi">22</span>
+          <span class="mi">4</span>        <span class="mi">4</span>     <span class="n">USA</span>      <span class="n">F</span>   <span class="mi">54</span>
+          <span class="mi">5</span>        <span class="mi">5</span>      <span class="n">DE</span>      <span class="n">M</span>   <span class="mi">57</span>
+          <span class="mi">6</span>        <span class="mi">6</span>      <span class="n">BG</span>      <span class="n">F</span>   <span class="mi">45</span>
+          <span class="mi">7</span>        <span class="mi">7</span>      <span class="n">ES</span>   <span class="kc">None</span>   <span class="mi">41</span>
+          <span class="mi">8</span>        <span class="mi">8</span>      <span class="n">FR</span>      <span class="n">F</span>   <span class="mi">23</span>
+          <span class="mi">9</span>        <span class="mi">9</span>      <span class="n">UK</span>   <span class="kc">None</span>   <span class="mi">30</span><span class="p">,</span>
+  <span class="s1">&#39;sessions&#39;</span><span class="p">:</span>
+          <span class="n">session_id</span>  <span class="n">user_id</span>  <span class="n">device</span>       <span class="n">os</span>
+          <span class="mi">0</span>           <span class="mi">0</span>        <span class="mi">0</span>  <span class="n">mobile</span>  <span class="n">android</span>
+          <span class="mi">1</span>           <span class="mi">1</span>        <span class="mi">1</span>  <span class="n">tablet</span>      <span class="n">ios</span>
+          <span class="mi">2</span>           <span class="mi">2</span>        <span class="mi">1</span>  <span class="n">tablet</span>  <span class="n">android</span>
+          <span class="mi">3</span>           <span class="mi">3</span>        <span class="mi">2</span>  <span class="n">mobile</span>  <span class="n">android</span>
+          <span class="mi">4</span>           <span class="mi">4</span>        <span class="mi">4</span>  <span class="n">mobile</span>      <span class="n">ios</span>
+          <span class="mi">5</span>           <span class="mi">5</span>        <span class="mi">5</span>  <span class="n">mobile</span>  <span class="n">android</span>
+          <span class="mi">6</span>           <span class="mi">6</span>        <span class="mi">6</span>  <span class="n">mobile</span>      <span class="n">ios</span>
+          <span class="mi">7</span>           <span class="mi">7</span>        <span class="mi">6</span>  <span class="n">tablet</span>      <span class="n">ios</span>
+          <span class="mi">8</span>           <span class="mi">8</span>        <span class="mi">6</span>  <span class="n">mobile</span>      <span class="n">ios</span>
+          <span class="mi">9</span>           <span class="mi">9</span>        <span class="mi">8</span>  <span class="n">tablet</span>      <span class="n">ios</span><span class="p">,</span>
+  <span class="s1">&#39;transactions&#39;</span><span class="p">:</span>
+          <span class="n">transaction_id</span>  <span class="n">session_id</span>           <span class="n">timestamp</span>  <span class="n">amount</span>  <span class="n">approved</span>
+          <span class="mi">0</span>               <span class="mi">0</span>           <span class="mi">0</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="mi">12</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">32</span>   <span class="mf">100.0</span>      <span class="kc">True</span>
+          <span class="mi">1</span>               <span class="mi">1</span>           <span class="mi">0</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="mi">12</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">21</span>    <span class="mf">55.3</span>      <span class="kc">True</span>
+          <span class="mi">2</span>               <span class="mi">2</span>           <span class="mi">1</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">07</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">11</span>    <span class="mf">79.5</span>      <span class="kc">True</span>
+          <span class="mi">3</span>               <span class="mi">3</span>           <span class="mi">3</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">10</span> <span class="mi">11</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">57</span>   <span class="mf">112.1</span>     <span class="kc">False</span>
+          <span class="mi">4</span>               <span class="mi">4</span>           <span class="mi">5</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">10</span> <span class="mi">21</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">08</span>   <span class="mf">110.0</span>     <span class="kc">False</span>
+          <span class="mi">5</span>               <span class="mi">5</span>           <span class="mi">5</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">11</span> <span class="mi">11</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">20</span>    <span class="mf">76.3</span>      <span class="kc">True</span>
+          <span class="mi">6</span>               <span class="mi">6</span>           <span class="mi">7</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">22</span> <span class="mi">14</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">10</span>    <span class="mf">89.5</span>      <span class="kc">True</span>
+          <span class="mi">7</span>               <span class="mi">7</span>           <span class="mi">8</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">23</span> <span class="mi">10</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">09</span>   <span class="mf">132.1</span>     <span class="kc">False</span>
+          <span class="mi">8</span>               <span class="mi">8</span>           <span class="mi">9</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">17</span>    <span class="mf">68.0</span>      <span class="kc">True</span>
+          <span class="mi">9</span>               <span class="mi">9</span>           <span class="mi">9</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span> <span class="mi">12</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">48</span>    <span class="mf">99.9</span>      <span class="kc">True</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -413,20 +414,20 @@ for more details about this process.</p></li>
 <h1>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h1>
 <p>If you use <strong>SDV</strong> for your research, please consider citing the following paper:</p>
 <p>Neha Patki, Roy Wedge, Kalyan Veeramachaneni. <a class="reference external" href="https://dai.lids.mit.edu/wp-content/uploads/2018/03/SDV.pdf">The Synthetic Data Vault</a>. <a class="reference external" href="https://ieeexplore.ieee.org/document/7796926">IEEE DSAA 2016</a>.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>@inproceedings{
-    7796926,
-    author={N. {Patki} and R. {Wedge} and K. {Veeramachaneni}},
-    booktitle={2016 IEEE International Conference on Data Science and Advanced Analytics (DSAA)},
-    title={The Synthetic Data Vault},
-    year={2016},
-    volume={},
-    number={},
-    pages={399-410},
-    keywords={data analysis;relational databases;synthetic data vault;SDV;generative model;relational database;multivariate modelling;predictive model;data analysis;data science;Data models;Databases;Computational modeling;Predictive models;Hidden Markov models;Numerical models;Synthetic data generation;crowd sourcing;data science;predictive modeling},
-    doi={10.1109/DSAA.2016.49},
-    ISSN={},
-    month={Oct}
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span>
+    <span class="mi">7796926</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">N</span><span class="o">.</span> <span class="p">{</span><span class="n">Patki</span><span class="p">}</span> <span class="ow">and</span> <span class="n">R</span><span class="o">.</span> <span class="p">{</span><span class="n">Wedge</span><span class="p">}</span> <span class="ow">and</span> <span class="n">K</span><span class="o">.</span> <span class="p">{</span><span class="n">Veeramachaneni</span><span class="p">}},</span>
+    <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="mi">2016</span> <span class="n">IEEE</span> <span class="n">International</span> <span class="n">Conference</span> <span class="n">on</span> <span class="n">Data</span> <span class="n">Science</span> <span class="ow">and</span> <span class="n">Advanced</span> <span class="n">Analytics</span> <span class="p">(</span><span class="n">DSAA</span><span class="p">)},</span>
+    <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">The</span> <span class="n">Synthetic</span> <span class="n">Data</span> <span class="n">Vault</span><span class="p">},</span>
+    <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2016</span><span class="p">},</span>
+    <span class="n">volume</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">number</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">399</span><span class="o">-</span><span class="mi">410</span><span class="p">},</span>
+    <span class="n">keywords</span><span class="o">=</span><span class="p">{</span><span class="n">data</span> <span class="n">analysis</span><span class="p">;</span><span class="n">relational</span> <span class="n">databases</span><span class="p">;</span><span class="n">synthetic</span> <span class="n">data</span> <span class="n">vault</span><span class="p">;</span><span class="n">SDV</span><span class="p">;</span><span class="n">generative</span> <span class="n">model</span><span class="p">;</span><span class="n">relational</span> <span class="n">database</span><span class="p">;</span><span class="n">multivariate</span> <span class="n">modelling</span><span class="p">;</span><span class="n">predictive</span> <span class="n">model</span><span class="p">;</span><span class="n">data</span> <span class="n">analysis</span><span class="p">;</span><span class="n">data</span> <span class="n">science</span><span class="p">;</span><span class="n">Data</span> <span class="n">models</span><span class="p">;</span><span class="n">Databases</span><span class="p">;</span><span class="n">Computational</span> <span class="n">modeling</span><span class="p">;</span><span class="n">Predictive</span> <span class="n">models</span><span class="p">;</span><span class="n">Hidden</span> <span class="n">Markov</span> <span class="n">models</span><span class="p">;</span><span class="n">Numerical</span> <span class="n">models</span><span class="p">;</span><span class="n">Synthetic</span> <span class="n">data</span> <span class="n">generation</span><span class="p">;</span><span class="n">crowd</span> <span class="n">sourcing</span><span class="p">;</span><span class="n">data</span> <span class="n">science</span><span class="p">;</span><span class="n">predictive</span> <span class="n">modeling</span><span class="p">},</span>
+    <span class="n">doi</span><span class="o">=</span><span class="p">{</span><span class="mf">10.1109</span><span class="o">/</span><span class="n">DSAA</span><span class="o">.</span><span class="mf">2016.49</span><span class="p">},</span>
+    <span class="n">ISSN</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">month</span><span class="o">=</span><span class="p">{</span><span class="n">Oct</span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -451,7 +452,7 @@ for more details about this process.</p></li>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sdv.metadata.Metadata &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
@@ -16,11 +17,11 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="sdv.metadata.Table" href="sdv.metadata.Table.html" />
-    <link rel="prev" title="Metadata" href="../metadata.html" />
+    <link rel="prev" title="sdv.metadata" href="../metadata.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
   </head>
@@ -59,7 +60,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Changelogs</a>
+            <a class="nav-link" href="../../history.html">Release Notes</a>
         </li>
         
         
@@ -115,25 +116,37 @@
         
           
               <li class="">
-                  <a href="../tabular.html">Tabular Models</a>
+                  <a href="../tabular.html">sdv.tabular</a>
               </li>
           
         
           
+
               <li class="active">
-                  <a href="../metadata.html">Metadata</a>
+                  <a href="../metadata.html">sdv.metadata</a>
+                  <ul>
+                  
+                      <li class="active">
+                          <a href="">sdv.metadata.Metadata</a>
+                      </li>
+                  
+                      <li class="">
+                          <a href="sdv.metadata.Table.html">sdv.metadata.Table</a>
+                      </li>
+                  
+                  </ul>
               </li>
           
         
           
               <li class="">
-                  <a href="../constraints.html">Constraints</a>
+                  <a href="../constraints.html">sdv.constraints</a>
               </li>
           
         
           
               <li class="">
-                  <a href="../demo.html">Demos</a>
+                  <a href="../demo.html">sdv.demo</a>
               </li>
           
         
@@ -171,9 +184,9 @@
                 
   <div class="section" id="sdv-metadata-metadata">
 <h1>sdv.metadata.Metadata<a class="headerlink" href="#sdv-metadata-metadata" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="sdv.metadata.Metadata">
-<em class="property">class </em><code class="sig-prename descclassname">sdv.metadata.</code><code class="sig-name descname">Metadata</code><span class="sig-paren">(</span><em class="sig-param">metadata=None</em>, <em class="sig-param">root_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/metadata.html#Metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.metadata.Metadata" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">sdv.metadata.</code><code class="sig-name descname">Metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">root_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/metadata.html#Metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.metadata.Metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dataset Metadata.</p>
 <p>The Metadata class provides a unified layer of abstraction over the dataset
 metadata, which includes both the necessary details to load the data from
@@ -189,9 +202,9 @@ to None, if no metadata is given.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="sdv.metadata.Metadata.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">metadata=None</em>, <em class="sig-param">root_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/metadata.html#Metadata.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.metadata.Metadata.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">root_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/metadata.html#Metadata.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.metadata.Metadata.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -292,7 +305,7 @@ to None, if no metadata is given.</p></li>
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../metadata.html" title="previous page">Metadata</a>
+    <a class='left-prev' id="prev-link" href="../metadata.html" title="previous page">sdv.metadata</a>
     <a class='right-next' id="next-link" href="sdv.metadata.Table.html" title="next page">sdv.metadata.Table</a>
 
               </div>
@@ -308,7 +321,7 @@ to None, if no metadata is given.</p></li>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

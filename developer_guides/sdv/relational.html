@@ -2,10 +2,11 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>sdv.tabular.CTGAN.get_parameters &#8212; SDV 0.3.7.dev0 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relational Models &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
@@ -16,7 +17,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,15 +50,15 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../index.html">API Reference</a>
+            <a class="nav-link" href="../../api_reference/index.html">API Reference</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../developer_guides/index.html">Developer Guides</a>
+            <a class="nav-link" href="../index.html">Developer Guides</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Changelogs</a>
+            <a class="nav-link" href="../../history.html">Release Notes</a>
         </li>
         
         
@@ -124,9 +125,16 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#basetabularmodel" class="nav-link">BaseTabularModel</a>
+        </li>
     
     </ul>
 </nav>
@@ -141,34 +149,66 @@
               
               <div>
                 
-  <div class="section" id="sdv-tabular-ctgan-get-parameters">
-<h1>sdv.tabular.CTGAN.get_parameters<a class="headerlink" href="#sdv-tabular-ctgan-get-parameters" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
-<dt id="sdv.tabular.CTGAN.get_parameters">
-<code class="sig-prename descclassname">CTGAN.</code><code class="sig-name descname">get_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdv.tabular.CTGAN.get_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the parameters learned from the data.</p>
-<p>The result is a flat dict (single level) which contains
-all the necessary parameters to be able to reproduce
-this model.</p>
-<p>Subclasses which are not parametric, such as DeepLearning
-based models, raise a NonParametricError indicating that
-this method is not supported for their implementation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>flat dict (single level) which contains all the
-necessary parameters to be able to reproduce
-this model.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>parameters (dict)</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>NonParametricError</strong> – If the model is not parametric or cannot be described
-    using a simple dictionary.</p>
+  <div class="section" id="relational-models">
+<h1>Relational Models<a class="headerlink" href="#relational-models" title="Permalink to this headline">¶</a></h1>
+<p>The SDV Tabular Models are implemented in the subpackage <a class="reference external" href="/api_reference/tabular.html">sdv.tabular</a>.</p>
+<div class="section" id="basetabularmodel">
+<h2>BaseTabularModel<a class="headerlink" href="#basetabularmodel" title="Permalink to this headline">¶</a></h2>
+<p>All the Tabular models in SDV inherit from the <code class="docutils literal notranslate"><span class="pre">sdv.tabular.base.BaseTabularModel</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> defines all the functionality that will be common across the different
+Tabular Models, such as:</p>
+<ul class="simple">
+<li><p>Capturing all the user provided properties of the data that will be modeled.</p></li>
+<li><p>Building and keeping track of a <code class="docutils literal notranslate"><span class="pre">Table</span></code> metadata object using the given properties.</p></li>
+<li><p>Fit the <code class="docutils literal notranslate"><span class="pre">Table</span></code> object to the data to adapt the transformations, constraints and anonymization
+procedures to the actual values.</p></li>
+<li><p>Transforming the data before fitting the underlying models and reverting the transformations
+after these have sampled new data.</p></li>
+<li><p>Saving the models into a file using <code class="docutils literal notranslate"><span class="pre">pickle</span></code> and loading them back as instances afterwards.</p></li>
+</ul>
+<p>The base <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method implemented in the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> expects the following
+arguments:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">field_names</span></code>:</dt><dd><p>List of names of the fields that need to be modeled
+and included in the generated output data. Any additional
+fields found in the data will be ignored and will not be
+included in the generated output.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all the fields found in the data are used.</p>
 </dd>
 </dl>
-</dd></dl>
-
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">primary_key</span></code>:</dt><dd><p>Specification about which field or fields are the
+primary key of the table and information about how
+to generate them.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">field_types</span></code>:</dt><dd><p>Dictinary specifying the data types and subtypes
+of the fields that will be modeled. Field types and subtypes
+combinations must be compatible with the SDV Metadata Schema.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">anonymize_fields</span></code>:</dt><dd><p>Dict specifying which fields to anonymize and what faker
+category they belong to.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">table_metadata</span></code>:</dt><dd><p>Table metadata instance or dict representation.
+If given alongside any other metadata-related arguments, an
+exception will be raised.
+If not given at all, it will be built using the other
+arguments or learned from the data.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -191,7 +231,7 @@ this model.</p>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

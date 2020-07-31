@@ -2,10 +2,11 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>sdv.tabular.copulas.GaussianCopula.set_parameters &#8212; SDV 0.3.7.dev0 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDV &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
@@ -16,9 +17,11 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tabular Models" href="tabular.html" />
+    <link rel="prev" title="The Synthetic Data Vault" href="../overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
   </head>
@@ -49,15 +52,15 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../index.html">API Reference</a>
+            <a class="nav-link" href="../../api_reference/index.html">API Reference</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Developer Guides</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../developer_guides/index.html">Developer Guides</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../history.html">Changelogs</a>
+            <a class="nav-link" href="../../history.html">Release Notes</a>
         </li>
         
         
@@ -112,6 +115,28 @@
       
       
       
+        
+          
+
+              <li class="active">
+                  <a href="../overview.html">The Synthetic Data Vault</a>
+                  <ul>
+                  
+                      <li class="active">
+                          <a href="">SDV</a>
+                      </li>
+                  
+                  </ul>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="../contributing.html">Contributing to SDV</a>
+              </li>
+          
+        
+      
       
       
       
@@ -141,24 +166,33 @@
               
               <div>
                 
-  <div class="section" id="sdv-tabular-copulas-gaussiancopula-set-parameters">
-<h1>sdv.tabular.copulas.GaussianCopula.set_parameters<a class="headerlink" href="#sdv-tabular-copulas-gaussiancopula-set-parameters" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
-<dt id="sdv.tabular.copulas.GaussianCopula.set_parameters">
-<code class="sig-prename descclassname">GaussianCopula.</code><code class="sig-name descname">set_parameters</code><span class="sig-paren">(</span><em class="sig-param">parameters</em>, <em class="sig-param">unflatten=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/copulas.html#GaussianCopula.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.copulas.GaussianCopula.set_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set copula model parameters.</p>
-<p>Add additional keys after unflatte the parameters
-in order to set expected parameters for the copula.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dict</strong> – Copula flatten parameters.</p></li>
-<li><p><strong>unflatten</strong> (<em>bool</em>) – Whether the parameters need to be unflattened or not.</p></li>
+  <div class="section" id="sdv">
+<h1>SDV<a class="headerlink" href="#sdv" title="Permalink to this headline">¶</a></h1>
+<p>SDV is the library which provides a user friendly interface to access all the
+different functionalirities of The Synthetic Data Vault Project.</p>
+<p>SDV is organized around the following concepts:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tabular.html">Tabular Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tabular.html#tabular-modeling-overview">Tabular Modeling Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabular.html#implementing-a-tabular-model">Implementing a Tabular Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tabular.html#basetabularmodel-arguments">BaseTabularModel Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tabular.html#fit-method">_fit method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tabular.html#sample-method">_sample method</a></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="constraints.html">Constraints</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="constraints.html#base-constraint">Base Constraint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="constraints.html#handling-strategy">handling_strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="constraints.html#implementing-a-custom-constraint">Implementing a Custom Constraint</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -167,6 +201,8 @@ in order to set expected parameters for the copula.</p>
               
               <div class='prev-next-bottom'>
                 
+    <a class='left-prev' id="prev-link" href="../overview.html" title="previous page">The Synthetic Data Vault</a>
+    <a class='right-next' id="next-link" href="tabular.html" title="next page">Tabular Models</a>
 
               </div>
               
@@ -181,7 +217,7 @@ in order to set expected parameters for the copula.</p>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

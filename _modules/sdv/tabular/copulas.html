@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sdv.tabular.copulas &#8212; SDV 0.3.7.dev0 documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../../_static/css/index.css" rel="stylesheet">
@@ -16,7 +17,7 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../../_static/SDV-logo.ico"/>
+    <link rel="shortcut icon" href="../../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +58,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../../history.html">Changelogs</a>
+            <a class="nav-link" href="../../../history.html">Release Notes</a>
         </li>
         
         
@@ -154,7 +155,7 @@
     <span class="n">unflatten_dict</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="GaussianCopula"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.copulas.GaussianCopula.html#sdv.tabular.GaussianCopula">[docs]</a><span class="k">class</span> <span class="nc">GaussianCopula</span><span class="p">(</span><span class="n">BaseTabularModel</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianCopula"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.GaussianCopula.html#sdv.tabular.GaussianCopula">[docs]</a><span class="k">class</span> <span class="nc">GaussianCopula</span><span class="p">(</span><span class="n">BaseTabularModel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Model wrapping ``copulas.multivariate.GaussianMultivariate`` copula.</span>
 
 <span class="sd">    Args:</span>
@@ -233,9 +234,9 @@
         <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="n">rdt</span><span class="o">.</span><span class="n">transformers</span><span class="o">.</span><span class="n">OneHotEncodingTransformer</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="GaussianCopula.__init__"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.copulas.GaussianCopula.html#sdv.tabular.GaussianCopula.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">categorical_transformer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianCopula.__init__"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.GaussianCopula.html#sdv.tabular.GaussianCopula.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">distribution</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">categorical_transformer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">field_names</span><span class="o">=</span><span class="n">field_names</span><span class="p">,</span>
             <span class="n">primary_key</span><span class="o">=</span><span class="n">primary_key</span><span class="p">,</span>
@@ -284,7 +285,7 @@
                 <span class="s1">&#39;categorical_transformer&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_categorical_transformer</span><span class="p">,</span>
             <span class="p">})</span>
 
-    <span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Fit the model to the table.</span>
 
 <span class="sd">        Args:</span>
@@ -308,7 +309,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">num_rows</span><span class="p">)</span>
 
-<div class="viewcode-block" id="GaussianCopula.get_parameters"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.copulas.GaussianCopula.get_parameters.html#sdv.tabular.GaussianCopula.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flatten</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianCopula.get_parameters"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.GaussianCopula.get_parameters.html#sdv.tabular.GaussianCopula.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flatten</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get copula model parameters.</span>
 
 <span class="sd">        Compute model ``covariance`` and ``distribution.std``</span>
@@ -413,7 +414,7 @@
 
         <span class="k">return</span> <span class="n">model_parameters</span>
 
-<div class="viewcode-block" id="GaussianCopula.set_parameters"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.copulas.GaussianCopula.set_parameters.html#sdv.tabular.GaussianCopula.set_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">set_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">unflatten</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianCopula.set_parameters"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.GaussianCopula.set_parameters.html#sdv.tabular.GaussianCopula.set_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">set_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">unflatten</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set copula model parameters.</span>
 
 <span class="sd">        Add additional keys after unflatte the parameters</span>
@@ -454,7 +455,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
     </p>
   </div>
 </footer>

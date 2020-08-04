@@ -1,0 +1,6 @@
+sdv.metadata.Metadata.reverse\_transform
+========================================
+
+.. currentmodule:: sdv.metadata
+
+.. automethod:: Metadata.reverse_transform

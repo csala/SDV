@@ -293,7 +293,7 @@
 <span class="sd">                Data to be fitted.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">copulas</span><span class="o">.</span><span class="n">multivariate</span><span class="o">.</span><span class="n">GaussianMultivariate</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_distribution</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">table_data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_metadata</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_rows</span><span class="p">):</span>

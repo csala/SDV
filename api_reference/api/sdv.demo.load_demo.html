@@ -192,8 +192,8 @@
 <dt id="sdv.demo.load_demo">
 <code class="sig-prename descclassname">sdv.demo.</code><code class="sig-name descname">load_demo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_path</span><span class="o">=</span><span class="default_value">'/home/runner/work/SDV/SDV/sdv/data'</span></em>, <em class="sig-param"><span class="n">metadata</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/demo.html#load_demo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.demo.load_demo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load relational demo data.</p>
-<p>The demo data consists of the metadata and tables dict for a a toy dataset with
-three simple tables:</p>
+<p>If a dataset name is given, it is downloaded from the sdv-datasets S3 bucket.
+Otherwise, a toy dataset with three simple tables is loaded:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>users: user data including country, gender and age.</p></li>
@@ -201,6 +201,10 @@ three simple tables:</p>
 <li><p>transactions: transactions data with a foreign key to sessions.</p></li>
 </ul>
 </div></blockquote>
+<p>If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the output will be a tuple with a <code class="docutils literal notranslate"><span class="pre">Metadata</span></code>
+instance for the dataset and a <code class="docutils literal notranslate"><span class="pre">tables</span></code> dict that contains the tables loaded
+as <code class="docutils literal notranslate"><span class="pre">pandas.DataFrames</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, only the <code class="docutils literal notranslate"><span class="pre">tables</span></code> are returned.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

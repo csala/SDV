@@ -157,7 +157,17 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#sdv" class="nav-link">SDV</a>
+            <a href="#sdv" class="nav-link">SDV</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#development-guides" class="nav-link">Development Guides</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#rdt" class="nav-link">RDT</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
@@ -166,10 +176,6 @@
     
         <li class="nav-item toc-entry toc-h2">
             <a href="#ctgan" class="nav-link">CTGAN</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#rdt" class="nav-link">RDT</a>
         </li>
     
     </ul>
@@ -191,7 +197,11 @@
 functionalities, from simple data transformation to complex state-of-the-art Generative
 Deep Learning models.</p>
 <div class="section" id="sdv">
-<h2><a class="reference external" href="sdv/index.html">SDV</a><a class="headerlink" href="#sdv" title="Permalink to this headline">¶</a></h2>
+<h2>SDV<a class="headerlink" href="#sdv" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="../index.html">Documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sdv-dev/SDV">Source Code</a></p></li>
+</ul>
 <p>SDV is the main library, which provides a user friendly interface to access all the
 different functionalirities of the project.</p>
 <p>The SDV library allows you to:</p>
@@ -200,12 +210,46 @@ different functionalirities of the project.</p>
 <li><p>Model complex multi-table relational datasets using Copulas and unique recursive
 modeling techniques.</p></li>
 <li><p>Handle multiple data types and missing data with minimum user input.</p></li>
-<li><p>Support for pre-defined and custom constraints and data validation.</p></li>
-<li><p>Definition of entire datasets with a custom and flexible Metadata JSON schema.</p></li>
+<li><p>Use and define custom inter-column constraints and data validation rules.</p></li>
+<li><p>Define entire datasets with a custom and flexible Metadata JSON schema.</p></li>
+</ul>
+<div class="section" id="development-guides">
+<h3>Development Guides<a class="headerlink" href="#development-guides" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="sdv/tabular.html">Tabular Models</a></p></li>
+<li><p><a class="reference external" href="sdv/constraints.html">Constraints</a></p></li>
+<li><p><a class="reference external" href="sdv/metadata.html">Metadata JSON</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="rdt">
+<h2>RDT<a class="headerlink" href="#rdt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sdv-dev.github.io/RDT/">Documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sdv-dev/RDT">Source Code</a></p></li>
+</ul>
+<p>RDT is a Python library used to transform data for data science libraries and preserve the
+transformations in order to revert them as needed.</p>
+<p>It is organized around the objects called <cite>Transformers</cite>, which implement a very simple and
+familiar API with 4 methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit</span></code>: Learn the properties of the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transform</span></code>: Transform the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>: Fit the transformer to the data and then transform it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reverse_transform</span></code>: Revert a previous transformation to go back to the original format.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Getting Started</p></li>
+<li><p>Developer Guides</p></li>
+<li><p>Source Code</p></li>
 </ul>
 </div>
 <div class="section" id="copulas">
-<h2><a class="reference internal" href="#copulas">Copulas</a><a class="headerlink" href="#copulas" title="Permalink to this headline">¶</a></h2>
+<h2>Copulas<a class="headerlink" href="#copulas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sdv-dev.github.io/Copulas/">Documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sdv-dev/Copulas">Source Code</a></p></li>
+</ul>
 <p>Copulas is a Python library for modeling multivariate distributions and sampling from them using
 copula functions. Given a table containing numerical data, we can use Copulas to learn the
 distribution and later on generate new synthetic rows following the same statistical properties.</p>
@@ -218,22 +262,13 @@ distribution and later on generate new synthetic rows following the same statist
 </ul>
 </div>
 <div class="section" id="ctgan">
-<h2><a class="reference internal" href="#ctgan">CTGAN</a><a class="headerlink" href="#ctgan" title="Permalink to this headline">¶</a></h2>
+<h2>CTGAN<a class="headerlink" href="#ctgan" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sdv-dev.github.io/CTGAN/">Documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sdv-dev/CTGAN">Source Code</a></p></li>
+</ul>
 <p>CTGAN is a GAN-based data synthesizer that can generate synthetic tabular data with high fidelity.</p>
 <p>It was presented in NeurIPS 2020 in the paper <a class="reference external" href="https://arxiv.org/abs/1907.00503">Modeling Tabular data using Conditional GAN</a>.</p>
-</div>
-<div class="section" id="rdt">
-<h2><a class="reference internal" href="#rdt">RDT</a><a class="headerlink" href="#rdt" title="Permalink to this headline">¶</a></h2>
-<p>RDT is a Python library used to transform data for data science libraries and preserve the
-transformations in order to revert them as needed.</p>
-<p>It is organized around the objects called <cite>Transformers</cite>, which implement a very simple and
-familiar API with 4 methods:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">fit</span></code>: Learn the properties of the data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">transform</span></code>: Transform the data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>: Fit the transformer to the data and then transform it.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">reverse_transform</span></code>: Revert a previous transformation to go back to the original format.</p></li>
-</ul>
 <div class="toctree-wrapper compound">
 </div>
 </div>

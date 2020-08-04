@@ -1,0 +1,6 @@
+sdv.metadata.Table.get\_fields
+==============================
+
+.. currentmodule:: sdv.metadata
+
+.. automethod:: Table.get_fields

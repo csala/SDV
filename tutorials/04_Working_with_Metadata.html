@@ -20,6 +20,8 @@
     <link rel="shortcut icon" href="../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Handling Constraints" href="05_Handling_Constraints.html" />
+    <link rel="prev" title="Relational Data Modeling" href="03_Relational_Data_Modeling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
   </head>
@@ -45,7 +47,7 @@
             <a class="nav-link" href="../getting_started/index.html">Getting Started</a>
         </li>
         
-        <li class="nav-item ">
+        <li class="nav-item active">
             <a class="nav-link" href="../user_guides/index.html">User Guides</a>
         </li>
         
@@ -109,6 +111,32 @@
       
       
       
+        
+          
+              <li class="">
+                  <a href="02_Single_Table_Modeling.html">Single Table Modeling</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="03_Relational_Data_Modeling.html">Relational Data Modeling</a>
+              </li>
+          
+        
+          
+              <li class="active">
+                  <a href="">Working with Metadata</a>
+              </li>
+          
+        
+          
+              <li class="">
+                  <a href="05_Handling_Constraints.html">Handling Constraints</a>
+              </li>
+          
+        
+      
       
       
       
@@ -133,15 +161,29 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#Load-demo-data" class="nav-link">Load demo data</a>
+            <a href="#Load-the-demo-data" class="nav-link">Load the demo data</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#Creating-a-Metadata-object-from-scratch" class="nav-link">Creating a Metadata object from scratch</a>
+            <a href="#The-Metadata-class" class="nav-link">The Metadata class</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#Saving-the-Metadata-as-a-JSON-file" class="nav-link">Saving the Metadata as a JSON file</a>
+            <a href="#Add-a-Table" class="nav-link">Add a Table</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#Add-a-Child-Table" class="nav-link">Add a Child Table</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#Add-a-table-specifying-field-properties" class="nav-link">Add a table specifying field properties</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#Metadata-JSON-format" class="nav-link">Metadata JSON format</a>
         </li>
     
     </ul>
@@ -379,12 +421,11 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Working-with-Metadata">
 <h1>Working with Metadata<a class="headerlink" href="#Working-with-Metadata" title="Permalink to this headline">¶</a></h1>
-<p>In order to work with complex dataset structures you will need to pass additional information about you data to SDV.</p>
-<p>This is done by using a Metadata.</p>
-<p>Let’s have a quick look at how to do it.</p>
-<div class="section" id="Load-demo-data">
-<h2>Load demo data<a class="headerlink" href="#Load-demo-data" title="Permalink to this headline">¶</a></h2>
-<p>We will load the demo dataset included in SDV for the rest of the session.</p>
+<p>In order to work with complex dataset structures you will need to pass additional information about you data to SDV using <code class="docutils literal notranslate"><span class="pre">Metadata</span></code>.</p>
+<p>Let’s go over an example to see how to use it.</p>
+<div class="section" id="Load-the-demo-data">
+<h2>Load the demo data<a class="headerlink" href="#Load-the-demo-data" title="Permalink to this headline">¶</a></h2>
+<p>In order to follow this tutorial you will need to load one of the demo datasets included in SDV by calling the <code class="docutils literal notranslate"><span class="pre">sdv.load_demo</span></code> function.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -392,13 +433,346 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">sdv</span> <span class="kn">import</span> <span class="n">load_demo</span>
 
-<span class="n">metadata</span><span class="p">,</span> <span class="n">tables</span> <span class="o">=</span> <span class="n">load_demo</span><span class="p">(</span><span class="n">metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tables</span> <span class="o">=</span> <span class="n">load_demo</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<p>A part from the tables dict, this is returning a Metadata object that contains all the information about our dataset.</p>
+<p>The output of this function will be a dict that contains several tables as <code class="docutils literal notranslate"><span class="pre">pandas.DataFarmes</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tables</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([&#39;users&#39;, &#39;sessions&#39;, &#39;transactions&#39;])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;users&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_id</th>
+      <th>country</th>
+      <th>gender</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>US</td>
+      <td>M</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>UK</td>
+      <td>F</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>ES</td>
+      <td>None</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>UK</td>
+      <td>M</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>US</td>
+      <td>F</td>
+      <td>54</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;sessions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>session_id</th>
+      <th>user_id</th>
+      <th>device</th>
+      <th>os</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>mobile</td>
+      <td>android</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>tablet</td>
+      <td>ios</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1</td>
+      <td>tablet</td>
+      <td>android</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>2</td>
+      <td>mobile</td>
+      <td>android</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>4</td>
+      <td>mobile</td>
+      <td>ios</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;transactions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>transaction_id</th>
+      <th>session_id</th>
+      <th>timestamp</th>
+      <th>amount</th>
+      <th>approved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>2019-01-01 12:34:32</td>
+      <td>100.0</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
+      <td>2019-01-01 12:42:21</td>
+      <td>55.3</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1</td>
+      <td>2019-01-07 17:23:11</td>
+      <td>79.5</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>2019-01-10 11:08:57</td>
+      <td>112.1</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>5</td>
+      <td>2019-01-10 21:54:08</td>
+      <td>110.0</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>You can observe that this dataset has the following structure:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">users</span></code> table with:</p>
+<ul>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">user_id</span></code> field with acts as the table primary key.</p></li>
+<li><p>Two categorical fields, <code class="docutils literal notranslate"><span class="pre">country</span></code> and <code class="docutils literal notranslate"><span class="pre">gender</span></code>, and an integer column <code class="docutils literal notranslate"><span class="pre">age</span></code>.</p></li>
+</ul>
+</li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table with:</p>
+<ul>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">session_id</span></code> field with acts as the table primary key.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">user_id</span></code> field which is a foreign key to the <code class="docutils literal notranslate"><span class="pre">users</span></code> table and defines a One-to-Many relationship with it (one <code class="docutils literal notranslate"><span class="pre">user</span></code> can have many <code class="docutils literal notranslate"><span class="pre">sessions</span></code>).</p></li>
+<li><p>Two categorical fields <code class="docutils literal notranslate"><span class="pre">device</span></code> and <code class="docutils literal notranslate"><span class="pre">os</span></code>.</p></li>
+</ul>
+</li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">transactions</span></code> table with:</p>
+<ul>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">transaction_id</span></code> field with acts as the table primary key.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">session_id</span></code> field which is a foreign key to the <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table and defines a One-to-Many relationship with it (one <code class="docutils literal notranslate"><span class="pre">user</span></code> can make many <code class="docutils literal notranslate"><span class="pre">transactions</span></code> within a single <code class="docutils literal notranslate"><span class="pre">session</span></code>).</p></li>
+<li><p>A datetime field, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>.</p></li>
+<li><p>A float field, <code class="docutils literal notranslate"><span class="pre">amount</span></code>.</p></li>
+<li><p>A boolean field, <code class="docutils literal notranslate"><span class="pre">approved</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Let us now see how to build a <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> object that represents this dataset.</p>
+</div>
+<div class="section" id="The-Metadata-class">
+<h2>The Metadata class<a class="headerlink" href="#The-Metadata-class" title="Permalink to this headline">¶</a></h2>
+<p>In SDV, the structure of a dataset is represented using the class <code class="docutils literal notranslate"><span class="pre">sdv.Metadata</span></code>, which contains all the information that SDV needs in order to optimally learn the dataset and generate synthetic versions of it.</p>
+<p>In order to create a <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> for our dataset, you will first need to import the class and create an empty instance:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">sdv</span> <span class="kn">import</span> <span class="n">Metadata</span>
+
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">Metadata</span><span class="p">()</span>
+<span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Metadata
+  root_path: .
+  tables: []
+  relationships:
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Add-a-Table">
+<h2>Add a Table<a class="headerlink" href="#Add-a-Table" title="Permalink to this headline">¶</a></h2>
+<p>Once you have your <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> instance ready you can start adding tables.</p>
+<p>In this example, you will add the table <code class="docutils literal notranslate"><span class="pre">users</span></code>, which is the parent table of your dataset, indicating which is its Primary Key field, <code class="docutils literal notranslate"><span class="pre">user_id</span></code>.</p>
+<p>Note that indicating the Primary Key is optional and can be skipped if your table has none, but if a table does not have one, you will not be able to add any child tables to it.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;users&#39;</span><span class="p">],</span>
+    <span class="n">primary_key</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>At this point, our metadata only contains one table and, of course, no relationships:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -407,95 +781,72 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Metadata
-  root_path: /home/xals/Projects/MIT/SDV/tutorials
-  tables: [&#39;users&#39;, &#39;sessions&#39;, &#39;transactions&#39;]
+  root_path: .
+  tables: [&#39;users&#39;]
   relationships:
-    sessions.user_id -&gt; users.user_id
-    transactions.session_id -&gt; sessions.session_id
 </pre></div></div>
 </div>
-<p>This Metadata can also be represented by using a dict object:</p>
+<p>However, the <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> instance will have already analyze all the columns in the passed table and identified the different data types and subtypes, and will properly indicate that the <code class="docutils literal notranslate"><span class="pre">user_id</span></code> column is the table primary key.</p>
+<p>You can see so by calling the <code class="docutils literal notranslate"><span class="pre">visualize</span></code> method of your <code class="docutils literal notranslate"><span class="pre">metadata</span></code> instance:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_04_Working_with_Metadata_16_0.svg" src="../_images/tutorials_04_Working_with_Metadata_16_0.svg" /></div>
+</div>
+<p>Or you can obtain this information in a machine-readable format by calling the <code class="docutils literal notranslate"><span class="pre">get_table_meta</span></code> method:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">get_table_meta</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;tables&#39;: {&#39;users&#39;: {&#39;primary_key&#39;: &#39;user_id&#39;,
-   &#39;fields&#39;: {&#39;user_id&#39;: {&#39;type&#39;: &#39;id&#39;, &#39;subtype&#39;: &#39;integer&#39;},
-    &#39;country&#39;: {&#39;type&#39;: &#39;categorical&#39;},
-    &#39;gender&#39;: {&#39;type&#39;: &#39;categorical&#39;},
-    &#39;age&#39;: {&#39;type&#39;: &#39;numerical&#39;, &#39;subtype&#39;: &#39;integer&#39;}}},
-  &#39;sessions&#39;: {&#39;primary_key&#39;: &#39;session_id&#39;,
-   &#39;fields&#39;: {&#39;session_id&#39;: {&#39;type&#39;: &#39;id&#39;, &#39;subtype&#39;: &#39;integer&#39;},
-    &#39;user_id&#39;: {&#39;ref&#39;: {&#39;field&#39;: &#39;user_id&#39;, &#39;table&#39;: &#39;users&#39;},
-     &#39;type&#39;: &#39;id&#39;,
-     &#39;subtype&#39;: &#39;integer&#39;},
-    &#39;device&#39;: {&#39;type&#39;: &#39;categorical&#39;},
-    &#39;os&#39;: {&#39;type&#39;: &#39;categorical&#39;}}},
-  &#39;transactions&#39;: {&#39;primary_key&#39;: &#39;transaction_id&#39;,
-   &#39;fields&#39;: {&#39;transaction_id&#39;: {&#39;type&#39;: &#39;id&#39;, &#39;subtype&#39;: &#39;integer&#39;},
-    &#39;session_id&#39;: {&#39;ref&#39;: {&#39;field&#39;: &#39;session_id&#39;, &#39;table&#39;: &#39;sessions&#39;},
-     &#39;type&#39;: &#39;id&#39;,
-     &#39;subtype&#39;: &#39;integer&#39;},
-    &#39;timestamp&#39;: {&#39;type&#39;: &#39;datetime&#39;, &#39;format&#39;: &#39;%Y-%m-%d&#39;},
-    &#39;amount&#39;: {&#39;type&#39;: &#39;numerical&#39;, &#39;subtype&#39;: &#39;float&#39;},
-    &#39;approved&#39;: {&#39;type&#39;: &#39;boolean&#39;}}}}}
+{&#39;fields&#39;: {&#39;age&#39;: {&#39;type&#39;: &#39;numerical&#39;, &#39;subtype&#39;: &#39;integer&#39;},
+  &#39;gender&#39;: {&#39;type&#39;: &#39;categorical&#39;},
+  &#39;user_id&#39;: {&#39;type&#39;: &#39;id&#39;, &#39;subtype&#39;: &#39;integer&#39;},
+  &#39;country&#39;: {&#39;type&#39;: &#39;categorical&#39;}},
+ &#39;primary_key&#39;: &#39;user_id&#39;}
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Creating-a-Metadata-object-from-scratch">
-<h2>Creating a Metadata object from scratch<a class="headerlink" href="#Creating-a-Metadata-object-from-scratch" title="Permalink to this headline">¶</a></h2>
-<p>In this section we will have a look at how to create a Metadata object from scratch.</p>
-<p>The simplest way to do it is by populating it passing the tables of your dataset together with some additional information.</p>
-<p>Let’s start by creating an empty metadata object.</p>
+<div class="section" id="Add-a-Child-Table">
+<h2>Add a Child Table<a class="headerlink" href="#Add-a-Child-Table" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have one parent table, you will add its child table <code class="docutils literal notranslate"><span class="pre">sessions</span></code>, which is related to the <code class="docutils literal notranslate"><span class="pre">users</span></code> table in a parent-child relationship where each <code class="docutils literal notranslate"><span class="pre">user</span></code> can have multiple <code class="docutils literal notranslate"><span class="pre">sessions</span></code>, and each <code class="docutils literal notranslate"><span class="pre">session</span></code> belongs to one and only one <code class="docutils literal notranslate"><span class="pre">user</span></code>.</p>
+<p>In order to specify this, while creating the <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table you have to indicate the name of the parent table, <code class="docutils literal notranslate"><span class="pre">users</span></code>, and the field from the <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table that acts as the foreign key, which in this case is called <code class="docutils literal notranslate"><span class="pre">user_id</span></code>.</p>
+<p>With this, apart from analyzing all the columns and indicating the primary key like in the previous step, the <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> instance will specify a relationship between the two tables by adding a property to the <code class="docutils literal notranslate"><span class="pre">user_id</span></code> field that indicates that it is related to the <code class="docutils literal notranslate"><span class="pre">user_id</span></code> field in the <code class="docutils literal notranslate"><span class="pre">users</span></code> table.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sdv</span> <span class="kn">import</span> <span class="n">Metadata</span>
-
-<span class="n">new_meta</span> <span class="o">=</span> <span class="n">Metadata</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<p>Now we can start by adding the parent table from our dataset, <code class="docutils literal notranslate"><span class="pre">users</span></code>, indicating that the primary key is the field called <code class="docutils literal notranslate"><span class="pre">user_id</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">users_data</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="s1">&#39;users&#39;</span><span class="p">]</span>
-<span class="n">new_meta</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">users_data</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>Next, let’s add the sessions table, indicating that: - The primary key is the field <code class="docutils literal notranslate"><span class="pre">session_id</span></code> - The <code class="docutils literal notranslate"><span class="pre">users</span></code> table is parent to this table - The relationship between the <code class="docutils literal notranslate"><span class="pre">users</span></code> and <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table is created by the field called <code class="docutils literal notranslate"><span class="pre">user_id</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sessions_data</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="s1">&#39;sessions&#39;</span><span class="p">]</span>
-<span class="n">new_meta</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span>
-    <span class="s1">&#39;sessions&#39;</span><span class="p">,</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">sessions_data</span><span class="p">,</span>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;sessions&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;sessions&#39;</span><span class="p">],</span>
     <span class="n">primary_key</span><span class="o">=</span><span class="s1">&#39;session_id&#39;</span><span class="p">,</span>
     <span class="n">parent</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">,</span>
     <span class="n">foreign_key</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span>
@@ -503,10 +854,36 @@ Metadata
 </pre></div>
 </div>
 </div>
-<p>Finally, let’s add the transactions table.</p>
-<p>In this case, we will pass some additional information to indicate that the <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> field should be actually parsed and interpreted as a datetime field.</p>
+<p>Now we can see how the table and the relationship have been registered:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Metadata
+  root_path: .
+  tables: [&#39;users&#39;, &#39;sessions&#39;]
+  relationships:
+    sessions.user_id -&gt; users.user_id
+</pre></div></div>
+</div>
+<div class="section" id="Add-a-table-specifying-field-properties">
+<h3>Add a table specifying field properties<a class="headerlink" href="#Add-a-table-specifying-field-properties" title="Permalink to this headline">¶</a></h3>
+<p>There are situations where the <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> analysis is not able to figure out some data types or subtypes, or to deduce some properties of the field such as the datetime format.</p>
+<p>In these situations, you can pass a dictionary with the exact metadata of those fields, which will overwrite the deductions from the analysis process.</p>
+<p>In this next example, you will be adding a <code class="docutils literal notranslate"><span class="pre">transactions</span></code> table, which is related to the previous <code class="docutils literal notranslate"><span class="pre">sessions</span></code> table, and contains a <code class="docutils literal notranslate"><span class="pre">datetime</span></code> field which needs to have the datetime format specified.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -516,10 +893,10 @@ Metadata
         <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">transactions_data</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="s1">&#39;transactions&#39;</span><span class="p">]</span>
-<span class="n">new_meta</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span>
-    <span class="s1">&#39;transactions&#39;</span><span class="p">,</span>
-    <span class="n">transactions_data</span><span class="p">,</span>
+
+<span class="n">metadata</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;transactions&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tables</span><span class="p">[</span><span class="s1">&#39;transactions&#39;</span><span class="p">],</span>
     <span class="n">fields_metadata</span><span class="o">=</span><span class="n">transactions_fields</span><span class="p">,</span>
     <span class="n">primary_key</span><span class="o">=</span><span class="s1">&#39;transaction_id&#39;</span><span class="p">,</span>
     <span class="n">parent</span><span class="o">=</span><span class="s1">&#39;sessions&#39;</span>
@@ -529,93 +906,193 @@ Metadata
 </div>
 <p>Let’s see what our Metadata looks like right now:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">new_meta</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+<span></span><span class="n">metadata</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/tutorials_04_Working_with_Metadata_15_0.svg" src="../_images/tutorials_04_Working_with_Metadata_15_0.svg" /></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">new_meta</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;tables&#39;: {&#39;users&#39;: {&#39;fields&#39;: {&#39;gender&#39;: {&#39;type&#39;: &#39;categorical&#39;},
-    &#39;age&#39;: {&#39;type&#39;: &#39;numerical&#39;, &#39;subtype&#39;: &#39;integer&#39;},
+Metadata
+  root_path: .
+  tables: [&#39;users&#39;, &#39;sessions&#39;, &#39;transactions&#39;]
+  relationships:
+    sessions.user_id -&gt; users.user_id
+    transactions.session_id -&gt; sessions.session_id
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_04_Working_with_Metadata_28_0.svg" src="../_images/tutorials_04_Working_with_Metadata_28_0.svg" /></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;tables&#39;: {&#39;users&#39;: {&#39;fields&#39;: {&#39;age&#39;: {&#39;type&#39;: &#39;numerical&#39;,
+     &#39;subtype&#39;: &#39;integer&#39;},
+    &#39;gender&#39;: {&#39;type&#39;: &#39;categorical&#39;},
     &#39;user_id&#39;: {&#39;type&#39;: &#39;id&#39;, &#39;subtype&#39;: &#39;integer&#39;},
     &#39;country&#39;: {&#39;type&#39;: &#39;categorical&#39;}},
    &#39;primary_key&#39;: &#39;user_id&#39;},
-  &#39;sessions&#39;: {&#39;fields&#39;: {&#39;os&#39;: {&#39;type&#39;: &#39;categorical&#39;},
-    &#39;device&#39;: {&#39;type&#39;: &#39;categorical&#39;},
-    &#39;user_id&#39;: {&#39;type&#39;: &#39;id&#39;,
+  &#39;sessions&#39;: {&#39;fields&#39;: {&#39;user_id&#39;: {&#39;type&#39;: &#39;id&#39;,
      &#39;subtype&#39;: &#39;integer&#39;,
      &#39;ref&#39;: {&#39;table&#39;: &#39;users&#39;, &#39;field&#39;: &#39;user_id&#39;}},
+    &#39;os&#39;: {&#39;type&#39;: &#39;categorical&#39;},
+    &#39;device&#39;: {&#39;type&#39;: &#39;categorical&#39;},
     &#39;session_id&#39;: {&#39;type&#39;: &#39;id&#39;, &#39;subtype&#39;: &#39;integer&#39;}},
    &#39;primary_key&#39;: &#39;session_id&#39;},
   &#39;transactions&#39;: {&#39;fields&#39;: {&#39;timestamp&#39;: {&#39;type&#39;: &#39;datetime&#39;,
      &#39;format&#39;: &#39;%Y-%m-%d&#39;},
-    &#39;amount&#39;: {&#39;type&#39;: &#39;numerical&#39;, &#39;subtype&#39;: &#39;float&#39;},
+    &#39;approved&#39;: {&#39;type&#39;: &#39;boolean&#39;},
     &#39;session_id&#39;: {&#39;type&#39;: &#39;id&#39;,
      &#39;subtype&#39;: &#39;integer&#39;,
      &#39;ref&#39;: {&#39;table&#39;: &#39;sessions&#39;, &#39;field&#39;: &#39;session_id&#39;}},
-    &#39;approved&#39;: {&#39;type&#39;: &#39;boolean&#39;},
+    &#39;amount&#39;: {&#39;type&#39;: &#39;numerical&#39;, &#39;subtype&#39;: &#39;float&#39;},
     &#39;transaction_id&#39;: {&#39;type&#39;: &#39;id&#39;, &#39;subtype&#39;: &#39;integer&#39;}},
    &#39;primary_key&#39;: &#39;transaction_id&#39;}}}
 </pre></div></div>
 </div>
-<p>Pretty similar to the original metadata, right?</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</div>
+</div>
+<div class="section" id="Metadata-JSON-format">
+<h2>Metadata JSON format<a class="headerlink" href="#Metadata-JSON-format" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> objects can also be saved as a JSON file and later on loaded from them.</p>
+<p>In order to save the current <code class="docutils literal notranslate"><span class="pre">metadata</span></code> as a JSON file, all you need to do is call the <code class="docutils literal notranslate"><span class="pre">to_json</span></code> method passing the path to the JSON file that you want to create.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">new_meta</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="o">==</span> <span class="n">metadata</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span></span><span class="n">metadata</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s1">&#39;demo_metadata.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>You can see that the contents of the created file are very similar to the <code class="docutils literal notranslate"><span class="pre">dict</span></code> representation of the metadata:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;demo_metadata.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">meta_file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">meta_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-True
+{
+    &#34;tables&#34;: {
+        &#34;users&#34;: {
+            &#34;fields&#34;: {
+                &#34;age&#34;: {
+                    &#34;type&#34;: &#34;numerical&#34;,
+                    &#34;subtype&#34;: &#34;integer&#34;
+                },
+                &#34;gender&#34;: {
+                    &#34;type&#34;: &#34;categorical&#34;
+                },
+                &#34;user_id&#34;: {
+                    &#34;type&#34;: &#34;id&#34;,
+                    &#34;subtype&#34;: &#34;integer&#34;
+                },
+                &#34;country&#34;: {
+                    &#34;type&#34;: &#34;categorical&#34;
+                }
+            },
+            &#34;primary_key&#34;: &#34;user_id&#34;
+        },
+        &#34;sessions&#34;: {
+            &#34;fields&#34;: {
+                &#34;user_id&#34;: {
+                    &#34;type&#34;: &#34;id&#34;,
+                    &#34;subtype&#34;: &#34;integer&#34;,
+                    &#34;ref&#34;: {
+                        &#34;table&#34;: &#34;users&#34;,
+                        &#34;field&#34;: &#34;user_id&#34;
+                    }
+                },
+                &#34;os&#34;: {
+                    &#34;type&#34;: &#34;categorical&#34;
+                },
+                &#34;device&#34;: {
+                    &#34;type&#34;: &#34;categorical&#34;
+                },
+                &#34;session_id&#34;: {
+                    &#34;type&#34;: &#34;id&#34;,
+                    &#34;subtype&#34;: &#34;integer&#34;
+                }
+            },
+            &#34;primary_key&#34;: &#34;session_id&#34;
+        },
+        &#34;transactions&#34;: {
+            &#34;fields&#34;: {
+                &#34;timestamp&#34;: {
+                    &#34;type&#34;: &#34;datetime&#34;,
+                    &#34;format&#34;: &#34;%Y-%m-%d&#34;
+                },
+                &#34;approved&#34;: {
+                    &#34;type&#34;: &#34;boolean&#34;
+                },
+                &#34;session_id&#34;: {
+                    &#34;type&#34;: &#34;id&#34;,
+                    &#34;subtype&#34;: &#34;integer&#34;,
+                    &#34;ref&#34;: {
+                        &#34;table&#34;: &#34;sessions&#34;,
+                        &#34;field&#34;: &#34;session_id&#34;
+                    }
+                },
+                &#34;amount&#34;: {
+                    &#34;type&#34;: &#34;numerical&#34;,
+                    &#34;subtype&#34;: &#34;float&#34;
+                },
+                &#34;transaction_id&#34;: {
+                    &#34;type&#34;: &#34;id&#34;,
+                    &#34;subtype&#34;: &#34;integer&#34;
+                }
+            },
+            &#34;primary_key&#34;: &#34;transaction_id&#34;
+        }
+    }
+}
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Saving-the-Metadata-as-a-JSON-file">
-<h2>Saving the Metadata as a JSON file<a class="headerlink" href="#Saving-the-Metadata-as-a-JSON-file" title="Permalink to this headline">¶</a></h2>
-<p>The Metadata object can also be saved as a JSON file, which later on we can load:</p>
+<p>After creating the JSON file, loading it back as a <code class="docutils literal notranslate"><span class="pre">metadata</span></code> object is as simple as passing it to the <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> constructor:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">new_meta</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s1">&#39;demo_metadata.json&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -624,21 +1101,26 @@ True
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">loaded</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="o">==</span> <span class="n">new_meta</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+<span></span><span class="n">loaded</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-True
+Metadata
+  root_path:
+  tables: [&#39;users&#39;, &#39;sessions&#39;, &#39;transactions&#39;]
+  relationships:
+    sessions.user_id -&gt; users.user_id
+    transactions.session_id -&gt; sessions.session_id
 </pre></div></div>
 </div>
 </div>
@@ -650,6 +1132,8 @@ True
               
               <div class='prev-next-bottom'>
                 
+    <a class='left-prev' id="prev-link" href="03_Relational_Data_Modeling.html" title="previous page">Relational Data Modeling</a>
+    <a class='right-next' id="next-link" href="05_Handling_Constraints.html" title="next page">Handling Constraints</a>
 
               </div>
               

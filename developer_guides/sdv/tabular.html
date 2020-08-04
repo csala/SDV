@@ -206,14 +206,13 @@ model instance to learn the data and later on sample it, and finally post-proces
 data to make it as similar to the original one as possible.</p>
 <p>A regular <cite>modeling</cite> and <cite>sampling</cite> cycle performed within one of the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code>
 subclasses has the following steps:</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>An instance of the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> subclass is created. In this step, the user can either
 pass information about the data, such as field types or constraints, or a fully configured Table
 metadata object.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">BaseTabularModel.fit</span></code> method is called with raw data from the table.
 During this step, the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> will:</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Fit the Table metadata object, unless it has already been fitted before.</p></li>
 <li><p>Store the number of rows that exist in the given data.</p></li>
 <li><p>Use the Table metadata to transform the data into numerical data, ready for the model.
@@ -222,7 +221,6 @@ apply transformations to the data.</p></li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">self._fit</span></code> method, which has been implemented in the subclass, passing the
 numerical data.</p></li>
 </ol>
-</div></blockquote>
 </li>
 <li><p>The subclass <code class="docutils literal notranslate"><span class="pre">_fit</span></code> method will then fit an instance of the underlying model class. For
 example, an instance of a <code class="docutils literal notranslate"><span class="pre">copulas.multivariate.GaussianCopula</span></code> will be created and fitted
@@ -230,8 +228,7 @@ to the numerical data.</p></li>
 <li><p>In a later step, the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel.sample</span></code> method will be called, optionally with an
 indication of the number of rows to sample.
 During this step, the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> will:</p>
-<blockquote>
-<div><ol class="loweralpha simple">
+<ol class="loweralpha simple">
 <li><p>Decide a number of rows to sample, which will either be the number of rows provided
 or the number of rows that the original table had.</p></li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">self._sample</span></code> method implemented by the subclass, which will use the
@@ -243,7 +240,6 @@ performed by the Constraints that use the <code class="docutils literal notransl
 Table metadata to drop the invalid rows and repeat steps <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> until enough
 valid rows have been generated.</p></li>
 </ol>
-</div></blockquote>
 </li>
 </ol>
 <p>A part from the previous steps, the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> also offers a couple of minor

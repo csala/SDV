@@ -1,0 +1,6 @@
+sdv.metadata.Metadata.validate
+==============================
+
+.. currentmodule:: sdv.metadata
+
+.. automethod:: Metadata.validate

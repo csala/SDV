@@ -190,8 +190,33 @@
 <h1>sdv.demo.load_tabular_demo<a class="headerlink" href="#sdv-demo-load-tabular-demo" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="sdv.demo.load_tabular_demo">
-<code class="sig-prename descclassname">sdv.demo.</code><code class="sig-name descname">load_tabular_demo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/demo.html#load_tabular_demo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.demo.load_tabular_demo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a dummy tabular demo dataframe.</p>
+<code class="sig-prename descclassname">sdv.demo.</code><code class="sig-name descname">load_tabular_demo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data_path</span><span class="o">=</span><span class="default_value">'/home/runner/work/SDV/SDV/sdv/data'</span></em>, <em class="sig-param"><span class="n">metadata</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/demo.html#load_tabular_demo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.demo.load_tabular_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a tabular demo.</p>
+<p>If a dataset name is given, it is downloaded from the sdv-datasets S3 bucket.
+Otherwise, a toy dataset with a single table that contains data from a short fake
+collection of employees.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the output will be a tuple with a <code class="docutils literal notranslate"><span class="pre">Metadata</span></code>
+instance for the dataset and a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with the data from the table.
+If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, only the <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_name</strong> (<em>str</em>) – Dataset name to be downloaded, if <code class="docutils literal notranslate"><span class="pre">None</span></code> use default demo data. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>table_name</strong> (<em>str</em>) – If a table name is given, return this table from the indicated dataset.
+Otherwise, return the first one.</p></li>
+<li><p><strong>data_path</strong> (<em>str</em>) – Data path to save the dataset files, only used if dataset_name is provided.
+Defaults to <code class="docutils literal notranslate"><span class="pre">DATA_PATH</span></code>.</p></li>
+<li><p><strong>metadata</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> also return a Table object. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code> return a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> with the tables data.
+If <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> return a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> with a Table and the data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame or tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

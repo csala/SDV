@@ -145,10 +145,6 @@
                       </li>
                   
                       <li class="">
-                          <a href="sdv.tabular.GaussianCopula.from_parameters.html">sdv.tabular.GaussianCopula.from_parameters</a>
-                      </li>
-                  
-                      <li class="">
                           <a href="sdv.tabular.GaussianCopula.save.html">sdv.tabular.GaussianCopula.save</a>
                       </li>
                   
@@ -170,10 +166,6 @@
                   
                       <li class="">
                           <a href="sdv.tabular.CTGAN.get_metadata.html">sdv.tabular.CTGAN.get_metadata</a>
-                      </li>
-                  
-                      <li class="">
-                          <a href="sdv.tabular.CTGAN.from_parameters.html">sdv.tabular.CTGAN.from_parameters</a>
                       </li>
                   
                       <li class="">
@@ -242,7 +234,7 @@
 <h1>sdv.tabular.CTGAN<a class="headerlink" href="#sdv-tabular-ctgan" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="sdv.tabular.CTGAN">
-<em class="property">class </em><code class="sig-prename descclassname">sdv.tabular.</code><code class="sig-name descname">CTGAN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">primary_key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_types</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anonymize_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">constraints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table_metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">300</span></em>, <em class="sig-param"><span class="n">log_frequency</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">embedding_dim</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">gen_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">dis_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">l2scale</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">sdv.tabular.</code><code class="sig-name descname">CTGAN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_types</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_transformers</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anonymize_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">primary_key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">constraints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table_metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">300</span></em>, <em class="sig-param"><span class="n">log_frequency</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">embedding_dim</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">gen_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">dis_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">l2scale</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Model wrapping <code class="docutils literal notranslate"><span class="pre">CTGANSynthesizer</span></code> model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -250,22 +242,30 @@
 <li><p><strong>field_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of names of the fields that need to be modeled
 and included in the generated output data. Any additional
 fields found in the data will be ignored and will not be
-included in the generated output, except if they have
-been added as primary keys or fields to anonymize.
+included in the generated output.
 If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all the fields found in the data are used.</p></li>
-<li><p><strong>primary_key</strong> (<em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>] or </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>]</em>) – Specification about which field or fields are the
-primary key of the table and information about how
-to generate them.</p></li>
 <li><p><strong>field_types</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>]</em>) – Dictinary specifying the data types and subtypes
 of the fields that will be modeled. Field types and subtypes
 combinations must be compatible with the SDV Metadata Schema.</p></li>
-<li><p><strong>anonymize_fields</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em> or </em><em>tuple</em><em>]</em>) – Dict specifying which fields to anonymize and what faker
-category they belong to. If arguments for the faker need to be
-passed to fine tune the value generation a tuple can be passed,
-where the first element is the category and the rest are additional
-positional arguments for the Faker.</p></li>
-<li><p><strong>constraints</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – List of dicts specifying field and inter-field constraints.
-TODO: Format TBD</p></li>
+<li><p><strong>field_transformers</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – <p>Dictinary specifying which transformers to use for each field.
+Available transformers are:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">integer</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">NumericalTransformer</span></code> of dtype <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">NumericalTransformer</span></code> of dtype <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">categorical</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code> without gaussian noise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">categorical_fuzzy</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code> adding gaussian noise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">one_hot_encoding</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">OneHotEncodingTransformer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label_encoding</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">LabelEncodingTransformer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">BooleanTransformer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">DatetimeTransformer</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>anonymize_fields</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – Dict specifying which fields to anonymize and what faker
+category they belong to.</p></li>
+<li><p><strong>primary_key</strong> (<em>str</em>) – Name of the field which is the primary key of the table.</p></li>
+<li><p><strong>constraints</strong> (<em>list</em><em>[</em><a class="reference internal" href="sdv.constraints.Constraint.html#sdv.constraints.Constraint" title="sdv.constraints.Constraint"><em>Constraint</em></a><em>, </em><em>dict</em><em>]</em>) – List of Constraint objects or dicts.</p></li>
 <li><p><strong>table_metadata</strong> (<em>dict</em><em> or </em><a class="reference internal" href="sdv.metadata.Table.html#sdv.metadata.Table" title="sdv.metadata.Table"><em>metadata.Table</em></a>) – Table metadata instance or dict representation.
 If given alongside any other metadata-related arguments, an
 exception will be raised.
@@ -286,7 +286,7 @@ Layer will be created for each one of the values provided. Defaults to (256, 256
 </dl>
 <dl class="py method">
 <dt id="sdv.tabular.CTGAN.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">primary_key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_types</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anonymize_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">constraints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table_metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">300</span></em>, <em class="sig-param"><span class="n">log_frequency</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">embedding_dim</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">gen_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">dis_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">l2scale</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_types</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">field_transformers</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">anonymize_fields</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">primary_key</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">constraints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">table_metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">epochs</span><span class="o">=</span><span class="default_value">300</span></em>, <em class="sig-param"><span class="n">log_frequency</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">embedding_dim</span><span class="o">=</span><span class="default_value">128</span></em>, <em class="sig-param"><span class="n">gen_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">dis_dim</span><span class="o">=</span><span class="default_value">256, 256</span></em>, <em class="sig-param"><span class="n">l2scale</span><span class="o">=</span><span class="default_value">1e-06</span></em>, <em class="sig-param"><span class="n">batch_size</span><span class="o">=</span><span class="default_value">500</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/sdv/tabular/ctgan.html#CTGAN.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sdv.tabular.CTGAN.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -297,44 +297,29 @@ Layer will be created for each one of the values provided. Defaults to (256, 256
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sdv.tabular.CTGAN.__init__" title="sdv.tabular.CTGAN.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([field_names, primary_key, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sdv.tabular.CTGAN.__init__" title="sdv.tabular.CTGAN.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([field_names, field_types, …])</p></td>
 <td><p>Initialize self.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.fit.html#sdv.tabular.CTGAN.fit" title="sdv.tabular.CTGAN.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(data)</p></td>
 <td><p>Fit this model to the data.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.from_parameters.html#sdv.tabular.CTGAN.from_parameters" title="sdv.tabular.CTGAN.from_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_parameters</span></code></a>()</p></td>
-<td><p>Regenerate a previously learned model from its parameters.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.get_metadata.html#sdv.tabular.CTGAN.get_metadata" title="sdv.tabular.CTGAN.get_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.get_metadata.html#sdv.tabular.CTGAN.get_metadata" title="sdv.tabular.CTGAN.get_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata</span></code></a>()</p></td>
 <td><p>Get metadata about the table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parameters</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_parameters</span></code>()</p></td>
 <td><p>Get the parameters learned from the data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.load.html#sdv.tabular.CTGAN.load" title="sdv.tabular.CTGAN.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.load.html#sdv.tabular.CTGAN.load" title="sdv.tabular.CTGAN.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path)</p></td>
 <td><p>Load a TabularModel instance from a given path.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.sample.html#sdv.tabular.CTGAN.sample" title="sdv.tabular.CTGAN.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>([num_rows, max_retries])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.sample.html#sdv.tabular.CTGAN.sample" title="sdv.tabular.CTGAN.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample</span></code></a>([num_rows, max_retries])</p></td>
 <td><p>Sample rows from this table.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.save.html#sdv.tabular.CTGAN.save" title="sdv.tabular.CTGAN.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="sdv.tabular.CTGAN.save.html#sdv.tabular.CTGAN.save" title="sdv.tabular.CTGAN.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(path)</p></td>
 <td><p>Save this model instance to the given path using pickle.</p></td>
 </tr>
-</tbody>
-</table>
-<p class="rubric">Attributes</p>
-<table class="longtable table">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">HYPERPARAMETERS</span></code></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TRANSFORMER_TEMPLATES</span></code></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_parameters</span></code>(parameters)</p></td>
+<td><p>Regenerate a previously learned model from its parameters.</p></td>
 </tr>
 </tbody>
 </table>

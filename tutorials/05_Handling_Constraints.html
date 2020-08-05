@@ -438,7 +438,7 @@ div.rendered_html tbody tr:hover {
 <p>A very common scenario that we face when working with tabular data is finding columns that have very particular relationships between them which are very hard to model and easily confuse the Tabular Models.</p>
 <p>Some simple examples of these scenarios include:</p>
 <ul class="simple">
-<li><p>A table that has the columns <code class="docutils literal notranslate"><span class="pre">country</span></code> and <code class="docutils literal notranslate"><span class="pre">city</span></code>: In such scenario, it might be very hard to learn which country each city belongs to, and when sampling probabilistically, the model is likely to end up generating invalid countr/city combinations.</p></li>
+<li><p>A table that has the columns <code class="docutils literal notranslate"><span class="pre">country</span></code> and <code class="docutils literal notranslate"><span class="pre">city</span></code>: In such scenario, it might be very hard to learn which country each city belongs to, and when sampling probabilistically, the model is likely to end up generating invalid country/city combinations.</p></li>
 <li><p>A table that contains both the <code class="docutils literal notranslate"><span class="pre">age</span></code> and the <code class="docutils literal notranslate"><span class="pre">date</span> <span class="pre">of</span> <span class="pre">birth</span></code> of a user. The model will learn the age and date of birth distributions and mostly generate valid combinations, but in some cases it might end up giving back ages that do not correspond to the given date of birth.</p></li>
 </ul>
 <p>These kind of special relationships between columns are called <code class="docutils literal notranslate"><span class="pre">Constraints</span></code>, and <strong>SDV</strong> provides a very powerful and flexible mechanism to take them into account and guarantee that the sampled data always respects them.</p>
@@ -495,120 +495,120 @@ div.rendered_html tbody tr:hover {
       <th>0</th>
       <td>Pear</td>
       <td>Sales</td>
-      <td>Heather Day</td>
-      <td>66879 Scott Estate Suite 923\nNorth Tonyahaven...</td>
-      <td>36</td>
-      <td>27</td>
-      <td>9</td>
+      <td>Bryan Salazar</td>
+      <td>99477 Woods Land\nLake Michelleborough, ID 13732</td>
+      <td>30</td>
+      <td>25</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Pear</td>
       <td>Design</td>
-      <td>William Morgan</td>
-      <td>USCGC Waters\nFPO AP 93848</td>
-      <td>31</td>
-      <td>26</td>
-      <td>5</td>
+      <td>Sandra Bryant</td>
+      <td>Unit 7174 Box 4866\nDPO AA 53089</td>
+      <td>49</td>
+      <td>42</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Glasses</td>
       <td>AI</td>
-      <td>Dr. Autumn Barr</td>
-      <td>PSC 0155, Box 6221\nAPO AE 31465</td>
-      <td>34</td>
-      <td>31</td>
-      <td>3</td>
+      <td>Meagan Snyder</td>
+      <td>0135 Christina Lakes\nSalazarport, KS 20085</td>
+      <td>30</td>
+      <td>26</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Glasses</td>
       <td>Search Engine</td>
-      <td>Christopher Cooper</td>
-      <td>53908 Ramirez Terrace\nJennifermouth, NH 89987</td>
-      <td>31</td>
-      <td>25</td>
-      <td>6</td>
+      <td>Christine Mckinney</td>
+      <td>4355 Mckenzie Run\nEast Robinville, HI 51618</td>
+      <td>44</td>
+      <td>40</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Cheerper</td>
       <td>BigData</td>
-      <td>Jennifer Ward</td>
-      <td>USCGC Castro\nFPO AA 06554</td>
-      <td>42</td>
-      <td>36</td>
-      <td>6</td>
+      <td>Michelle Hall</td>
+      <td>0859 Ralph Lodge Apt. 713\nDanielland, VT 90799</td>
+      <td>39</td>
+      <td>31</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Cheerper</td>
       <td>Support</td>
-      <td>Katie Anderson</td>
-      <td>259 Best Crossing\nHollyville, DC 87315</td>
-      <td>33</td>
-      <td>29</td>
-      <td>4</td>
+      <td>Toni Williams</td>
+      <td>672 Wilson Glens\nAmandaside, NY 36687</td>
+      <td>32</td>
+      <td>26</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Pear</td>
       <td>Sales</td>
-      <td>Chelsea Gibson</td>
-      <td>93670 Johnson Landing Apt. 593\nMorrisborough,...</td>
-      <td>44</td>
-      <td>36</td>
-      <td>8</td>
+      <td>Jaime Collins</td>
+      <td>71111 Margaret Mills\nKennedyfort, KS 40149</td>
+      <td>46</td>
+      <td>43</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Pear</td>
       <td>Design</td>
-      <td>Christy Hubbard</td>
-      <td>5059 Ramirez Glens\nAnthonyland, OK 24053</td>
-      <td>46</td>
-      <td>41</td>
-      <td>5</td>
+      <td>Sarah Perez</td>
+      <td>524 Joseph Oval\nScottchester, MD 92525</td>
+      <td>49</td>
+      <td>42</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Glasses</td>
       <td>AI</td>
-      <td>Susan Jimenez</td>
-      <td>Unit 7167 Box 9610\nDPO AA 45477</td>
-      <td>47</td>
-      <td>47</td>
-      <td>0</td>
+      <td>Colleen Buchanan</td>
+      <td>83684 Betty Pine Apt. 866\nErneststad, NC 40785</td>
+      <td>37</td>
+      <td>32</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Glasses</td>
       <td>Search Engine</td>
-      <td>Adam Salazar</td>
-      <td>01328 Pham Mountain Apt. 128\nStantonstad, NH ...</td>
-      <td>35</td>
-      <td>27</td>
-      <td>8</td>
+      <td>Claire Clarke</td>
+      <td>2959 Lisa River\nWest Brandi, KS 80870</td>
+      <td>30</td>
+      <td>29</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Cheerper</td>
       <td>BigData</td>
-      <td>Robert Maddox</td>
-      <td>4126 Tammy Tunnel\nCookfort, AZ 96165</td>
-      <td>30</td>
-      <td>23</td>
-      <td>7</td>
+      <td>Felicia Green</td>
+      <td>536 Rodriguez Bypass\nEast Aaronburgh, MI 13357</td>
+      <td>37</td>
+      <td>28</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Cheerper</td>
       <td>Support</td>
-      <td>Clifford Charles</td>
-      <td>5580 John Courts\nBoothstad, MA 21027</td>
-      <td>32</td>
-      <td>26</td>
+      <td>Rebecca Lewis</td>
+      <td>0595 Kenneth Mount\nVanessamouth, DC 60910</td>
+      <td>42</td>
+      <td>36</td>
       <td>6</td>
     </tr>
   </tbody>
@@ -656,7 +656,7 @@ div.rendered_html tbody tr:hover {
 <li><p>which strategy we want to use: <code class="docutils literal notranslate"><span class="pre">transform</span></code> or <code class="docutils literal notranslate"><span class="pre">reject_sampling</span></code></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -681,7 +681,7 @@ div.rendered_html tbody tr:hover {
 <li><p>the handling strategy that we want to use</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -699,10 +699,10 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="CustomFormula-Constraint">
 <h3>CustomFormula Constraint<a class="headerlink" href="#CustomFormula-Constraint" title="Permalink to this headline">¶</a></h3>
 <p>In some cases, one column will need to be computed based on the other columns using a custom formula.</p>
-<p>This is, for example, what happens with the <code class="docutils literal notranslate"><span class="pre">years_in_the_company</span></code> column in our demo data, which will always need to be computed based on the <code class="docutils literal notranslate"><span class="pre">age</span></code> and <code class="docutils literal notranslate"><span class="pre">age_when_joined</span></code> columns by sustracting them.</p>
+<p>This is, for example, what happens with the <code class="docutils literal notranslate"><span class="pre">years_in_the_company</span></code> column in our demo data, which will always need to be computed based on the <code class="docutils literal notranslate"><span class="pre">age</span></code> and <code class="docutils literal notranslate"><span class="pre">age_when_joined</span></code> columns by subtracting them.</p>
 <p>In these cases, we need to define a custom function that defines how to compute the value of the column:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -718,7 +718,7 @@ div.rendered_html tbody tr:hover {
 <li><p>the handling strategy that we want to use</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -739,7 +739,7 @@ div.rendered_html tbody tr:hover {
 <p>Now that we have defined the constraints needed to properly describe our dataset, we can pass them to the Tabular Model of our choice.</p>
 <p>For example, let us create a <code class="docutils literal notranslate"><span class="pre">GaussianCopula</span></code> model passing it the constraints that we just defined as a <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -757,7 +757,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>After creating the model, we can just fit and sample as usual:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -770,16 +770,15 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2020-08-04 21:02:50,713 - INFO - table - Loading transformer OneHotEncodingTransformer for field name
-2020-08-04 21:02:50,714 - INFO - table - Loading transformer OneHotEncodingTransformer for field address
-2020-08-04 21:02:50,715 - INFO - table - Loading transformer NumericalTransformer for field age
-2020-08-04 21:02:50,715 - INFO - table - Loading transformer NumericalTransformer for field age_when_joined
-2020-08-04 21:02:50,716 - INFO - table - Loading transformer OneHotEncodingTransformer for field company#department
-2020-08-04 21:02:50,743 - INFO - gaussian - Fitting GaussianMultivariate()
+2020-08-05 20:22:26,151 - INFO - sdv.metadata.table - Loading transformer OneHotEncodingTransformer for field name
+2020-08-05 20:22:26,151 - INFO - sdv.metadata.table - Loading transformer OneHotEncodingTransformer for field address
+2020-08-05 20:22:26,152 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field age
+2020-08-05 20:22:26,152 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field age_when_joined
+2020-08-05 20:22:26,153 - INFO - sdv.metadata.table - Loading transformer OneHotEncodingTransformer for field company#department
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -792,12 +791,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2020-08-04 21:04:54,407 - INFO - base - 1 invalid rows found. Resampling 1 rows
+2020-08-05 20:22:32,163 - INFO - sdv.tabular.base - 3 invalid rows found. Resampling 4 rows
 </pre></div></div>
 </div>
 <p>And observe that the sampled rows really adjust to the constraints that we defined:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -806,7 +805,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -840,103 +839,103 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>Glasses</td>
-      <td>AI</td>
-      <td>Dr. Autumn Barr</td>
-      <td>PSC 0155, Box 6221\nAPO AE 31465</td>
-      <td>41</td>
-      <td>39</td>
+      <td>Cheerper</td>
+      <td>BigData</td>
+      <td>Michelle Hall</td>
+      <td>0859 Ralph Lodge Apt. 713\nDanielland, VT 90799</td>
+      <td>29</td>
+      <td>27</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>Cheerper</td>
-      <td>BigData</td>
-      <td>Jennifer Ward</td>
-      <td>USCGC Castro\nFPO AA 06554</td>
-      <td>37</td>
-      <td>32</td>
-      <td>5</td>
+      <td>Support</td>
+      <td>Rebecca Lewis</td>
+      <td>0595 Kenneth Mount\nVanessamouth, DC 60910</td>
+      <td>46</td>
+      <td>43</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Pear</td>
-      <td>Sales</td>
-      <td>Heather Day</td>
-      <td>66879 Scott Estate Suite 923\nNorth Tonyahaven...</td>
-      <td>35</td>
-      <td>25</td>
-      <td>10</td>
+      <td>Cheerper</td>
+      <td>BigData</td>
+      <td>Michelle Hall</td>
+      <td>0859 Ralph Lodge Apt. 713\nDanielland, VT 90799</td>
+      <td>46</td>
+      <td>40</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Glasses</td>
-      <td>AI</td>
-      <td>Dr. Autumn Barr</td>
-      <td>PSC 0155, Box 6221\nAPO AE 31465</td>
+      <td>Cheerper</td>
+      <td>BigData</td>
+      <td>Meagan Snyder</td>
+      <td>0135 Christina Lakes\nSalazarport, KS 20085</td>
       <td>33</td>
-      <td>32</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Pear</td>
-      <td>Design</td>
-      <td>William Morgan</td>
-      <td>USCGC Waters\nFPO AP 93848</td>
-      <td>32</td>
-      <td>26</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Glasses</td>
-      <td>AI</td>
-      <td>Robert Maddox</td>
-      <td>4126 Tammy Tunnel\nCookfort, AZ 96165</td>
-      <td>37</td>
-      <td>32</td>
-      <td>5</td>
+      <td>25</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Cheerper</td>
-      <td>Support</td>
-      <td>Katie Anderson</td>
-      <td>259 Best Crossing\nHollyville, DC 87315</td>
-      <td>38</td>
-      <td>32</td>
-      <td>6</td>
+      <td>Glasses</td>
+      <td>Search Engine</td>
+      <td>Christine Mckinney</td>
+      <td>4355 Mckenzie Run\nEast Robinville, HI 51618</td>
+      <td>42</td>
+      <td>25</td>
+      <td>17</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Pear</td>
-      <td>Sales</td>
-      <td>Heather Day</td>
-      <td>66879 Scott Estate Suite 923\nNorth Tonyahaven...</td>
-      <td>32</td>
-      <td>23</td>
-      <td>9</td>
+      <td>Glasses</td>
+      <td>AI</td>
+      <td>Colleen Buchanan</td>
+      <td>83684 Betty Pine Apt. 866\nErneststad, NC 40785</td>
+      <td>36</td>
+      <td>25</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Cheerper</td>
       <td>Support</td>
-      <td>Clifford Charles</td>
-      <td>5580 John Courts\nBoothstad, MA 21027</td>
-      <td>39</td>
-      <td>33</td>
-      <td>6</td>
+      <td>Felicia Green</td>
+      <td>536 Rodriguez Bypass\nEast Aaronburgh, MI 13357</td>
+      <td>42</td>
+      <td>42</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>0</th>
+      <td>Pear</td>
+      <td>Design</td>
+      <td>Sarah Perez</td>
+      <td>524 Joseph Oval\nScottchester, MD 92525</td>
+      <td>54</td>
+      <td>43</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>Glasses</td>
-      <td>Search Engine</td>
-      <td>Dr. Autumn Barr</td>
-      <td>PSC 0155, Box 6221\nAPO AE 31465</td>
-      <td>31</td>
-      <td>24</td>
-      <td>7</td>
+      <td>AI</td>
+      <td>Colleen Buchanan</td>
+      <td>83684 Betty Pine Apt. 866\nErneststad, NC 40785</td>
+      <td>35</td>
+      <td>25</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Glasses</td>
+      <td>AI</td>
+      <td>Toni Williams</td>
+      <td>672 Wilson Glens\nAmandaside, NY 36687</td>
+      <td>28</td>
+      <td>25</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>

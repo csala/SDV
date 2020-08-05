@@ -145,8 +145,6 @@
   <h1>Source code for sdv.tabular.ctgan</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Wrapper around CTGAN model.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">rdt</span>
-
 <span class="kn">from</span> <span class="nn">sdv.tabular.base</span> <span class="kn">import</span> <span class="n">BaseTabularModel</span>
 
 
@@ -158,26 +156,32 @@
 <span class="sd">            List of names of the fields that need to be modeled</span>
 <span class="sd">            and included in the generated output data. Any additional</span>
 <span class="sd">            fields found in the data will be ignored and will not be</span>
-<span class="sd">            included in the generated output, except if they have</span>
-<span class="sd">            been added as primary keys or fields to anonymize.</span>
+<span class="sd">            included in the generated output.</span>
 <span class="sd">            If ``None``, all the fields found in the data are used.</span>
-<span class="sd">        primary_key (str, list[str] or dict[str, dict]):</span>
-<span class="sd">            Specification about which field or fields are the</span>
-<span class="sd">            primary key of the table and information about how</span>
-<span class="sd">            to generate them.</span>
 <span class="sd">        field_types (dict[str, dict]):</span>
 <span class="sd">            Dictinary specifying the data types and subtypes</span>
 <span class="sd">            of the fields that will be modeled. Field types and subtypes</span>
 <span class="sd">            combinations must be compatible with the SDV Metadata Schema.</span>
-<span class="sd">        anonymize_fields (dict[str, str or tuple]):</span>
+<span class="sd">        field_transformers (dict[str, str]):</span>
+<span class="sd">            Dictinary specifying which transformers to use for each field.</span>
+<span class="sd">            Available transformers are:</span>
+
+<span class="sd">                * ``integer``: Uses a ``NumericalTransformer`` of dtype ``int``.</span>
+<span class="sd">                * ``float``: Uses a ``NumericalTransformer`` of dtype ``float``.</span>
+<span class="sd">                * ``categorical``: Uses a ``CategoricalTransformer`` without gaussian noise.</span>
+<span class="sd">                * ``categorical_fuzzy``: Uses a ``CategoricalTransformer`` adding gaussian noise.</span>
+<span class="sd">                * ``one_hot_encoding``: Uses a ``OneHotEncodingTransformer``.</span>
+<span class="sd">                * ``label_encoding``: Uses a ``LabelEncodingTransformer``.</span>
+<span class="sd">                * ``boolean``: Uses a ``BooleanTransformer``.</span>
+<span class="sd">                * ``datetime``: Uses a ``DatetimeTransformer``.</span>
+
+<span class="sd">        anonymize_fields (dict[str, str]):</span>
 <span class="sd">            Dict specifying which fields to anonymize and what faker</span>
-<span class="sd">            category they belong to. If arguments for the faker need to be</span>
-<span class="sd">            passed to fine tune the value generation a tuple can be passed,</span>
-<span class="sd">            where the first element is the category and the rest are additional</span>
-<span class="sd">            positional arguments for the Faker.</span>
-<span class="sd">        constraints (list[dict]):</span>
-<span class="sd">            List of dicts specifying field and inter-field constraints.</span>
-<span class="sd">            TODO: Format TBD</span>
+<span class="sd">            category they belong to.</span>
+<span class="sd">        primary_key (str):</span>
+<span class="sd">            Name of the field which is the primary key of the table.</span>
+<span class="sd">        constraints (list[Constraint, dict]):</span>
+<span class="sd">            List of Constraint objects or dicts.</span>
 <span class="sd">        table_metadata (dict or metadata.Table):</span>
 <span class="sd">            Table metadata instance or dict representation.</span>
 <span class="sd">            If given alongside any other metadata-related arguments, an</span>
@@ -206,15 +210,12 @@
     <span class="n">_CTGAN_CLASS</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">_model</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="n">HYPERPARAMETERS</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;TBD&#39;</span>
-    <span class="p">}</span>
-    <span class="n">TRANSFORMER_TEMPLATES</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="n">rdt</span><span class="o">.</span><span class="n">transformers</span><span class="o">.</span><span class="n">LabelEncodingTransformer</span>
+    <span class="n">_DTYPE_TRANSFORMERS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="s1">&#39;label_encoding&#39;</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="CTGAN.__init__"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.CTGAN.html#sdv.tabular.CTGAN.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="CTGAN.__init__"><a class="viewcode-back" href="../../../api_reference/api/sdv.tabular.CTGAN.html#sdv.tabular.CTGAN.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_transformers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">log_frequency</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">gen_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
                  <span class="n">dis_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">l2scale</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -232,7 +233,7 @@
         <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">ie</span><span class="p">:</span>
             <span class="n">ie</span><span class="o">.</span><span class="n">msg</span> <span class="o">+=</span> <span class="p">(</span>
                 <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">It seems like `ctgan` is not installed.</span><span class="se">\n</span><span class="s1">&#39;</span>
-                <span class="s1">&#39;Please install it using:</span><span class="se">\n\n</span><span class="s1">    pip install ctgan&#39;</span>
+                <span class="s1">&#39;Please install it using:</span><span class="se">\n\n</span><span class="s1">    pip install sdv[ctgan]&#39;</span>
             <span class="p">)</span>
             <span class="k">raise</span>
 

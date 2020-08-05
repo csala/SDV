@@ -145,10 +145,6 @@
                       </li>
                   
                       <li class="">
-                          <a href="api/sdv.tabular.GaussianCopula.from_parameters.html">sdv.tabular.GaussianCopula.from_parameters</a>
-                      </li>
-                  
-                      <li class="">
                           <a href="api/sdv.tabular.GaussianCopula.save.html">sdv.tabular.GaussianCopula.save</a>
                       </li>
                   
@@ -170,10 +166,6 @@
                   
                       <li class="">
                           <a href="api/sdv.tabular.CTGAN.get_metadata.html">sdv.tabular.CTGAN.get_metadata</a>
-                      </li>
-                  
-                      <li class="">
-                          <a href="api/sdv.tabular.CTGAN.from_parameters.html">sdv.tabular.CTGAN.from_parameters</a>
                       </li>
                   
                       <li class="">
@@ -259,7 +251,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.html#sdv.tabular.GaussianCopula" title="sdv.tabular.GaussianCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula</span></code></a>([field_names, primary_key, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.html#sdv.tabular.GaussianCopula" title="sdv.tabular.GaussianCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula</span></code></a>([field_names, field_types, …])</p></td>
 <td><p>Model wrapping <code class="docutils literal notranslate"><span class="pre">copulas.multivariate.GaussianMultivariate</span></code> copula.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.fit.html#sdv.tabular.GaussianCopula.fit" title="sdv.tabular.GaussianCopula.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.fit</span></code></a>(data)</p></td>
@@ -271,19 +263,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.get_metadata.html#sdv.tabular.GaussianCopula.get_metadata" title="sdv.tabular.GaussianCopula.get_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.get_metadata</span></code></a>()</p></td>
 <td><p>Get metadata about the table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.get_parameters.html#sdv.tabular.GaussianCopula.get_parameters" title="sdv.tabular.GaussianCopula.get_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.get_parameters</span></code></a>([flatten])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.get_parameters.html#sdv.tabular.GaussianCopula.get_parameters" title="sdv.tabular.GaussianCopula.get_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.get_parameters</span></code></a>()</p></td>
 <td><p>Get copula model parameters.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.set_parameters.html#sdv.tabular.GaussianCopula.set_parameters" title="sdv.tabular.GaussianCopula.set_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.set_parameters</span></code></a>(parameters[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.set_parameters.html#sdv.tabular.GaussianCopula.set_parameters" title="sdv.tabular.GaussianCopula.set_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.set_parameters</span></code></a>(parameters)</p></td>
 <td><p>Set copula model parameters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.from_parameters.html#sdv.tabular.GaussianCopula.from_parameters" title="sdv.tabular.GaussianCopula.from_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.from_parameters</span></code></a>()</p></td>
-<td><p>Regenerate a previously learned model from its parameters.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.save.html#sdv.tabular.GaussianCopula.save" title="sdv.tabular.GaussianCopula.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.save</span></code></a>(path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.save.html#sdv.tabular.GaussianCopula.save" title="sdv.tabular.GaussianCopula.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.save</span></code></a>(path)</p></td>
 <td><p>Save this model instance to the given path using pickle.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.load.html#sdv.tabular.GaussianCopula.load" title="sdv.tabular.GaussianCopula.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.load</span></code></a>(path)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.GaussianCopula.load.html#sdv.tabular.GaussianCopula.load" title="sdv.tabular.GaussianCopula.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussianCopula.load</span></code></a>(path)</p></td>
 <td><p>Load a TabularModel instance from a given path.</p></td>
 </tr>
 </tbody>
@@ -297,7 +286,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.html#sdv.tabular.CTGAN" title="sdv.tabular.CTGAN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN</span></code></a>([field_names, primary_key, …])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.html#sdv.tabular.CTGAN" title="sdv.tabular.CTGAN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN</span></code></a>([field_names, field_types, …])</p></td>
 <td><p>Model wrapping <code class="docutils literal notranslate"><span class="pre">CTGANSynthesizer</span></code> model.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.fit.html#sdv.tabular.CTGAN.fit" title="sdv.tabular.CTGAN.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN.fit</span></code></a>(data)</p></td>
@@ -309,13 +298,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.get_metadata.html#sdv.tabular.CTGAN.get_metadata" title="sdv.tabular.CTGAN.get_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN.get_metadata</span></code></a>()</p></td>
 <td><p>Get metadata about the table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.from_parameters.html#sdv.tabular.CTGAN.from_parameters" title="sdv.tabular.CTGAN.from_parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN.from_parameters</span></code></a>()</p></td>
-<td><p>Regenerate a previously learned model from its parameters.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.save.html#sdv.tabular.CTGAN.save" title="sdv.tabular.CTGAN.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN.save</span></code></a>(path)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.save.html#sdv.tabular.CTGAN.save" title="sdv.tabular.CTGAN.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN.save</span></code></a>(path)</p></td>
 <td><p>Save this model instance to the given path using pickle.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.load.html#sdv.tabular.CTGAN.load" title="sdv.tabular.CTGAN.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN.load</span></code></a>(path)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/sdv.tabular.CTGAN.load.html#sdv.tabular.CTGAN.load" title="sdv.tabular.CTGAN.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CTGAN.load</span></code></a>(path)</p></td>
 <td><p>Load a TabularModel instance from a given path.</p></td>
 </tr>
 </tbody>

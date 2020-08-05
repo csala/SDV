@@ -594,10 +594,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2020-08-04 21:06:25,933 - INFO - table - Loading transformer OneHotEncodingTransformer for field country
-2020-08-04 21:06:25,934 - INFO - table - Loading transformer OneHotEncodingTransformer for field gender
-2020-08-04 21:06:25,934 - INFO - table - Loading transformer NumericalTransformer for field age
-2020-08-04 21:06:25,950 - INFO - gaussian - Fitting GaussianMultivariate()
+2020-08-05 20:21:32,681 - INFO - sdv.metadata.table - Loading transformer OneHotEncodingTransformer for field country
+2020-08-05 20:21:32,682 - INFO - sdv.metadata.table - Loading transformer OneHotEncodingTransformer for field gender
+2020-08-05 20:21:32,682 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field age
 </pre></div></div>
 </div>
 <p><strong>Notice</strong> that the model <code class="docutils literal notranslate"><span class="pre">fitting</span></code> process took care of transforming the different fields using the appropriate <a class="reference external" href="http://github.com/sdv-dev/RDT">Reversible Data Transforms</a> to ensure that the data has a format that the GaussianMultivariate model from the <a class="reference external" href="https://github.com/sdv-dev/Copulas">copulas</a> library can handle.</p>
@@ -657,37 +656,37 @@ div.rendered_html tbody tr:hover {
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>ER</td>
+      <td>GM</td>
       <td>F</td>
-      <td>20</td>
+      <td>42</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>LK</td>
-      <td>M</td>
-      <td>30</td>
+      <td>RU</td>
+      <td>F</td>
+      <td>47</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>LK</td>
+      <td>IR</td>
       <td>F</td>
-      <td>54</td>
+      <td>22</td>
     </tr>
     <tr>
       <th>3</th>
       <td>3</td>
-      <td>SE</td>
+      <td>AU</td>
       <td>F</td>
-      <td>52</td>
+      <td>34</td>
     </tr>
     <tr>
       <th>4</th>
       <td>4</td>
-      <td>AZ</td>
-      <td>M</td>
-      <td>30</td>
+      <td>GM</td>
+      <td>F</td>
+      <td>35</td>
     </tr>
   </tbody>
 </table>
@@ -714,7 +713,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2020-08-04 21:06:27,590 - INFO - __init__ - Loading table census
+2020-08-05 20:21:34,399 - INFO - sdv.metadata - Loading table census
 </pre></div></div>
 </div>
 <p>This will return a table with several rows of multiple data types:</p>
@@ -890,21 +889,21 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2020-08-04 21:06:27,985 - INFO - table - Loading transformer NumericalTransformer for field age
-2020-08-04 21:06:27,986 - INFO - table - Loading transformer LabelEncodingTransformer for field workclass
-2020-08-04 21:06:27,987 - INFO - table - Loading transformer NumericalTransformer for field fnlwgt
-2020-08-04 21:06:27,987 - INFO - table - Loading transformer LabelEncodingTransformer for field education
-2020-08-04 21:06:27,987 - INFO - table - Loading transformer NumericalTransformer for field education-num
-2020-08-04 21:06:27,988 - INFO - table - Loading transformer LabelEncodingTransformer for field marital-status
-2020-08-04 21:06:27,988 - INFO - table - Loading transformer LabelEncodingTransformer for field occupation
-2020-08-04 21:06:27,988 - INFO - table - Loading transformer LabelEncodingTransformer for field relationship
-2020-08-04 21:06:27,989 - INFO - table - Loading transformer LabelEncodingTransformer for field race
-2020-08-04 21:06:27,989 - INFO - table - Loading transformer LabelEncodingTransformer for field sex
-2020-08-04 21:06:27,989 - INFO - table - Loading transformer NumericalTransformer for field capital-gain
-2020-08-04 21:06:27,990 - INFO - table - Loading transformer NumericalTransformer for field capital-loss
-2020-08-04 21:06:27,990 - INFO - table - Loading transformer NumericalTransformer for field hours-per-week
-2020-08-04 21:06:27,991 - INFO - table - Loading transformer LabelEncodingTransformer for field native-country
-2020-08-04 21:06:27,992 - INFO - table - Loading transformer LabelEncodingTransformer for field income
+2020-08-05 20:21:34,783 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field age
+2020-08-05 20:21:34,784 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field workclass
+2020-08-05 20:21:34,784 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field fnlwgt
+2020-08-05 20:21:34,785 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field education
+2020-08-05 20:21:34,785 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field education-num
+2020-08-05 20:21:34,786 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field marital-status
+2020-08-05 20:21:34,786 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field occupation
+2020-08-05 20:21:34,787 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field relationship
+2020-08-05 20:21:34,787 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field race
+2020-08-05 20:21:34,787 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field sex
+2020-08-05 20:21:34,788 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field capital-gain
+2020-08-05 20:21:34,788 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field capital-loss
+2020-08-05 20:21:34,789 - INFO - sdv.metadata.table - Loading transformer NumericalTransformer for field hours-per-week
+2020-08-05 20:21:34,789 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field native-country
+2020-08-05 20:21:34,790 - INFO - sdv.metadata.table - Loading transformer LabelEncodingTransformer for field income
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -912,16 +911,16 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Epoch 1, Loss G: 1.9600, Loss D: -0.0346
-Epoch 2, Loss G: 1.9126, Loss D: -0.0917
-Epoch 3, Loss G: 2.0136, Loss D: -0.1632
-Epoch 4, Loss G: 1.9682, Loss D: -0.2320
-Epoch 5, Loss G: 1.9919, Loss D: -0.3631
-Epoch 6, Loss G: 1.8622, Loss D: -0.3984
-Epoch 7, Loss G: 1.8997, Loss D: -0.5133
-Epoch 8, Loss G: 1.8405, Loss D: -0.6244
-Epoch 9, Loss G: 1.9165, Loss D: -0.7097
-Epoch 10, Loss G: 1.8600, Loss D: -0.7603
+Epoch 1, Loss G: 2.0244, Loss D: -0.0316
+Epoch 2, Loss G: 2.0228, Loss D: -0.0727
+Epoch 3, Loss G: 2.0088, Loss D: -0.1097
+Epoch 4, Loss G: 2.0309, Loss D: -0.2022
+Epoch 5, Loss G: 1.9653, Loss D: -0.2710
+Epoch 6, Loss G: 1.9995, Loss D: -0.3193
+Epoch 7, Loss G: 2.0068, Loss D: -0.4362
+Epoch 8, Loss G: 1.9332, Loss D: -0.5809
+Epoch 9, Loss G: 1.8916, Loss D: -0.7454
+Epoch 10, Loss G: 1.8754, Loss D: -0.8146
 </pre></div></div>
 </div>
 <div class="section" id="id1">
@@ -989,182 +988,182 @@ Epoch 10, Loss G: 1.8600, Loss D: -0.7603
   <tbody>
     <tr>
       <th>0</th>
-      <td>29</td>
-      <td>Private</td>
-      <td>190016</td>
-      <td>5th-6th</td>
+      <td>14</td>
+      <td>Local-gov</td>
+      <td>80297</td>
+      <td>11th</td>
       <td>9</td>
-      <td>Never-married</td>
-      <td>Priv-house-serv</td>
+      <td>Divorced</td>
+      <td>Exec-managerial</td>
       <td>Husband</td>
-      <td>Other</td>
+      <td>White</td>
       <td>Male</td>
-      <td>5895</td>
-      <td>3</td>
-      <td>35</td>
-      <td>Canada</td>
+      <td>-298</td>
+      <td>-6</td>
+      <td>38</td>
+      <td>Puerto-Rico</td>
       <td>&lt;=50K</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>25</td>
-      <td>Private</td>
-      <td>63559</td>
-      <td>HS-grad</td>
-      <td>10</td>
-      <td>Married-spouse-absent</td>
-      <td>Protective-serv</td>
-      <td>Unmarried</td>
+      <td>41</td>
+      <td>?</td>
+      <td>310388</td>
+      <td>Prof-school</td>
+      <td>9</td>
+      <td>Widowed</td>
+      <td>Transport-moving</td>
+      <td>Husband</td>
       <td>White</td>
-      <td>Female</td>
-      <td>105296</td>
+      <td>Male</td>
+      <td>8185</td>
       <td>8</td>
-      <td>30</td>
-      <td>Thailand</td>
-      <td>&gt;50K</td>
+      <td>13</td>
+      <td>?</td>
+      <td>&lt;=50K</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>21</td>
-      <td>?</td>
-      <td>188290</td>
-      <td>Doctorate</td>
-      <td>11</td>
+      <td>36</td>
+      <td>Self-emp-inc</td>
+      <td>151728</td>
+      <td>Assoc-voc</td>
+      <td>9</td>
       <td>Never-married</td>
-      <td>Protective-serv</td>
-      <td>Husband</td>
-      <td>Black</td>
-      <td>Male</td>
-      <td>122</td>
-      <td>8</td>
-      <td>29</td>
-      <td>Portugal</td>
+      <td>Farming-fishing</td>
+      <td>Unmarried</td>
+      <td>Amer-Indian-Eskimo</td>
+      <td>Female</td>
+      <td>13230</td>
+      <td>-7</td>
+      <td>41</td>
+      <td>Trinadad&amp;Tobago</td>
       <td>&lt;=50K</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>12</td>
-      <td>Self-emp-not-inc</td>
-      <td>114336</td>
-      <td>Masters</td>
+      <td>16</td>
+      <td>Local-gov</td>
+      <td>469476</td>
+      <td>Some-college</td>
       <td>14</td>
-      <td>Married-civ-spouse</td>
-      <td>Handlers-cleaners</td>
-      <td>Husband</td>
-      <td>White</td>
+      <td>Never-married</td>
+      <td>Sales</td>
+      <td>Not-in-family</td>
+      <td>Black</td>
       <td>Male</td>
-      <td>83</td>
-      <td>19</td>
-      <td>38</td>
-      <td>England</td>
-      <td>&lt;=50K</td>
+      <td>10160</td>
+      <td>8</td>
+      <td>25</td>
+      <td>?</td>
+      <td>&gt;50K</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>30</td>
-      <td>Self-emp-not-inc</td>
-      <td>258571</td>
-      <td>HS-grad</td>
-      <td>14</td>
-      <td>Widowed</td>
-      <td>Farming-fishing</td>
-      <td>Unmarried</td>
+      <td>28</td>
+      <td>Private</td>
+      <td>94019</td>
+      <td>Prof-school</td>
+      <td>8</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Own-child</td>
       <td>White</td>
-      <td>Female</td>
-      <td>1022</td>
-      <td>-27</td>
-      <td>39</td>
-      <td>Vietnam</td>
-      <td>&lt;=50K</td>
+      <td>Male</td>
+      <td>-26</td>
+      <td>1987</td>
+      <td>25</td>
+      <td>Guatemala</td>
+      <td>&gt;50K</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>45</td>
-      <td>Self-emp-not-inc</td>
-      <td>263557</td>
-      <td>Bachelors</td>
-      <td>9</td>
-      <td>Divorced</td>
-      <td>Craft-repair</td>
+      <td>59</td>
+      <td>?</td>
+      <td>179268</td>
+      <td>Prof-school</td>
+      <td>10</td>
+      <td>Never-married</td>
+      <td>Exec-managerial</td>
       <td>Other-relative</td>
-      <td>Asian-Pac-Islander</td>
+      <td>Amer-Indian-Eskimo</td>
       <td>Female</td>
-      <td>670</td>
-      <td>-9</td>
+      <td>104</td>
+      <td>-11</td>
       <td>28</td>
-      <td>El-Salvador</td>
+      <td>Cuba</td>
       <td>&lt;=50K</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>28</td>
-      <td>Local-gov</td>
-      <td>414285</td>
-      <td>9th</td>
-      <td>9</td>
+      <td>25</td>
+      <td>Private</td>
+      <td>418696</td>
+      <td>HS-grad</td>
+      <td>13</td>
       <td>Separated</td>
-      <td>Exec-managerial</td>
-      <td>Wife</td>
-      <td>Asian-Pac-Islander</td>
-      <td>Male</td>
-      <td>6535</td>
-      <td>-26</td>
+      <td>Farming-fishing</td>
+      <td>Unmarried</td>
+      <td>Other</td>
+      <td>Female</td>
+      <td>17109</td>
+      <td>-14</td>
       <td>38</td>
-      <td>Ireland</td>
+      <td>South</td>
       <td>&lt;=50K</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>24</td>
-      <td>Local-gov</td>
-      <td>38498</td>
-      <td>Doctorate</td>
+      <td>14</td>
+      <td>Self-emp-not-inc</td>
+      <td>186409</td>
+      <td>9th</td>
       <td>10</td>
-      <td>Never-married</td>
-      <td>Tech-support</td>
-      <td>Unmarried</td>
-      <td>Other</td>
-      <td>Male</td>
-      <td>363</td>
-      <td>-4</td>
-      <td>38</td>
-      <td>?</td>
+      <td>Widowed</td>
+      <td>Priv-house-serv</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>-24</td>
+      <td>15</td>
+      <td>62</td>
+      <td>Portugal</td>
       <td>&lt;=50K</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>23</td>
-      <td>Private</td>
-      <td>146210</td>
-      <td>Assoc-voc</td>
+      <td>64</td>
+      <td>Local-gov</td>
+      <td>198041</td>
+      <td>Some-college</td>
       <td>12</td>
-      <td>Divorced</td>
-      <td>Adm-clerical</td>
+      <td>Separated</td>
+      <td>Prof-specialty</td>
       <td>Husband</td>
-      <td>Asian-Pac-Islander</td>
-      <td>Male</td>
-      <td>2140</td>
-      <td>1</td>
-      <td>45</td>
-      <td>Guatemala</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>-242</td>
+      <td>8</td>
+      <td>39</td>
+      <td>Mexico</td>
       <td>&lt;=50K</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>34</td>
-      <td>Federal-gov</td>
-      <td>182881</td>
+      <td>21</td>
+      <td>Private</td>
+      <td>314514</td>
       <td>12th</td>
-      <td>9</td>
-      <td>Married-civ-spouse</td>
-      <td>Craft-repair</td>
+      <td>12</td>
+      <td>Separated</td>
+      <td>Prof-specialty</td>
       <td>Own-child</td>
-      <td>Other</td>
-      <td>Female</td>
-      <td>1018</td>
-      <td>-25</td>
-      <td>41</td>
-      <td>Puerto-Rico</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>-217</td>
+      <td>-21</td>
+      <td>38</td>
+      <td>Cambodia</td>
       <td>&lt;=50K</td>
     </tr>
   </tbody>
@@ -1196,7 +1195,7 @@ Epoch 10, Loss G: 1.8600, Loss D: -0.7603
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
--128.09813751757454
+-158.827930355211
 </pre></div></div>
 </div>
 </div>

@@ -15,7 +15,6 @@ sdv.tabular.GaussianCopula
    
       ~GaussianCopula.__init__
       ~GaussianCopula.fit
-      ~GaussianCopula.from_parameters
       ~GaussianCopula.get_metadata
       ~GaussianCopula.get_parameters
       ~GaussianCopula.load
@@ -26,14 +25,5 @@ sdv.tabular.GaussianCopula
    
 
    
-   
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~GaussianCopula.CATEGORICAL_TRANSFORMERS
-      ~GaussianCopula.DEFAULT_TRANSFORMER
-      ~GaussianCopula.HYPERPARAMETERS
-      ~GaussianCopula.TRANSFORMER_TEMPLATES
    
    

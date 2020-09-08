@@ -1,4 +1,4 @@
-sdv.metadata.Table.fit
+﻿sdv.metadata.Table.fit
 ======================
 
 .. currentmodule:: sdv.metadata

@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.reverse\_transform
+﻿sdv.metadata.Metadata.reverse\_transform
 ========================================
 
 .. currentmodule:: sdv.metadata

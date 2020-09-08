@@ -1,4 +1,4 @@
-sdv.tabular.GaussianCopula.load
+﻿sdv.tabular.GaussianCopula.load
 ===============================
 
 .. currentmodule:: sdv.tabular

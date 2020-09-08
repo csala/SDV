@@ -1,4 +1,4 @@
-sdv.tabular.CTGAN.fit
+﻿sdv.tabular.CTGAN.fit
 =====================
 
 .. currentmodule:: sdv.tabular

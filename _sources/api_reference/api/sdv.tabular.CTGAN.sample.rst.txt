@@ -1,4 +1,4 @@
-sdv.tabular.CTGAN.sample
+﻿sdv.tabular.CTGAN.sample
 ========================
 
 .. currentmodule:: sdv.tabular

@@ -1,4 +1,4 @@
-sdv.metadata.Table.to\_json
+﻿sdv.metadata.Table.to\_json
 ===========================
 
 .. currentmodule:: sdv.metadata

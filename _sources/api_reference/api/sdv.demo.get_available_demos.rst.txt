@@ -1,4 +1,4 @@
-sdv.demo.get\_available\_demos
+﻿sdv.demo.get\_available\_demos
 ==============================
 
 .. currentmodule:: sdv.demo

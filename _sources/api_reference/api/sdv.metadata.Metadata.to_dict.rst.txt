@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.to\_dict
+﻿sdv.metadata.Metadata.to\_dict
 ==============================
 
 .. currentmodule:: sdv.metadata

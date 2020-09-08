@@ -1,4 +1,4 @@
-sdv.constraints.tabular.UniqueCombinations
+﻿sdv.constraints.tabular.UniqueCombinations
 ==========================================
 
 .. currentmodule:: sdv.constraints.tabular

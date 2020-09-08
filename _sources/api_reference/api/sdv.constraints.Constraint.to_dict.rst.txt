@@ -1,4 +1,4 @@
-sdv.constraints.Constraint.to\_dict
+﻿sdv.constraints.Constraint.to\_dict
 ===================================
 
 .. currentmodule:: sdv.constraints

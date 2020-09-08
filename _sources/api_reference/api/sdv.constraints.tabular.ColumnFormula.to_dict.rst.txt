@@ -1,4 +1,4 @@
-sdv.constraints.tabular.ColumnFormula.to\_dict
+﻿sdv.constraints.tabular.ColumnFormula.to\_dict
 ==============================================
 
 .. currentmodule:: sdv.constraints.tabular

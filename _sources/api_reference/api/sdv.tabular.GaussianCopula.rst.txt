@@ -1,4 +1,4 @@
-sdv.tabular.GaussianCopula
+﻿sdv.tabular.GaussianCopula
 ==========================
 
 .. currentmodule:: sdv.tabular
@@ -15,6 +15,7 @@ sdv.tabular.GaussianCopula
    
       ~GaussianCopula.__init__
       ~GaussianCopula.fit
+      ~GaussianCopula.get_distributions
       ~GaussianCopula.get_metadata
       ~GaussianCopula.get_parameters
       ~GaussianCopula.load

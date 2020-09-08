@@ -1,4 +1,4 @@
-sdv.metadata.Table.reverse\_transform
+﻿sdv.metadata.Table.reverse\_transform
 =====================================
 
 .. currentmodule:: sdv.metadata

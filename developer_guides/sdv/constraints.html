@@ -1,29 +1,50 @@
 
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constraints &#8212; SDV 0.3.7.dev0 documentation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../../_static/css/index.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constraints &#8212; SDV 0.4.1 documentation</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.30270b6e4c972e43c488.js">
+
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/SDV-Logo-Black.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Metadata Schema" href="metadata.html" />
     <link rel="prev" title="Tabular Models" href="tabular.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -32,7 +53,7 @@
 
     
     <a class="navbar-brand" href="../../index.html">
-      <img src="../../_static/SDV-logo.png" class="logo" alt="logo">
+      <img src="../../_static/SDV-Logo-Color.png" class="logo" alt="logo">
     </a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,12 +98,6 @@
             </a>
           </li>
         
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/sdv_dev" target="_blank" rel="noopener">
-              <span><i class="fab fa-twitter-square"></i></span>
-            </a>
-          </li>
         
       </ul>
     </div>
@@ -199,7 +214,7 @@ API which is compatible with the rest of the project.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">transform</span></code>: Identity method.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">fit_transform</span></code>: Call <code class="docutils literal notranslate"><span class="pre">self.fit</span></code> and then call <code class="docutils literal notranslate"><span class="pre">self.transform</span></code> and return its outputs.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">reverse_transform</span></code>: Identity method.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">is_valid</span></code>: Return a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> full or <code class="docutils literal notranslate"><span class="pre">True</span></code> values with the same lenth as the
+<li><p><code class="docutils literal notranslate"><span class="pre">is_valid</span></code>: Return a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code> full or <code class="docutils literal notranslate"><span class="pre">True</span></code> values with the same length as the
 given data.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">filter_valid</span></code>: Return only the rows for which <code class="docutils literal notranslate"><span class="pre">self.is_valid</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">from_dict</span></code>: Build a <code class="docutils literal notranslate"><span class="pre">Constraint</span></code> from its dict representation.</p></li>
@@ -267,7 +282,7 @@ so we know which column we need to validate.</p>
 <p>With the current implementation modeling would happen as usual. However, during sampling,
 all the rows would be validated using the <code class="docutils literal notranslate"><span class="pre">is_valid</span></code> method that we implemented, and invalid
 rows would be rejected and resampled until the number of desired rows has been generated.</p>
-<p>In this case this might be acceptable becahse each row only has a 50% chance of being invalid,
+<p>In this case this might be acceptable because each row only has a 50% chance of being invalid,
 which means that, on average, we would need the model to sample only 2 times the number of rows
 that we need in order to get enough valid rows. However, in some other cases this can take a long
 time, especially if the condition imposed has a very low chance of being true. In such cases, we
@@ -353,12 +368,15 @@ can handle it adequately:</p>
       </div>
     </div>
 
-    <script src="../../_static/js/index.js"></script>
+    
+  <script src="../../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

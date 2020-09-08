@@ -1,4 +1,4 @@
-sdv.tabular.CTGAN.load
+﻿sdv.tabular.CTGAN.load
 ======================
 
 .. currentmodule:: sdv.tabular

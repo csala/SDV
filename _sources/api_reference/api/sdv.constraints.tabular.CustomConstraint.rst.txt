@@ -1,4 +1,4 @@
-sdv.constraints.tabular.CustomConstraint
+﻿sdv.constraints.tabular.CustomConstraint
 ========================================
 
 .. currentmodule:: sdv.constraints.tabular

@@ -1,4 +1,4 @@
-sdv.constraints.tabular.ColumnFormula.fit\_transform
+﻿sdv.constraints.tabular.ColumnFormula.fit\_transform
 ====================================================
 
 .. currentmodule:: sdv.constraints.tabular

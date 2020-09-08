@@ -1,4 +1,4 @@
-sdv.tabular.GaussianCopula.get\_parameters
+﻿sdv.tabular.GaussianCopula.get\_parameters
 ==========================================
 
 .. currentmodule:: sdv.tabular

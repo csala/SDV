@@ -1,4 +1,4 @@
-sdv.constraints.tabular.UniqueCombinations.filter\_valid
+﻿sdv.constraints.tabular.UniqueCombinations.filter\_valid
 ========================================================
 
 .. currentmodule:: sdv.constraints.tabular

@@ -1,4 +1,4 @@
-sdv.constraints.tabular.ColumnFormula.filter\_valid
+﻿sdv.constraints.tabular.ColumnFormula.filter\_valid
 ===================================================
 
 .. currentmodule:: sdv.constraints.tabular

@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.add\_relationship
+﻿sdv.metadata.Metadata.add\_relationship
 =======================================
 
 .. currentmodule:: sdv.metadata

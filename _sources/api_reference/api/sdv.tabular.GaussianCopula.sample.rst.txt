@@ -1,4 +1,4 @@
-sdv.tabular.GaussianCopula.sample
+﻿sdv.tabular.GaussianCopula.sample
 =================================
 
 .. currentmodule:: sdv.tabular

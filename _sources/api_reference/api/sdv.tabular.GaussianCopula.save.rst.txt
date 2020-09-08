@@ -1,4 +1,4 @@
-sdv.tabular.GaussianCopula.save
+﻿sdv.tabular.GaussianCopula.save
 ===============================
 
 .. currentmodule:: sdv.tabular

@@ -1,4 +1,4 @@
-sdv.tabular.GaussianCopula.fit
+﻿sdv.tabular.GaussianCopula.fit
 ==============================
 
 .. currentmodule:: sdv.tabular

@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.add\_table
+﻿sdv.metadata.Metadata.add\_table
 ================================
 
 .. currentmodule:: sdv.metadata

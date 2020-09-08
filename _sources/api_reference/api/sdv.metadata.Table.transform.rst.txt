@@ -1,4 +1,4 @@
-sdv.metadata.Table.transform
+﻿sdv.metadata.Table.transform
 ============================
 
 .. currentmodule:: sdv.metadata

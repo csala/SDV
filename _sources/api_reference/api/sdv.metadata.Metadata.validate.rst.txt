@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.validate
+﻿sdv.metadata.Metadata.validate
 ==============================
 
 .. currentmodule:: sdv.metadata

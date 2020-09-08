@@ -1,4 +1,4 @@
-sdv.demo.load\_tabular\_demo
+﻿sdv.demo.load\_tabular\_demo
 ============================
 
 .. currentmodule:: sdv.demo

@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.set\_primary\_key
+﻿sdv.metadata.Metadata.set\_primary\_key
 =======================================
 
 .. currentmodule:: sdv.metadata

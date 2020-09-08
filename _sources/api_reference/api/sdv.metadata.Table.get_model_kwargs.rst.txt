@@ -1,4 +1,4 @@
-sdv.metadata.Table.get\_model\_kwargs
+﻿sdv.metadata.Table.get\_model\_kwargs
 =====================================
 
 .. currentmodule:: sdv.metadata

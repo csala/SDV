@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.get\_fields
+﻿sdv.metadata.Metadata.get\_fields
 =================================
 
 .. currentmodule:: sdv.metadata

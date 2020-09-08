@@ -1,4 +1,4 @@
-sdv.metadata.Table
+﻿sdv.metadata.Table
 ==================
 
 .. currentmodule:: sdv.metadata

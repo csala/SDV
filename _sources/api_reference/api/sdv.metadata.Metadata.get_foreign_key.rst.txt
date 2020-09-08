@@ -1,4 +1,4 @@
-sdv.metadata.Metadata.get\_foreign\_key
+﻿sdv.metadata.Metadata.get\_foreign\_key
 =======================================
 
 .. currentmodule:: sdv.metadata

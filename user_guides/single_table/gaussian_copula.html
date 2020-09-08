@@ -271,16 +271,13 @@ to:</p>
 </ul>
 <div class="section" id="what-is-gaussiancopula">
 <h2>What is GaussianCopula?<a class="headerlink" href="#what-is-gaussiancopula" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">sdv.tabular.GaussianCopula</span></code> model from <code class="docutils literal notranslate"><span class="pre">SDV</span></code> is based on the
-<code class="docutils literal notranslate"><span class="pre">copulas.multivariate.GaussianMultivariate</span></code> class from the <a class="reference external" href="https://sdv.dev/Copulas">Copulas
-library</a>, a library for modeling and
-sampling multivariate distributions based on <a class="reference external" href="https://en.wikipedia.org/wiki/Copula_%28probability_theory%29">copula
-funtions</a>.</p>
-<p>In mathematical terms, a Gaussian Copula is a distribution over the unit
+<p>The <code class="docutils literal notranslate"><span class="pre">sdv.tabular.GaussianCopula</span></code> model is based on the the usage of
+<a class="reference external" href="https://en.wikipedia.org/wiki/Copula_%28probability_theory%29">copula funtions</a>.</p>
+<p>In mathematical terms, a <em>copula</em> is a distribution over the unit
 cube <span class="math notranslate nohighlight">\({\displaystyle [0,1]^{d}}\)</span> which is constructed from a
 multivariate normal distribution over
 <span class="math notranslate nohighlight">\({\displaystyle \mathbb {R} ^{d}}\)</span> by using the probability
-integral transform. Intuitively, a Copula is a mathematical function
+integral transform. Intuitively, a <em>copula</em> is a mathematical function
 that allows us to describe the joint distribution of multiple random
 variables by analyzing the dependencies between their marginal
 distributions.</p>
@@ -347,8 +344,7 @@ that you want to generate.</p></li>
 <p>Notice that the model <code class="docutils literal notranslate"><span class="pre">fitting</span></code> process took care of transforming the
 different fields using the appropriate <a class="reference external" href="http://github.com/sdv-dev/RDT">Reversible Data
 Transforms</a> to ensure that the data
-has a format that the GaussianMultivariate model from the
-<a class="reference external" href="https://github.com/sdv-dev/Copulas">copulas</a> library can handle.</p>
+has a format that the <code class="docutils literal notranslate"><span class="pre">GaussianMultivariate</span></code> model can handle.</p>
 </div>
 <div class="section" id="generate-synthetic-data-from-the-model">
 <h3>Generate synthetic data from the model<a class="headerlink" href="#generate-synthetic-data-from-the-model" title="Permalink to this headline">¶</a></h3>
@@ -363,11 +359,11 @@ on, but filled with new data which resembles the original one.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[8]: </span><span class="go"></span>
 <span class="go">   student_id gender  ...                      end_date  duration</span>
-<span class="go">0      155435      F  ... 2020-03-26 10:43:16.388300800       3.0</span>
-<span class="go">1      155443      F  ... 2021-01-26 10:17:21.650455040      12.0</span>
-<span class="go">2      155541      M  ... 2020-11-12 18:17:22.252855552       3.0</span>
-<span class="go">3      155424      M  ...                           NaT      12.0</span>
-<span class="go">4      155393      M  ... 2020-05-29 17:52:21.793247744       3.0</span>
+<span class="go">0      155473      M  ...                           NaT      12.0</span>
+<span class="go">1      155549      M  ... 2020-11-04 09:06:12.897779968       3.0</span>
+<span class="go">2      155372      M  ... 2020-04-05 16:10:31.259369216       3.0</span>
+<span class="go">3      155527      M  ... 2020-12-03 13:06:24.945435136       3.0</span>
+<span class="go">4      155374      M  ... 2020-05-29 11:40:13.106467584       3.0</span>
 
 <span class="go">[5 rows x 17 columns]</span>
 </pre></div>
@@ -454,10 +450,10 @@ that there are some values that appear more than once:</p>
 <span class="gp">In [14]: </span><span class="n">new_data</span><span class="p">[</span><span class="n">new_data</span><span class="o">.</span><span class="n">student_id</span> <span class="o">==</span> <span class="n">new_data</span><span class="o">.</span><span class="n">student_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="gh">Out[14]: </span><span class="go"></span>
 <span class="go">     student_id gender  ...                      end_date  duration</span>
-<span class="go">12       155454      M  ... 2021-01-02 22:32:22.098607616       3.0</span>
-<span class="go">31       155454      M  ... 2020-03-31 22:51:53.571030016       3.0</span>
-<span class="go">127      155454      M  ...                           NaT      12.0</span>
-<span class="go">167      155454      M  ...                           NaT      12.0</span>
+<span class="go">40       155515      M  ...                           NaT      12.0</span>
+<span class="go">163      155515      F  ... 2020-10-28 14:44:05.533394688       3.0</span>
+<span class="go">179      155515      F  ... 2020-04-15 17:14:59.623610880       3.0</span>
+<span class="go">193      155515      M  ...                           NaT      12.0</span>
 
 <span class="go">[4 rows x 17 columns]</span>
 </pre></div>
@@ -482,11 +478,11 @@ generate a unique sequence of valures for the column:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
 <span class="go">   student_id gender  ...                      end_date  duration</span>
-<span class="go">0           0      F  ...                           NaT       3.0</span>
-<span class="go">1           1      F  ... 2020-09-26 20:31:38.134569984       3.0</span>
-<span class="go">2           2      M  ... 2020-08-14 16:41:54.353970432      12.0</span>
-<span class="go">3           3      F  ... 2020-08-17 07:51:36.858928640       3.0</span>
-<span class="go">4           4      F  ... 2020-05-20 07:47:01.272470016       3.0</span>
+<span class="go">0           0      M  ...                           NaT      12.0</span>
+<span class="go">1           1      M  ... 2020-06-07 22:38:13.424508160       3.0</span>
+<span class="go">2           2      M  ...                           NaT       3.0</span>
+<span class="go">3           3      M  ... 2021-01-24 15:38:04.896932352      12.0</span>
+<span class="go">4           4      M  ... 2020-04-12 22:42:01.878971136       3.0</span>
 
 <span class="go">[5 rows x 17 columns]</span>
 
@@ -541,12 +537,12 @@ students:</p>
 
 <span class="gp">In [25]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[25]: </span><span class="go"></span>
-<span class="go">   student_id              name  ...                      end_date  duration</span>
-<span class="go">0           0  Jordan Robertson  ...                           NaT      12.0</span>
-<span class="go">1           1   Patricia Miller  ... 2020-11-19 13:13:49.383019264       3.0</span>
-<span class="go">2           2    Mr. Ryan Perry  ... 2020-12-14 13:44:12.339781632      12.0</span>
-<span class="go">3           3  Jeffery Robinson  ...                           NaT      12.0</span>
-<span class="go">4           4    Timothy French  ... 2020-05-31 02:12:34.995030784       3.0</span>
+<span class="go">   student_id             name  ...                      end_date  duration</span>
+<span class="go">0           0  Patrick Johnson  ... 2020-05-02 16:08:51.603423744       3.0</span>
+<span class="go">1           1  Patricia Miller  ... 2020-08-26 06:01:33.050014464       3.0</span>
+<span class="go">2           2   Tara Rodriguez  ...                           NaT      12.0</span>
+<span class="go">3           3      Lisa Carter  ... 2020-11-16 13:23:47.823464960      12.0</span>
+<span class="go">4           4  Stanley Lambert  ... 2020-07-03 16:12:50.130016256       3.0</span>
 
 <span class="go">[5 rows x 18 columns]</span>
 
@@ -611,12 +607,12 @@ that we learned.</p>
 
 <span class="gp">In [30]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[30]: </span><span class="go"></span>
-<span class="go">   student_id              name  ...                      end_date  duration</span>
-<span class="go">0           0     Manuel Peters  ... 2020-12-06 22:25:47.183658752       3.0</span>
-<span class="go">1           1    Daniel Barrera  ... 2020-08-26 05:00:33.645892864       3.0</span>
-<span class="go">2           2  Victoria Goodwin  ...                           NaT      12.0</span>
-<span class="go">3           3    Thomas Buckley  ... 2021-01-22 01:47:56.049160448      12.0</span>
-<span class="go">4           4     Brandon Brown  ... 2021-01-27 22:04:35.761201664      12.0</span>
+<span class="go">   student_id             name  ...                      end_date  duration</span>
+<span class="go">0           0  Patrick Johnson  ...                           NaT       3.0</span>
+<span class="go">1           1  Patrick Johnson  ...                           NaT       3.0</span>
+<span class="go">2           2  Patricia Miller  ... 2020-12-10 00:24:14.735181312       3.0</span>
+<span class="go">3           3     Ann Ferguson  ... 2020-12-03 12:19:32.712519680       3.0</span>
+<span class="go">4           4  Patricia Miller  ... 2020-06-26 16:44:21.820825088       6.0</span>
 
 <span class="go">[5 rows x 18 columns]</span>
 
@@ -715,12 +711,12 @@ value, it just replaces each value with a unique integer value.</p>
 
 <span class="gp">In [35]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[35]: </span><span class="go"></span>
-<span class="go">   student_id             name  ...                      end_date  duration</span>
-<span class="go">0           0   Steven Garrett  ...                           NaT      12.0</span>
-<span class="go">1           1  Patricia Miller  ... 2020-05-31 11:30:23.617946368       3.0</span>
-<span class="go">2           2  Janet Flores MD  ... 2020-12-23 03:04:52.686135552      12.0</span>
-<span class="go">3           3     Cassie Mcgee  ... 2021-01-11 02:22:49.829910528      12.0</span>
-<span class="go">4           4      Erin Flores  ... 2020-08-24 09:47:53.699096576       3.0</span>
+<span class="go">   student_id              name  ...                      end_date  duration</span>
+<span class="go">0           0   Patricia Miller  ... 2021-01-31 10:40:28.605157120      12.0</span>
+<span class="go">1           1  Jeffery Robinson  ... 2020-07-26 02:31:57.048478208       3.0</span>
+<span class="go">2           2   Patricia Miller  ...                           NaT       3.0</span>
+<span class="go">3           3   Patricia Miller  ... 2020-08-31 07:28:43.311590656      12.0</span>
+<span class="go">4           4   Dominique Jones  ...                           NaT      12.0</span>
 
 <span class="go">[5 rows x 18 columns]</span>
 </pre></div>
@@ -838,10 +834,12 @@ generated values now contain negative values which are invalid for this
 column:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [43]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="gh">Out[43]: </span><span class="go"></span>
-<span class="go"> 1    93</span>
+<span class="go"> 1    85</span>
 <span class="go"> 0    84</span>
 <span class="go">-1    16</span>
-<span class="go"> 2     7</span>
+<span class="go"> 2    13</span>
+<span class="go">-2     1</span>
+<span class="go"> 3     1</span>
 <span class="go">Name: experience_years, dtype: int64</span>
 
 <span class="gp">In [44]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
@@ -915,11 +913,11 @@ the valid values range.</p>
 
 <span class="gp">In [50]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="gh">Out[50]: </span><span class="go"></span>
-<span class="go">0    152</span>
-<span class="go">1     29</span>
-<span class="go">3     15</span>
-<span class="go">2     10</span>
-<span class="go">4      9</span>
+<span class="go">0    136</span>
+<span class="go">3     25</span>
+<span class="go">1     23</span>
+<span class="go">2     19</span>
+<span class="go">4     12</span>
 <span class="go">Name: experience_years, dtype: int64</span>
 
 <span class="gp">In [51]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>

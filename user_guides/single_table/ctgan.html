@@ -229,29 +229,7 @@
             <a href="#advanced-usage" class="nav-link">Advanced Usage</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#ctgan-hyperparameters" class="nav-link">CTGAN Hyperparameters</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#epochs-and-batch-size" class="nav-link">epochs and batch_size</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#log-frequency" class="nav-link">log_frequency</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#neural-network-dimensions" class="nav-link">Neural Network dimensions</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#l2scale" class="nav-link">l2scale</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#verbose" class="nav-link">verbose</a>
-        </li>
-    
-            </ul>
+            <a href="#ctgan-hyperparameters" class="nav-link">CTGAN Hyperparameters</a>
         </li>
     
             </ul>
@@ -284,15 +262,10 @@ discover functionalities of the <code class="docutils literal notranslate"><span
 </ul>
 <div class="section" id="what-is-ctgan">
 <h2>What is CTGAN?<a class="headerlink" href="#what-is-ctgan" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">sdv.tabular.CTGAN</span></code> model from <code class="docutils literal notranslate"><span class="pre">SDV</span></code> is based on the
-<code class="docutils literal notranslate"><span class="pre">ctgan.CTGANSynthesizer</span></code> class from the <a class="reference external" href="https://github.com/sdv-dev/CTGAN">CTGAN
-library</a>, a Deep Learning based
-data synthesizer that uses Generative Adversarial Networks to generate
-tabular data and which was presented at the NeurIPS 2020 conference by
+<p>The <code class="docutils literal notranslate"><span class="pre">sdv.tabular.CTGAN</span></code> model is based on the GAN-based Deep Learning
+data synthesizer which was presented at the NeurIPS 2020 conference by
 the paper titled <a class="reference external" href="https://arxiv.org/abs/1907.00503">Modeling Tabular data using Conditional
-GAN</a>. For more details about the
-model, please read the linked paper and visit the <a class="reference external" href="https://github.com/sdv-dev/CTGAN">CTGAN
-library</a>.</p>
+GAN</a>.</p>
 <p>Let’s now discover how to learn a dataset and later on generate
 synthetic data with the same format and statistical properties by using
 the <code class="docutils literal notranslate"><span class="pre">CTGAN</span></code> class from SDV.</p>
@@ -373,7 +346,7 @@ that you want to generate.</p></li>
 <p>Notice that the model <code class="docutils literal notranslate"><span class="pre">fitting</span></code> process took care of transforming the
 different fields using the appropriate <a class="reference external" href="http://github.com/sdv-dev/RDT">Reversible Data
 Transforms</a> to ensure that the data
-has a format that the CTGANSynthesizer class can handle.</p>
+has a format that the underlying CTGANSynthesizer class can handle.</p>
 </div>
 <div class="section" id="generate-synthetic-data-from-the-model">
 <h3>Generate synthetic data from the model<a class="headerlink" href="#generate-synthetic-data-from-the-model" title="Permalink to this headline">¶</a></h3>
@@ -388,11 +361,11 @@ on, but filled with new data which resembles the original one.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[8]: </span><span class="go"></span>
 <span class="go">   student_id gender  ...                      end_date  duration</span>
-<span class="go">0      155357      M  ... 2020-10-29 05:01:06.498546944       NaN</span>
-<span class="go">1      155418      F  ...                           NaT      12.0</span>
-<span class="go">2      155499      F  ... 2020-05-31 00:23:09.321319680      12.0</span>
-<span class="go">3      155376      M  ... 2020-07-22 14:36:38.120197888       NaN</span>
-<span class="go">4      155497      F  ... 2020-04-04 06:31:12.613387264       NaN</span>
+<span class="go">0      155593      F  ...                           NaT       NaN</span>
+<span class="go">1      155500      M  ...                           NaT       NaN</span>
+<span class="go">2      155538      M  ...                           NaT       3.0</span>
+<span class="go">3      155555      F  ... 2021-01-20 04:58:40.278138368       3.0</span>
+<span class="go">4      155592      M  ... 2020-11-14 18:45:24.548947712       NaN</span>
 
 <span class="go">[5 rows x 17 columns]</span>
 </pre></div>
@@ -474,17 +447,18 @@ all of them appear at most once:</p>
 <p>However, if we look at the synthetic data that we generated, we observe
 that there are some values that appear more than once:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">student_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="gh">Out[13]: </span><span class="go">4</span>
+<span class="gh">Out[13]: </span><span class="go">5</span>
 
 <span class="gp">In [14]: </span><span class="n">new_data</span><span class="p">[</span><span class="n">new_data</span><span class="o">.</span><span class="n">student_id</span> <span class="o">==</span> <span class="n">new_data</span><span class="o">.</span><span class="n">student_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="gh">Out[14]: </span><span class="go"></span>
 <span class="go">     student_id gender  ...                      end_date  duration</span>
-<span class="go">12       155416      F  ...                           NaT       6.0</span>
-<span class="go">32       155416      F  ... 2020-01-09 23:23:31.201188352       NaN</span>
-<span class="go">158      155416      M  ...                           NaT       3.0</span>
-<span class="go">191      155416      M  ... 2020-08-02 18:36:18.401746176       NaN</span>
+<span class="go">76       155519      F  ...                           NaT       6.0</span>
+<span class="go">114      155519      M  ... 2020-09-21 16:14:17.321867520       3.0</span>
+<span class="go">121      155519      M  ...                           NaT      12.0</span>
+<span class="go">142      155519      F  ...                           NaT       NaN</span>
+<span class="go">151      155519      M  ... 2020-10-27 14:46:14.333364480       3.0</span>
 
-<span class="go">[4 rows x 17 columns]</span>
+<span class="go">[5 rows x 17 columns]</span>
 </pre></div>
 </div>
 <p>This happens because the model was not notified at any point about the
@@ -507,11 +481,11 @@ generate a unique sequence of valures for the column:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[18]: </span><span class="go"></span>
 <span class="go">   student_id gender  ...                      end_date  duration</span>
-<span class="go">0           0      M  ... 2020-11-27 22:13:54.918206208      12.0</span>
-<span class="go">1           1      M  ...                           NaT       NaN</span>
-<span class="go">2           2      M  ...                           NaT       3.0</span>
-<span class="go">3           3      F  ... 2020-04-08 22:22:49.158293760      12.0</span>
-<span class="go">4           4      F  ... 2020-11-14 06:58:27.199678976       3.0</span>
+<span class="go">0           0      M  ...                           NaT       NaN</span>
+<span class="go">1           1      F  ... 2020-06-23 19:43:18.142872320       NaN</span>
+<span class="go">2           2      F  ... 2020-12-25 18:00:38.513108224       NaN</span>
+<span class="go">3           3      M  ...                           NaT       NaN</span>
+<span class="go">4           4      M  ... 2020-06-30 08:23:49.994469376       NaN</span>
 
 <span class="go">[5 rows x 17 columns]</span>
 
@@ -579,12 +553,12 @@ students:</p>
 
 <span class="gp">In [25]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[25]: </span><span class="go"></span>
-<span class="go">   student_id                 name  ...                      end_date  duration</span>
-<span class="go">0           0  Gregory Blankenship  ... 2021-03-02 03:16:40.197091328       3.0</span>
-<span class="go">1           1     Francisco Levine  ... 2020-11-15 18:44:20.066869760       3.0</span>
-<span class="go">2           2        Heather Short  ... 2020-06-04 06:22:15.710784512       6.0</span>
-<span class="go">3           3       Matthew Taylor  ... 2020-08-27 04:32:26.492072192       3.0</span>
-<span class="go">4           4           Sean Roman  ... 2020-09-28 02:17:57.444078848       3.0</span>
+<span class="go">   student_id              name  ...                      end_date  duration</span>
+<span class="go">0           0    Michael Forbes  ... 2020-11-15 14:49:17.416827648       3.0</span>
+<span class="go">1           1     Heather Short  ... 2020-09-15 21:17:18.267906048       NaN</span>
+<span class="go">2           2    Stephen Rogers  ... 2020-07-05 15:34:08.502193664       6.0</span>
+<span class="go">3           3       Marc Wilson  ...                           NaT      12.0</span>
+<span class="go">4           4  Alexander Peters  ... 2020-12-27 21:12:05.678073088       6.0</span>
 
 <span class="go">[5 rows x 18 columns]</span>
 
@@ -649,12 +623,12 @@ that we learned.</p>
 
 <span class="gp">In [30]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[30]: </span><span class="go"></span>
-<span class="go">   student_id              name  ...                      end_date  duration</span>
-<span class="go">0           0   Christina Ellis  ... 2020-09-28 00:38:22.403497728       3.0</span>
-<span class="go">1           1   Steven Johnston  ... 2021-01-28 17:02:05.511337216       3.0</span>
-<span class="go">2           2  Jeffery Robinson  ... 2020-06-17 05:15:09.074754560      12.0</span>
-<span class="go">3           3   Erik Washington  ... 2020-03-13 01:10:34.905581312       3.0</span>
-<span class="go">4           4    Thomas Buckley  ... 2020-09-18 11:25:45.488266240       3.0</span>
+<span class="go">   student_id             name  ...                      end_date  duration</span>
+<span class="go">0           0     Isaac Harper  ...                           NaT       3.0</span>
+<span class="go">1           1  Daniel Ferguson  ...                           NaT       6.0</span>
+<span class="go">2           2   Mr. Ryan Perry  ... 2020-07-04 11:04:55.123814656       3.0</span>
+<span class="go">3           3   Matthew Taylor  ... 2020-06-23 13:54:32.667198208       NaN</span>
+<span class="go">4           4  Patricia Miller  ... 2020-06-30 17:30:44.627872512       6.0</span>
 
 <span class="go">[5 rows x 18 columns]</span>
 
@@ -697,11 +671,9 @@ to our <code class="docutils literal notranslate"><span class="pre">CTGAN</span>
 of additional hyperparameters that control its learning behavior and can
 impact on the performance of the model, both in terms of quality of the
 generated data and computationa time.</p>
-<div class="section" id="epochs-and-batch-size">
-<h4><code class="docutils literal notranslate"><span class="pre">epochs</span></code> and <code class="docutils literal notranslate"><span class="pre">batch_size</span></code><a class="headerlink" href="#epochs-and-batch-size" title="Permalink to this headline">¶</a></h4>
-<p>The first hyperparameters that we see are the <code class="docutils literal notranslate"><span class="pre">epochs</span></code> and
-<code class="docutils literal notranslate"><span class="pre">batch_size</span></code> arguments, which control the number of iterations that
-the model will perform to optimize its parameters, as well as the number
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">epochs</span></code> and <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>: these arguments control the number of
+iterations that the model will perform to optimize its parameters, as well as the number
 of samples used in each step. Its default values are <code class="docutils literal notranslate"><span class="pre">300</span></code> and <code class="docutils literal notranslate"><span class="pre">500</span></code>
 respectively, and <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> needs to always be a value which is
 multiple of <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
@@ -711,20 +683,13 @@ datasets, you might want to start by setting a low value on both of them
 to see how long the training process takes on your data and later on
 increase the number to acceptable values in order to improve the
 performance.</p>
-</div>
-<div class="section" id="log-frequency">
-<h4><code class="docutils literal notranslate"><span class="pre">log_frequency</span></code><a class="headerlink" href="#log-frequency" title="Permalink to this headline">¶</a></h4>
-<p>Whether to use log frequency of categorical levels in conditional
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_frequency</span></code>: Whether to use log frequency of categorical levels in conditional
 sampling. It defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <p>This argument affects how the model processes the frequencies of the
 categorical values that are used to condition the rest of the values. In
 some cases, changing it to <code class="docutils literal notranslate"><span class="pre">False</span></code> could lead to better performance.</p>
-</div>
-<div class="section" id="neural-network-dimensions">
-<h4>Neural Network dimensions<a class="headerlink" href="#neural-network-dimensions" title="Permalink to this headline">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">CTGAN</span></code> has the following hyperparameters that allow you to control
-the size of the different layers that compose its neural networks:</p>
-<ul class="simple">
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">embedding_dim</span></code> (int): Size of the random sample passed to the
 Generator. Defaults to 128.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">gen_dim</span></code> (tuple or list of ints): Size of the output samples for each
@@ -733,19 +698,13 @@ of the values provided. Defaults to (256, 256).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dis_dim</span></code> (tuple or list of ints): Size of the output samples for each
 one of the Discriminator Layers. A Linear Layer will be created for
 each one of the values provided. Defaults to (256, 256).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">l2scale</span></code>: Weight Decay of the Adam Optimizer used to optimize the Neural Networks.
+Defaults to <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Whether to print fit progress on stdout. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="l2scale">
-<h4><code class="docutils literal notranslate"><span class="pre">l2scale</span></code><a class="headerlink" href="#l2scale" title="Permalink to this headline">¶</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">l2scale</span></code> argument, which defaults to <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>, sets the wheight
-Decay of the Adam Optimizer used to optimize the Neural Networks.</p>
-</div>
-<div class="section" id="verbose">
-<h4><code class="docutils literal notranslate"><span class="pre">verbose</span></code><a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h4>
-<p>Whether to print fit progress on stdout. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The value that you set on the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> argument must always be a
+<p>Notice that the value that you set on the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> argument must always be a
 multiple of <code class="docutils literal notranslate"><span class="pre">10</span></code>!</p>
 </div>
 <p>As an example, we will try to fit the <code class="docutils literal notranslate"><span class="pre">CTGAN</span></code> model slightly
@@ -757,7 +716,7 @@ generated data using the <code class="docutils literal notranslate"><span class=
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="kn">from</span> <span class="nn">sdv.evaluation</span> <span class="kn">import</span> <span class="n">evaluate</span>
 
 <span class="gp">In [33]: </span><span class="n">evaluate</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="gh">Out[33]: </span><span class="go">-123.26167172120785</span>
+<span class="gh">Out[33]: </span><span class="go">-116.27756353662558</span>
 </pre></div>
 </div>
 <p>Afterwards, we create a new instance of the <code class="docutils literal notranslate"><span class="pre">CTGAN</span></code> model with the
@@ -782,35 +741,34 @@ hyperparameter values that we want to use</p>
 
 <span class="gp">In [37]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 <span class="gh">Out[37]: </span><span class="go"></span>
-<span class="go">                                                0  ...         4</span>
-<span class="go">student_id                                      0  ...         4</span>
-<span class="go">gender                                          F  ...         M</span>
-<span class="go">second_perc                               65.4245  ...   90.2071</span>
-<span class="go">high_perc                                 40.0274  ...   48.8094</span>
-<span class="go">high_spec                                Commerce  ...  Commerce</span>
-<span class="go">degree_perc                               79.8499  ...   63.2673</span>
-<span class="go">degree_type                             Comm&amp;Mgmt  ...  Sci&amp;Tech</span>
-<span class="go">work_experience                             False  ...     False</span>
-<span class="go">experience_years                                0  ...         0</span>
-<span class="go">employability_perc                        105.502  ...   75.3743</span>
-<span class="go">mba_spec                                   Mkt&amp;HR  ...    Mkt&amp;HR</span>
-<span class="go">mba_perc                                  51.4936  ...   53.9936</span>
-<span class="go">salary                                        NaN  ...       NaN</span>
-<span class="go">placed                                      False  ...     False</span>
-<span class="go">start_date                                    NaT  ...       NaT</span>
-<span class="go">end_date            2020-09-10 11:06:33.452344576  ...       NaT</span>
-<span class="go">duration                                      NaN  ...       3.0</span>
+<span class="go">                                                0  ...          4</span>
+<span class="go">student_id                                      0  ...          4</span>
+<span class="go">gender                                          F  ...          M</span>
+<span class="go">second_perc                               88.5353  ...    67.8741</span>
+<span class="go">high_perc                                 68.5099  ...    76.4879</span>
+<span class="go">high_spec                                Commerce  ...       Arts</span>
+<span class="go">degree_perc                               62.8457  ...    69.0933</span>
+<span class="go">degree_type                             Comm&amp;Mgmt  ...  Comm&amp;Mgmt</span>
+<span class="go">work_experience                              True  ...      False</span>
+<span class="go">experience_years                                0  ...          0</span>
+<span class="go">employability_perc                         72.995  ...    84.7221</span>
+<span class="go">mba_spec                                   Mkt&amp;HR  ...    Mkt&amp;Fin</span>
+<span class="go">mba_perc                                   75.464  ...    72.3251</span>
+<span class="go">salary                                        NaN  ...        NaN</span>
+<span class="go">placed                                      False  ...       True</span>
+<span class="go">start_date          2020-06-23 21:31:39.211895296  ...        NaT</span>
+<span class="go">end_date            2020-10-24 23:56:47.879354368  ...        NaT</span>
+<span class="go">duration                                      NaN  ...        NaN</span>
 
 <span class="go">[17 rows x 5 columns]</span>
 
 <span class="gp">In [38]: </span><span class="n">evaluate</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="gh">Out[38]: </span><span class="go">-146.25340208076057</span>
+<span class="gh">Out[38]: </span><span class="go">-127.03305344147736</span>
 </pre></div>
 </div>
 <p>As we can see, in this case these modifications changed the obtained
 results slightly, but they did neither introduce dramatic changes in the
 performance.</p>
-</div>
 </div>
 </div>
 </div>

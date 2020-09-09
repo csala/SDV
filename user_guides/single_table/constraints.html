@@ -271,21 +271,19 @@ constraints:</p>
 
 <span class="gp">In [3]: </span><span class="n">employees</span>
 <span class="gh">Out[3]: </span><span class="go"></span>
-<span class="go">     company     department  ... age_when_joined years_in_the_company</span>
-<span class="go">0       Pear          Sales  ...              44                    0</span>
-<span class="go">1       Pear         Design  ...              32                    0</span>
-<span class="go">2    Glasses             AI  ...              33                    1</span>
-<span class="go">3    Glasses  Search Engine  ...              34                    0</span>
-<span class="go">4   Cheerper        BigData  ...              41                    1</span>
-<span class="go">5   Cheerper        Support  ...              42                    4</span>
-<span class="go">6       Pear          Sales  ...              30                    7</span>
-<span class="go">7       Pear         Design  ...              32                    4</span>
-<span class="go">8    Glasses             AI  ...              41                    7</span>
-<span class="go">9    Glasses  Search Engine  ...              39                    3</span>
-<span class="go">10  Cheerper        BigData  ...              32                    0</span>
-<span class="go">11  Cheerper        Support  ...              37                    8</span>
-
-<span class="go">[12 rows x 7 columns]</span>
+<span class="go">     company     department              name                                            address  age  age_when_joined  years_in_the_company</span>
+<span class="go">0       Pear          Sales     Steven Newman  58883 Erickson Haven Apt. 165\nNorth Carolyn, ...   48               46                     2</span>
+<span class="go">1       Pear         Design      Kevin Flores         2870 Michelle Manor\nLake Steven, FL 46926   30               23                     7</span>
+<span class="go">2    Glasses             AI    Daniel Simmons  5133 Sonya Views Suite 598\nEast Vincent, NY 6...   39               33                     6</span>
+<span class="go">3    Glasses  Search Engine      Steven Brady                          USNS Carter\nFPO AE 48001   45               38                     7</span>
+<span class="go">4   Cheerper        BigData        Julie Vega     78700 Antonio Heights\nNorth Jessica, AZ 34905   48               39                     9</span>
+<span class="go">5   Cheerper        Support        Ann Martin            72588 Susan Common\nJonesfort, MD 27292   30               21                     9</span>
+<span class="go">6       Pear          Sales    Jasmine Garcia   1644 John Land Suite 946\nAndrewshaven, CA 13123   43               37                     6</span>
+<span class="go">7       Pear         Design  Rebecca Richards   473 Hancock Wall Apt. 535\nMolinamouth, AR 70769   44               38                     6</span>
+<span class="go">8    Glasses             AI    Bridget Walker      63550 Zuniga Plain\nEast Jackietown, DE 92011   37               31                     6</span>
+<span class="go">9    Glasses  Search Engine   Douglas Johnson   38938 Lauren Isle Apt. 762\nNorth Alex, NM 07861   42               39                     3</span>
+<span class="go">10  Cheerper        BigData        Steve Dyer     501 Kelly Fords Suite 384\nNew Kelly, NC 38055   31               22                     9</span>
+<span class="go">11  Cheerper        Support      Charles Webb  8372 Michael Radial Apt. 770\nSouth Kaylaview,...   39               34                     5</span>
 </pre></div>
 </div>
 <p>This step loaded a simple table that gives us some basic details about
@@ -447,19 +445,17 @@ constraints that we just defined as a <code class="docutils literal notranslate"
 we defined:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">sampled</span>
 <span class="gh">Out[16]: </span><span class="go"></span>
-<span class="go">    company     department  ... age_when_joined years_in_the_company</span>
-<span class="go">0      Pear         Design  ...              31                    1</span>
-<span class="go">1      Pear         Design  ...              44                    4</span>
-<span class="go">2  Cheerper        BigData  ...              31                    3</span>
-<span class="go">4   Glasses  Search Engine  ...              44                    4</span>
-<span class="go">5   Glasses             AI  ...              44                    3</span>
-<span class="go">6      Pear         Design  ...              31                    1</span>
-<span class="go">7   Glasses             AI  ...              30                   18</span>
-<span class="go">9      Pear         Design  ...              31                    1</span>
-<span class="go">1   Glasses  Search Engine  ...              30                    2</span>
-<span class="go">1  Cheerper        BigData  ...              38                    3</span>
-
-<span class="go">[10 rows x 7 columns]</span>
+<span class="go">    company department             name                                            address  age  age_when_joined  years_in_the_company</span>
+<span class="go">0   Glasses         AI   Daniel Simmons  5133 Sonya Views Suite 598\nEast Vincent, NY 6...   41               34                     7</span>
+<span class="go">1      Pear      Sales    Steven Newman  58883 Erickson Haven Apt. 165\nNorth Carolyn, ...   42               36                     6</span>
+<span class="go">2      Pear      Sales     Charles Webb  8372 Michael Radial Apt. 770\nSouth Kaylaview,...   50               47                     3</span>
+<span class="go">3   Glasses         AI  Douglas Johnson   38938 Lauren Isle Apt. 762\nNorth Alex, NM 07861   37               32                     5</span>
+<span class="go">4   Glasses         AI   Jasmine Garcia   1644 John Land Suite 946\nAndrewshaven, CA 13123   41               35                     6</span>
+<span class="go">5   Glasses         AI   Bridget Walker      63550 Zuniga Plain\nEast Jackietown, DE 92011   26               15                    11</span>
+<span class="go">6      Pear      Sales   Jasmine Garcia   1644 John Land Suite 946\nAndrewshaven, CA 13123   41               36                     5</span>
+<span class="go">7   Glasses         AI       Ann Martin            72588 Susan Common\nJonesfort, MD 27292   34               25                     9</span>
+<span class="go">8  Cheerper    Support   Daniel Simmons  5133 Sonya Views Suite 598\nEast Vincent, NY 6...   36               30                     6</span>
+<span class="go">9      Pear      Sales   Daniel Simmons  5133 Sonya Views Suite 598\nEast Vincent, NY 6...   36               31                     5</span>
 </pre></div>
 </div>
 </div>

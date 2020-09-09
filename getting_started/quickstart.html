@@ -236,7 +236,7 @@ know about the dataset.</p></li>
 <span class="gp">In [4]: </span><span class="n">metadata</span><span class="o">.</span><span class="n">visualize</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="images/quickstart_1.png" src="images/quickstart_1.png" />
+<img alt="../_images/quickstart_1.png" src="../_images/quickstart_1.png" />
 <p>For more details about how to build the <code class="docutils literal notranslate"><span class="pre">Metadata</span></code> for your own
 dataset, please refer to the <a class="reference internal" href="../user_guides/relational/relational_metadata.html#relational-metadata"><span class="std std-ref">Relational Metadata</span></a> guide.</p>
 <ol class="arabic simple" start="2">
@@ -319,38 +319,45 @@ following the original distribution of your dataset.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">sampled</span>
 <span class="gh">Out[10]: </span><span class="go"></span>
 <span class="go">{&#39;users&#39;:    user_id country gender  age</span>
-<span class="go"> 0        0      UK      M   23</span>
-<span class="go"> 1        1      US      M   35</span>
-<span class="go"> 2        2      UK      M   40</span>
-<span class="go"> 3        3      FR      M   42</span>
-<span class="go"> 4        4      DE      F   40</span>
-<span class="go"> 5        5      UK      F   42</span>
-<span class="go"> 6        6      US      F   31</span>
-<span class="go"> 7        7      UK      M   38</span>
-<span class="go"> 8        8      ES      M   36</span>
-<span class="go"> 9        9      DE      F   31,</span>
-<span class="go"> &#39;sessions&#39;:    session_id  user_id  device       os</span>
-<span class="go"> 0           0        0  mobile  android</span>
-<span class="go"> 1           1        1  mobile  android</span>
-<span class="go"> 2           2        4  tablet      ios</span>
-<span class="go"> 3           3        4  tablet      ios</span>
-<span class="go"> 4           4        4  mobile  android</span>
-<span class="go"> 5           5        6  mobile  android</span>
-<span class="go"> 6           6        6  tablet      ios</span>
-<span class="go"> 7           7        6  tablet      ios</span>
-<span class="go"> 8           8        8  tablet      ios</span>
-<span class="go"> 9           9        9  tablet      ios,</span>
-<span class="go"> &#39;transactions&#39;:    transaction_id  session_id  ...      amount  approved</span>
-<span class="go"> 0               0           1  ...  102.621632     False</span>
-<span class="go"> 1               1           2  ...         inf      True</span>
-<span class="go"> 2               2           3  ...         inf      True</span>
-<span class="go"> 3               3           4  ...  103.875347      True</span>
-<span class="go"> 4               4           8  ...   88.083399      True</span>
-<span class="go"> 5               5           8  ...   81.275194      True</span>
-<span class="go"> 6               6           9  ...   91.240308      True</span>
-<span class="go"> 7               7           9  ...   90.996732      True</span>
-<span class="go"> </span>
-<span class="go"> [8 rows x 5 columns]}</span>
+<span class="go"> 0        0      US      F   53</span>
+<span class="go"> 1        1      UK      M   23</span>
+<span class="go"> 2        2      ES      F   57</span>
+<span class="go"> 3        3      UK      M   51</span>
+<span class="go"> 4        4      ES      M   41</span>
+<span class="go"> 5        5      DE    NaN   58</span>
+<span class="go"> 6        6      FR      F   66</span>
+<span class="go"> 7        7      UK      F   37</span>
+<span class="go"> 8        8      ES      F   53</span>
+<span class="go"> 9        9      ES      F   21,</span>
+<span class="go"> &#39;sessions&#39;:     session_id  user_id  device       os</span>
+<span class="go"> 0            0        0  mobile  android</span>
+<span class="go"> 1            1        3  mobile  android</span>
+<span class="go"> 2            2        4  tablet      ios</span>
+<span class="go"> 3            3        5  tablet      ios</span>
+<span class="go"> 4            4        5  tablet      ios</span>
+<span class="go"> 5            5        6  tablet      ios</span>
+<span class="go"> 6            6        6  mobile  android</span>
+<span class="go"> 7            7        7  mobile  android</span>
+<span class="go"> 8            8        8  tablet      ios</span>
+<span class="go"> 9            9        8  tablet      ios</span>
+<span class="go"> 10          10        9  tablet      ios</span>
+<span class="go"> 11          11        9  mobile  android</span>
+<span class="go"> 12          12        9  mobile  android,</span>
+<span class="go"> &#39;transactions&#39;:     transaction_id  session_id                     timestamp     amount approved</span>
+<span class="go"> 0                0           0 2019-01-05 00:16:27.902010624  91.057817     True</span>
+<span class="go"> 1                1           1 2019-01-11 19:42:31.287099392  50.412036     True</span>
+<span class="go"> 2                2           1 2019-01-17 15:08:29.890507776  44.417242     True</span>
+<span class="go"> 3                3           1 2019-01-11 08:54:54.657799936  42.406793     True</span>
+<span class="go"> 4                4           2 2019-01-09 00:19:28.526153216  91.159730     True</span>
+<span class="go"> 5                5           2 2019-01-09 00:19:28.519052800  91.085041     True</span>
+<span class="go"> 6                6           5 2019-01-06 17:21:55.478162432  92.022109     True</span>
+<span class="go"> 7                7           6 2019-01-06 17:21:55.518807040  91.973028     True</span>
+<span class="go"> 8                8           8 2019-01-11 05:52:29.179699200  99.095699    False</span>
+<span class="go"> 9                9           9 2019-01-11 05:52:29.179698176  99.095138    False</span>
+<span class="go"> 10              10          12                           NaT        inf      NaN</span>
+<span class="go"> 11              11          12                           NaT        inf      NaN</span>
+<span class="go"> 12              12          12                           NaT       -inf      NaN</span>
+<span class="go"> 13              13          12                           NaT       -inf      NaN}</span>
 </pre></div>
 </div>
 </div>
@@ -378,28 +385,19 @@ need to load it from its <code class="docutils literal notranslate"><span class=
 <span class="gp">In [14]: </span><span class="n">sampled</span>
 <span class="gh">Out[14]: </span><span class="go"></span>
 <span class="go">{&#39;users&#39;:    user_id country gender  age</span>
-<span class="go"> 0       10      FR    NaN   39</span>
-<span class="go"> 1       11      US      M   32</span>
-<span class="go"> 2       12      US    NaN   21</span>
-<span class="go"> 3       13      UK      M   42</span>
-<span class="go"> 4       14      US      M   51,</span>
+<span class="go"> 0       10      UK      F   12</span>
+<span class="go"> 1       11      US    NaN   37</span>
+<span class="go"> 2       12      UK      M   32</span>
+<span class="go"> 3       13      BG    NaN   19</span>
+<span class="go"> 4       14      ES      M   53,</span>
 <span class="go"> &#39;sessions&#39;:    session_id  user_id  device       os</span>
-<span class="go"> 0          10       10  tablet      ios</span>
-<span class="go"> 1          11       11  tablet      ios</span>
-<span class="go"> 2          12       11  mobile  android</span>
-<span class="go"> 3          13       12  mobile  android</span>
-<span class="go"> 4          14       13  tablet      ios</span>
-<span class="go"> 5          15       14  tablet      ios,</span>
-<span class="go"> &#39;transactions&#39;:    transaction_id  session_id  ...      amount  approved</span>
-<span class="go"> 0               8          10  ...   86.025060      True</span>
-<span class="go"> 1               9          10  ...   86.828774      True</span>
-<span class="go"> 2              10          11  ...   92.699838      True</span>
-<span class="go"> 3              11          12  ...   92.700759      True</span>
-<span class="go"> 4              12          13  ...  102.317238      True</span>
-<span class="go"> 5              13          15  ...  289.020651      True</span>
-<span class="go"> 6              14          15  ...  188.339815      True</span>
-<span class="go"> </span>
-<span class="go"> [7 rows x 5 columns]}</span>
+<span class="go"> 0          13       12  mobile  android</span>
+<span class="go"> 1          14       12  mobile  android</span>
+<span class="go"> 2          15       14  mobile  android</span>
+<span class="go"> 3          16       14  tablet      ios,</span>
+<span class="go"> &#39;transactions&#39;: Empty DataFrame</span>
+<span class="go"> Columns: [transaction_id, session_id, timestamp, amount, approved]</span>
+<span class="go"> Index: []}</span>
 </pre></div>
 </div>
 </div>

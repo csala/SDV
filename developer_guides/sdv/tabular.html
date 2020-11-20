@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabular Models &#8212; SDV 0.4.1 documentation</title>
+    <title>Tabular Models &#8212; SDV 0.3.7.dev0 documentation</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -25,10 +25,10 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -36,9 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    <link rel="shortcut icon" href="../../_static/SDV-Logo-Black.ico"/>
+    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Constraints" href="constraints.html" />
@@ -51,11 +49,11 @@
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
 <div class="container-xl">
 
-    
     <a class="navbar-brand" href="../../index.html">
-      <img src="../../_static/SDV-Logo-Color.png" class="logo" alt="logo">
-    </a>
     
+      <img src="../../_static/SDV-logo.png" class="logo" alt="logo" />
+    
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -99,6 +97,12 @@
           </li>
         
         
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/sdv_dev" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
       </ul>
     </div>
 </div>
@@ -108,56 +112,52 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar">
-
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
-
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
-  <div class="bd-toc-item active">
+    <div class="bd-toc-item active">
+    
   
-
-  <ul class="nav bd-sidenav">
-      
-      
-      
-      
-      
-      
-      
-      
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
         
           
-
-              <li class="active">
-                  <a href="../overview.html">The Synthetic Data Vault</a>
-                  <ul>
-                  
-                      <li class="active">
-                          <a href="index.html">SDV</a>
-                      </li>
-                  
-                  </ul>
-              </li>
+            
+  
+                <li class="active">
+                    <a href="../overview.html">The Synthetic Data Vault</a>
+                    <ul>
+                    
+                        <li class="active">
+                            <a href="index.html">SDV</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../contributing.html">Contributing to SDV</a>
+                </li>
+            
           
         
-          
-              <li class="">
-                  <a href="../contributing.html">Contributing to SDV</a>
-              </li>
-          
         
-      
-      
-      
-      
-    </ul>
-
-</nav>
+        
+        
+      </ul>
+  
+  </nav>
           </div>
           
 
@@ -251,7 +251,7 @@ underlying model to generate the indicated number of rows.</p></li>
 <li><p>Use the Table metadata to transform the sampled data back to the original format by passing
 the data to its <code class="docutils literal notranslate"><span class="pre">revert_transform</span></code> method. This will also revert any transformations
 performed by the Constraints that use the <code class="docutils literal notranslate"><span class="pre">transform</span></code> strategy.</p></li>
-<li><p>If there is any Constraint that is using the <code class="docutils literal notranslate"><span class="pre">reject_sampling</span></code> strategy, use the
+<li><p>If there is any Constraint that is useing the <code class="docutils literal notranslate"><span class="pre">reject_sampling</span></code> strategy, use the
 Table metadata to drop the invalid rows and repeat steps <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> until enough
 valid rows have been generated.</p></li>
 </ol>
@@ -279,40 +279,24 @@ functionalities:</p>
 method.</p>
 <p>The base <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method implemented in the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> expects the following
 arguments:</p>
-<ul>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">field_names</span></code>:
 List of names of the fields that need to be modeled
 and included in the generated output data. Any additional
 fields found in the data will be ignored and will not be
 included in the generated output.
 If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all the fields found in the data are used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">primary_key</span></code>:
+Specification about which field or fields are the
+primary key of the table and information about how
+to generate them.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">field_types</span></code>:
-Dictionary specifying the data types and subtypes
+Dictinary specifying the data types and subtypes
 of the fields that will be modeled. Field types and subtypes
 combinations must be compatible with the SDV Metadata Schema.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">field_transformers</span></code>:
-Dictionary specifying which transformers to use for each field.
-Available transformers are:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">integer</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">NumericalTransformer</span></code> of dtype <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">NumericalTransformer</span></code> of dtype <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">categorical</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code> without gaussian noise.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">categorical_fuzzy</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code> adding gaussian noise.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">one_hot_encoding</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">OneHotEncodingTransformer</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">label_encoding</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">LabelEncodingTransformer</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">BooleanTransformer</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">DatetimeTransformer</span></code>.</p></li>
-</ul>
-</div></blockquote>
-</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">anonymize_fields</span></code>:
 Dict specifying which fields to anonymize and what faker
 category they belong to.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">primary_key</span></code>:
-Name of the field which is the primary key of the table.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">constraints</span></code>:
-List of Constraint objects or dicts.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">table_metadata</span></code>:
 Table metadata instance or dict representation.
 If given alongside any other metadata-related arguments, an
@@ -326,8 +310,8 @@ arguments or learned from the data.</p></li>
 <p>We can see such implementation in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method of the <code class="docutils literal notranslate"><span class="pre">sdv.tabular.ctgan.CTGAN</span></code> model,
 which adds a few arguments to the class but still captures all the other arguments and calls the
 <code class="docutils literal notranslate"><span class="pre">super().__init__</span></code> method with them:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_transformers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-             <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">log_frequency</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">gen_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
              <span class="n">dis_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">l2scale</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -433,14 +417,14 @@ shown below, all this method does is call the <code class="docutils literal notr
     </div>
 
     
-  <script src="../../_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
     </p>
   </div>
 </footer>

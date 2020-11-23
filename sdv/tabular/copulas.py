@@ -7,6 +7,7 @@ import copulas.multivariate
 import copulas.univariate
 import numpy as np
 import pandas as pd
+import scipy
 
 from sdv.metadata import Table
 from sdv.tabular.base import BaseTabularModel, NonParametricError
@@ -334,7 +335,24 @@ class GaussianCopula(BaseTabularModel):
         return flatten_dict(params)
 
     @staticmethod
-    def _rebuild_correlation_matrix(triangular_covariance):
+    def _get_nearest_psd(matrix):
+        """Find the nearest PSD matrix.
+
+        If the given matrix is not Positive Semi-definite, which means
+        that any of its eigenvalues is negative, find the nearest PSD matrix.
+
+        Original idea taken from here: https://stackoverflow.com/a/63131250
+        """
+        eigenvalues, eigenvectors = scipy.linalg.eigh(matrix)
+        negative = eigenvalues < 0
+        if np.any(negative):
+            eigenvalues[negative] = 0
+            matrix = eigenvectors.dot(np.diag(eigenvalues)).dot(eigenvectors.T)
+
+        return matrix
+
+    @classmethod
+    def _rebuild_correlation_matrix(cls, triangular_covariance):
         """Rebuild a valid correlation matrix from its lower half triangle.
 
         The input of this function is a list of lists of floats of size 1, 2, 3...n-1:
@@ -367,10 +385,11 @@ class GaussianCopula(BaseTabularModel):
 
         correlation = left + right
         max_value = np.abs(correlation).max()
-        if max_value >= 1:
+        if max_value > 1:
             correlation /= max_value
 
-        return correlation + np.identity(size)
+        correlation += np.identity(size)
+        return cls._get_nearest_psd(correlation).tolist()
 
     def _rebuild_gaussian_copula(self, model_parameters):
         """Rebuild the model params to recreate a Gaussian Multivariate instance.

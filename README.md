@@ -5,7 +5,7 @@
 
 [![Development Status](https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow)](https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha)
 [![PyPi Shield](https://img.shields.io/pypi/v/SDV.svg)](https://pypi.python.org/pypi/SDV)
-[![Travis CI Shield](https://travis-ci.org/sdv-dev/SDV.svg?branch=master)](https://travis-ci.org/sdv-dev/SDV)
+[![Travis CI Shield](https://travis-ci.com/sdv-dev/SDV.svg?branch=master)](https://travis-ci.com/sdv-dev/SDV)
 [![Coverage Status](https://codecov.io/gh/sdv-dev/SDV/branch/master/graph/badge.svg)](https://codecov.io/gh/sdv-dev/SDV)
 [![Downloads](https://pepy.tech/badge/sdv)](https://pepy.tech/project/sdv)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sdv-dev/SDV/master?filepath=tutorials)
@@ -81,9 +81,8 @@ our Slack Workspace!
 
 ## Requirements
 
-**SDV** has been tested and is supported on **GNU/Linux** and **macOS** systems running [Python 3.6,
-3.7 and 3.8](https://www.python.org/downloads). Unfortunately, SDV **is not fully supported on
-Windows OSs**, but it can be run successfully on [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+**SDV** has been tested and is supported on **GNU/Linux**, **macOS** and **Windows** systems running
+[Python 3.6, 3.7 and 3.8](https://www.python.org/downloads).
 
 Also, although it is not strictly required, the usage of a
 [virtualenv](https://virtualenv.pypa.io/en/latest/) is highly recommended in order to avoid

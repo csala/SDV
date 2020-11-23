@@ -3,8 +3,9 @@ from unittest.mock import Mock, patch
 import numpy as np
 import pandas as pd
 import pytest
+import scipy
 from copulas.multivariate.gaussian import GaussianMultivariate
-from copulas.univariate import GaussianKDE
+from copulas.univariate import GaussianKDE, GaussianUnivariate
 
 from sdv.tabular.base import NonParametricError
 from sdv.tabular.copulas import GaussianCopula
@@ -12,36 +13,117 @@ from sdv.tabular.copulas import GaussianCopula
 
 class TestGaussianCopula:
 
-    def test___init__(self):
-        """Test ``__init__`` with empty input values.
+    @patch('sdv.tabular.copulas.BaseTabularModel.__init__')
+    def test___init__no_metadata(self, init_mock):
+        """Test ``__init__`` without passing a table_metadata.
 
-        All the parameters of the class are inicialized with the default values.
+        In this case, the parent __init__ will be called and the metadata
+        will be created based on the given arguments
 
-        Expected Output
-        - None
-
-        Side Effects
-        - ``Table.from_dict`` is not called.
-        - ``table_metadata.get_model_kwargs`` is not called.
-        - ``_distribution`` is set to a instance of the indicated distribution.
-        """
-
-    def test__init__metadata(self):
-        """Test ``__init__`` with not empty input values for `table_metadata`.
-
-        Load the values of `table_metadata`
-
-        Input
-        - dict
-
-        Expected Output
-        - None
+        Input:
+            - field_names
+            - field_types
+            - field_transformers
+            - anonymize_fields
+            - primary_key
+            - constraints
+            - field_distributions
+            - default_distribution
+            - categorical_transformer
 
         Side Effects
-        - ``Table.from_dict`` is called.
-        - ``table_metadata.get_model_kwargs`` is called.
-        - ``_distribution`` is set to a instance of the indicated distribution.
+            - attributes are set to the right values
+            - super().__init__ is called with the right arguments
         """
+        gc = GaussianCopula(
+            field_names=['a_field'],
+            field_types={
+                'a_field': {
+                    'type': 'categorical',
+                }
+            },
+            field_transformers={'a_field': 'categorical'},
+            anonymize_fields={'a_field': 'name'},
+            primary_key=['a_field'],
+            constraints=['a_constraint'],
+            field_distributions={'a_field': 'gaussian'},
+            default_distribution='bounded',
+            categorical_transformer='categorical_fuzzy'
+        )
+
+        assert gc._field_distributions == {'a_field': GaussianUnivariate}
+        assert gc._default_distribution == GaussianCopula._DISTRIBUTIONS['bounded']
+        assert gc._categorical_transformer == 'categorical_fuzzy'
+        assert gc._DTYPE_TRANSFORMERS == {'O': 'categorical_fuzzy'}
+
+        init_mock.assert_called_once_with(
+            field_names=['a_field'],
+            primary_key=['a_field'],
+            field_types={
+                'a_field': {
+                    'type': 'categorical',
+                }
+            },
+            field_transformers={'a_field': 'categorical'},
+            anonymize_fields={'a_field': 'name'},
+            constraints=['a_constraint'],
+            table_metadata=None,
+        )
+
+    @patch('sdv.tabular.copulas.Table.from_dict')
+    @patch('sdv.tabular.copulas.BaseTabularModel.__init__')
+    def test___init__metadata_dict(self, init_mock, from_dict_mock):
+        """Test ``__init__`` without passing a table_metadata dict.
+
+        In this case, metadata will be loaded from the dict and passed
+        to the parent.
+
+        Input:
+            - table_metadata
+            - field_distributions
+            - default_distribution
+            - categorical_transformer
+
+        Side Effects
+            - attributes are set to the right values
+            - super().__init__ is called with the loaded metadata
+        """
+        table_metadata = {
+            'fields': {
+                'a_field': {
+                    'type': 'categorical'
+                },
+            },
+            'model_kwargs': {
+                'GaussianCopula': {
+                    'field_distributions': {
+                        'a_field': 'gaussian',
+                    },
+                    'categorical_transformer': 'categorical_fuzzy',
+                }
+            }
+        }
+        gc = GaussianCopula(
+            field_distributions={'a_field': 'gaussian'},
+            default_distribution='bounded',
+            categorical_transformer='categorical_fuzzy',
+            table_metadata=table_metadata,
+        )
+
+        assert gc._field_distributions == {'a_field': GaussianUnivariate}
+        assert gc._default_distribution == GaussianCopula._DISTRIBUTIONS['bounded']
+        assert gc._categorical_transformer == 'categorical_fuzzy'
+        assert gc._DTYPE_TRANSFORMERS == {'O': 'categorical_fuzzy'}
+
+        init_mock.assert_called_once_with(
+            field_names=None,
+            primary_key=None,
+            field_types=None,
+            field_transformers=None,
+            anonymize_fields=None,
+            constraints=None,
+            table_metadata=from_dict_mock.return_value,
+        )
 
     def test__update_metadata_existing_model_kargs(self):
         """Test ``_update_metadata`` if metadata already has model_kwargs.
@@ -90,6 +172,7 @@ class TestGaussianCopula:
         gaussian_copula = Mock(spec_set=GaussianCopula)
         gaussian_copula._metadata.get_model_kwargs.return_value = dict()
         gaussian_copula._categorical_transformer = 'a_categorical_transformer_value'
+        gaussian_copula._default_distribution = 'a_distribution'
         gaussian_copula.get_distributions.return_value = {
             'foo': 'copulas.univariate.gaussian.GaussianUnivariate'
         }
@@ -100,7 +183,8 @@ class TestGaussianCopula:
         # Asserts
         assert out is None
         expected_kwargs = {
-            'distribution': {'foo': 'copulas.univariate.gaussian.GaussianUnivariate'},
+            'field_distributions': {'foo': 'copulas.univariate.gaussian.GaussianUnivariate'},
+            'default_distribution': 'a_distribution',
             'categorical_transformer': 'a_categorical_transformer_value',
         }
         gaussian_copula._metadata.set_model_kwargs.assert_called_once_with(
@@ -137,7 +221,7 @@ class TestGaussianCopula:
         """
         # Setup
         gaussian_copula = Mock(spec_set=GaussianCopula)
-        gaussian_copula._get_distribution.return_value = {'a': 'a_distribution'}
+        gaussian_copula._field_distributions = {'a': 'a_distribution'}
 
         # Run
         data = pd.DataFrame({
@@ -147,7 +231,7 @@ class TestGaussianCopula:
 
         # asserts
         assert out is None
-        assert gaussian_copula._distribution == {'a': 'a_distribution'}
+        assert gaussian_copula._field_distributions == {'a': 'a_distribution'}
         gm_mock.assert_called_once_with(distribution={'a': 'a_distribution'})
 
         assert gaussian_copula._model == gm_mock.return_value
@@ -277,29 +361,19 @@ class TestGaussianCopula:
     def test__get_nearest_psd_invalid(self):
         """Test ``_get_nearest_psd`` with an psd input.
 
-        If the matrix is positive semi-definite, do nothing.
+        If the matrix is not positive semi-definite, modify it to make it PSD.
 
         Input:
-        - matrix which is no positive semi-definite.
+        - matrix which is not positive semi-definite.
 
         Expected Output:
-        - the input, unmodified.
+        - modified matrix which is positive semi-definite.
         """
         # Run
         not_psd_matrix = np.array([
             [1, 0, 0],
             [0, 1, 0],
             [0, 0, -1],
-        ])
-        not_psd_matrix = np.array([
-            [1, 0, 0],
-            [0, 1, 0],
-            [0, 0, -1],
-        ])
-        not_psd_matrix = np.array([
-            [1, -0.8, -0.4],
-            [-0.8, 1, -0.7],
-            [-0.4, -0.7, 1]
         ])
         output = GaussianCopula._get_nearest_psd(not_psd_matrix)
 
@@ -310,7 +384,11 @@ class TestGaussianCopula:
             [0, 0, 0],
         ]
         assert expected == output.tolist()
-        assert output is not psd_matrix
+
+        not_psd_eigenvalues = scipy.linalg.eigh(not_psd_matrix)[0]
+        output_eigenvalues = scipy.linalg.eigh(output)[0]
+        assert (not_psd_eigenvalues < 0).any()
+        assert (output_eigenvalues >= 0).all()
 
     def test__rebuild_correlation_matrix_valid(self):
         """Test ``_rebuild_correlation_matrix`` with a valid correlation input.
@@ -380,7 +458,7 @@ class TestGaussianCopula:
         """
         # Setup
         gaussian_copula = GaussianCopula()
-        gaussian_copula._distribution = {
+        gaussian_copula._field_distributions = {
             'foo': 'GaussianUnivariate',
             'bar': 'GaussianUnivariate',
             'baz': 'GaussianUnivariate',
@@ -570,3 +648,64 @@ class TestGaussianCopula:
         gaussian_copula._rebuild_gaussian_copula.assert_called_once_with(expected)
         assert gaussian_copula._num_rows == 0
         assert isinstance(gaussian_copula._model, GaussianMultivariate)
+
+    def test__validate_distribution_none(self):
+        """Test the ``_validate_distribution`` method if None is passed.
+
+        If None is passed, it should just return None.
+
+        Input:
+        - None
+
+        Output:
+        - None
+        """
+        out = GaussianCopula._validate_distribution(None)
+
+        assert out is None
+
+    def test__validate_distribution_not_str(self):
+        """Test the ``_validate_distribution`` method if something that is not an str is passed.
+
+        If the input is not an str, it should be returned without modification.
+
+        Input:
+        - a dummy object
+
+        Output:
+        - the same dummy object
+        """
+        dummy = object()
+        out = GaussianCopula._validate_distribution(dummy)
+
+        assert out is dummy
+
+    def test__validate_distribution_distribution_name(self):
+        """Test the ``_validate_distribution`` method passing a valid distribution name.
+
+        If the input is one keys from the ``_DISTRIBUTIONS`` dict, the value should be returned.
+
+        Input:
+        - A key from the ``_DISTRIBUTIONS`` dict.
+
+        Output:
+        - The corresponding value.
+        """
+        out = GaussianCopula._validate_distribution('gaussian_kde')
+
+        assert out is GaussianKDE
+
+    def test__validate_distribution_fqn(self):
+        """Test the ``_validate_distribution`` method passing a FQN distribution name.
+
+        If the input is an importable FQN of a Python object, return the input.
+
+        Input:
+        - A univariate distribution FQN.
+
+        Output:
+        - The corresponding class.
+        """
+        out = GaussianCopula._validate_distribution('copulas.univariate.GaussianUnivariate')
+
+        assert out == 'copulas.univariate.GaussianUnivariate'

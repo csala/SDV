@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 
 from sdv.demo import load_demo
@@ -27,7 +28,8 @@ def test_gaussian_copula():
         field_types=field_types,
         primary_key='user_id',
         anonymize_fields=anonymize_fields,
-        distribution='gaussian_kde',
+        field_distributions={'age': 'gamma'},
+        default_distribution='gaussian_kde',
     )
     gc.fit(users)
     with pytest.raises(NonParametricError):
@@ -39,7 +41,8 @@ def test_gaussian_copula():
         field_types=field_types,
         primary_key='user_id',
         anonymize_fields=anonymize_fields,
-        distribution='bounded',
+        field_distributions={'age': 'gamma'},
+        default_distribution='bounded',
     )
     gc.fit(users)
 
@@ -88,3 +91,25 @@ def test_gaussian_copula():
 
     assert 'model_kwargs' in metadata
     assert 'GaussianCopula' in metadata['model_kwargs']
+
+
+def test_integer_categoricals():
+    """Ensure integer categoricals are still sampled as integers.
+
+    The origin of this tests can be found in the github issue #194:
+    https://github.com/sdv-dev/SDV/issues/194
+    """
+    users = load_demo(metadata=False)['users']
+
+    field_types = {
+        'age': {
+            'type': 'categorical',
+        },
+    }
+    gc = GaussianCopula(field_types=field_types, categorical_transformer='categorical')
+    gc.fit(users)
+
+    sampled = gc.sample()
+
+    assert users['age'].dtype == np.int64
+    assert sampled['age'].dtype == np.int64

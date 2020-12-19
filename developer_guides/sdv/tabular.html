@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabular Models &#8212; SDV 0.3.7.dev0 documentation</title>
+    <title>Tabular Models &#8212; SDV 0.5.1.dev0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -25,8 +25,8 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -36,7 +36,9 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../../_static/SDV-logo-b.ico"/>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../../_static/SDV-Logo-Black.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Constraints" href="constraints.html" />
@@ -51,7 +53,7 @@
 
     <a class="navbar-brand" href="../../index.html">
     
-      <img src="../../_static/SDV-logo.png" class="logo" alt="logo" />
+      <img src="../../_static/SDV-Logo-Color.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -207,12 +209,12 @@
               <div>
                 
   <div class="section" id="tabular-models">
-<h1>Tabular Models<a class="headerlink" href="#tabular-models" title="Permalink to this headline">¶</a></h1>
+<span id="developer-tabular-models"></span><h1>Tabular Models<a class="headerlink" href="#tabular-models" title="Permalink to this headline">¶</a></h1>
 <p>SDV has all the necessary tools to model and sample data from individual tables with a collection
 of tabular models, such as <code class="docutils literal notranslate"><span class="pre">Copulas</span></code> and <code class="docutils literal notranslate"><span class="pre">CTGAN</span></code>, while keeping all the complexity associated
 with their usage hidden away and offering a very simple and intuitive interface to the users.</p>
 <p>All this functionalities are available in the <code class="docutils literal notranslate"><span class="pre">sdv.tabular.BaseTabularModel</span></code>, which is inherited
-and used by all the models implemented in the <a class="reference internal" href="../../api_reference/tabular.html#sdv-tabular"><span class="std std-ref">sdv.tabular</span></a> subpackage.</p>
+and used by all the models implemented in the <a class="reference internal" href="../../api_reference/tabular.html#sdv-tabular"><span class="std std-ref">sdv.tabular</span></a> sub-package.</p>
 <div class="section" id="tabular-modeling-overview">
 <h2>Tabular Modeling Overview<a class="headerlink" href="#tabular-modeling-overview" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> class offers a very simple API with only two methods, <code class="docutils literal notranslate"><span class="pre">fit</span></code> and
@@ -251,7 +253,7 @@ underlying model to generate the indicated number of rows.</p></li>
 <li><p>Use the Table metadata to transform the sampled data back to the original format by passing
 the data to its <code class="docutils literal notranslate"><span class="pre">revert_transform</span></code> method. This will also revert any transformations
 performed by the Constraints that use the <code class="docutils literal notranslate"><span class="pre">transform</span></code> strategy.</p></li>
-<li><p>If there is any Constraint that is useing the <code class="docutils literal notranslate"><span class="pre">reject_sampling</span></code> strategy, use the
+<li><p>If there is any Constraint that is using the <code class="docutils literal notranslate"><span class="pre">reject_sampling</span></code> strategy, use the
 Table metadata to drop the invalid rows and repeat steps <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> until enough
 valid rows have been generated.</p></li>
 </ol>
@@ -279,24 +281,40 @@ functionalities:</p>
 method.</p>
 <p>The base <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method implemented in the <code class="docutils literal notranslate"><span class="pre">BaseTabularModel</span></code> expects the following
 arguments:</p>
-<ul class="simple">
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">field_names</span></code>:
 List of names of the fields that need to be modeled
 and included in the generated output data. Any additional
 fields found in the data will be ignored and will not be
 included in the generated output.
 If <code class="docutils literal notranslate"><span class="pre">None</span></code>, all the fields found in the data are used.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">primary_key</span></code>:
-Specification about which field or fields are the
-primary key of the table and information about how
-to generate them.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">field_types</span></code>:
-Dictinary specifying the data types and subtypes
+Dictionary specifying the data types and subtypes
 of the fields that will be modeled. Field types and subtypes
 combinations must be compatible with the SDV Metadata Schema.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">field_transformers</span></code>:
+Dictionary specifying which transformers to use for each field.
+Available transformers are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">integer</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">NumericalTransformer</span></code> of dtype <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">NumericalTransformer</span></code> of dtype <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">categorical</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code> without gaussian noise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">categorical_fuzzy</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">CategoricalTransformer</span></code> adding gaussian noise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">one_hot_encoding</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">OneHotEncodingTransformer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label_encoding</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">LabelEncodingTransformer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">BooleanTransformer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>: Uses a <code class="docutils literal notranslate"><span class="pre">DatetimeTransformer</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">anonymize_fields</span></code>:
 Dict specifying which fields to anonymize and what faker
 category they belong to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">primary_key</span></code>:
+Name of the field which is the primary key of the table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">constraints</span></code>:
+List of Constraint objects or dicts.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">table_metadata</span></code>:
 Table metadata instance or dict representation.
 If given alongside any other metadata-related arguments, an
@@ -310,10 +328,10 @@ arguments or learned from the data.</p></li>
 <p>We can see such implementation in the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method of the <code class="docutils literal notranslate"><span class="pre">sdv.tabular.ctgan.CTGAN</span></code> model,
 which adds a few arguments to the class but still captures all the other arguments and calls the
 <code class="docutils literal notranslate"><span class="pre">super().__init__</span></code> method with them:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-             <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-             <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">log_frequency</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">gen_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
-             <span class="n">dis_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">l2scale</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">field_transformers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">anonymize_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">table_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">log_frequency</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">generator_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+             <span class="n">discriminator_dim</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">l2scale</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
         <span class="n">field_names</span><span class="o">=</span><span class="n">field_names</span><span class="p">,</span>
         <span class="n">primary_key</span><span class="o">=</span><span class="n">primary_key</span><span class="p">,</span>
@@ -323,8 +341,8 @@ which adds a few arguments to the class but still captures all the other argumen
         <span class="n">table_metadata</span><span class="o">=</span><span class="n">table_metadata</span>
     <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_embedding_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_gen_dim</span> <span class="o">=</span> <span class="n">gen_dim</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_dis_dim</span> <span class="o">=</span> <span class="n">dis_dim</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_generator_dim</span> <span class="o">=</span> <span class="n">generator_dim</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_discriminator_dim</span> <span class="o">=</span> <span class="n">discriminator_dim</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_l2scale</span> <span class="o">=</span> <span class="n">l2scale</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_epochs</span> <span class="o">=</span> <span class="n">epochs</span>
@@ -351,8 +369,8 @@ it expects alongside the data.</p>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CTGAN_CLASS</span><span class="p">(</span>
         <span class="n">embedding_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_embedding_dim</span><span class="p">,</span>
-        <span class="n">gen_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_gen_dim</span><span class="p">,</span>
-        <span class="n">dis_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dis_dim</span><span class="p">,</span>
+        <span class="n">generator_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_generator_dim</span><span class="p">,</span>
+        <span class="n">discriminator_dim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_discriminator_dim</span><span class="p">,</span>
         <span class="n">l2scale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_l2scale</span><span class="p">,</span>
         <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">,</span>
     <span class="p">)</span>
@@ -424,7 +442,7 @@ shown below, all this method does is call the <code class="docutils literal notr
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

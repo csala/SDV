@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sdv.demo &#8212; SDV 0.3.7.dev0 documentation</title>
+    <title>sdv.demo &#8212; SDV 0.5.1.dev0 documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -25,8 +25,8 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
   <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -36,11 +36,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/SDV-logo-b.ico"/>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/SDV-Logo-Black.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="sdv.demo.load_tabular_demo" href="api/sdv.demo.load_tabular_demo.html" />
-    <link rel="prev" title="sdv.constraints.tabular.ColumnFormula.to_dict" href="api/sdv.constraints.tabular.ColumnFormula.to_dict.html" />
+    <link rel="prev" title="sdv.metrics.relational.SVCParentChildDetection.compute" href="api/sdv.metrics.relational.SVCParentChildDetection.compute.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -51,7 +53,7 @@
 
     <a class="navbar-brand" href="../index.html">
     
-      <img src="../_static/SDV-logo.png" class="logo" alt="logo" />
+      <img src="../_static/SDV-Logo-Color.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,7 +133,25 @@
           
             
                 <li class="">
+                    <a href="sdv.html">sdv</a>
+                </li>
+            
+          
+            
+                <li class="">
                     <a href="tabular.html">sdv.tabular</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="relational.html">sdv.relational</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="timeseries.html">sdv.timeseries</a>
                 </li>
             
           
@@ -144,6 +164,12 @@
             
                 <li class="">
                     <a href="constraints.html">sdv.constraints</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="metrics.html">sdv.metrics</a>
                 </li>
             
           
@@ -163,6 +189,10 @@
                     
                         <li class="">
                             <a href="api/sdv.demo.load_demo.html">sdv.demo.load_demo</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="api/sdv.demo.load_timeseries_demo.html">sdv.demo.load_timeseries_demo</a>
                         </li>
                     
                     </ul>
@@ -197,6 +227,10 @@
     
         <li class="nav-item toc-entry toc-h2">
             <a href="#relational-demos" class="nav-link">Relational Demos</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#timeseries-demos" class="nav-link">Timeseries Demos</a>
         </li>
     
     </ul>
@@ -245,6 +279,20 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="timeseries-demos">
+<h2>Timeseries Demos<a class="headerlink" href="#timeseries-demos" title="Permalink to this headline">¶</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/sdv.demo.load_timeseries_demo.html#sdv.demo.load_timeseries_demo" title="sdv.demo.load_timeseries_demo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_timeseries_demo</span></code></a>([dataset_name, …])</p></td>
+<td><p>Load a timeseries demo.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -253,7 +301,7 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="api/sdv.constraints.tabular.ColumnFormula.to_dict.html" title="previous page">sdv.constraints.tabular.ColumnFormula.to_dict</a>
+    <a class='left-prev' id="prev-link" href="api/sdv.metrics.relational.SVCParentChildDetection.compute.html" title="previous page">sdv.metrics.relational.SVCParentChildDetection.compute</a>
     <a class='right-next' id="next-link" href="api/sdv.demo.load_tabular_demo.html" title="next page">sdv.demo.load_tabular_demo</a>
 
               </div>
@@ -272,7 +320,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

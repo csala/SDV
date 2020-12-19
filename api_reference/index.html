@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Reference &#8212; SDV 0.3.7.dev0 documentation</title>
+    <title>API Reference &#8212; SDV 0.5.1.dev0 documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -25,8 +25,8 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
   <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -36,11 +36,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="../_static/SDV-logo-b.ico"/>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="../_static/SDV-Logo-Black.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="sdv.tabular" href="tabular.html" />
-    <link rel="prev" title="Handling Constraints" href="../tutorials/05_Handling_Constraints.html" />
+    <link rel="next" title="sdv" href="sdv.html" />
+    <link rel="prev" title="Single Table Benchmarking" href="../user_guides/benchmarking/single_table.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -51,7 +53,7 @@
 
     <a class="navbar-brand" href="../index.html">
     
-      <img src="../_static/SDV-logo.png" class="logo" alt="logo" />
+      <img src="../_static/SDV-Logo-Color.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,7 +133,25 @@
           
             
                 <li class="">
+                    <a href="sdv.html">sdv</a>
+                </li>
+            
+          
+            
+                <li class="">
                     <a href="tabular.html">sdv.tabular</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="relational.html">sdv.relational</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="timeseries.html">sdv.timeseries</a>
                 </li>
             
           
@@ -144,6 +164,12 @@
             
                 <li class="">
                     <a href="constraints.html">sdv.constraints</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="metrics.html">sdv.metrics</a>
                 </li>
             
           
@@ -191,9 +217,24 @@
 and classes in SDV.</p>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="sdv.html">sdv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sdv.html#id2">SDV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sdv.html#evaluation-and-benchmark">Evaluation and Benchmark</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tabular.html">sdv.tabular</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tabular.html#gaussiancopula">GaussianCopula</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tabular.html#ctgan">CTGAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabular.html#couplagan">CouplaGAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabular.html#tvae">TVAE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="relational.html">sdv.relational</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="relational.html#hma1">HMA1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="timeseries.html">sdv.timeseries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html#par">PAR</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="metadata.html">sdv.metadata</a><ul>
@@ -210,9 +251,16 @@ and classes in SDV.</p>
 <li class="toctree-l2"><a class="reference internal" href="constraints.html#tabular-constraints">Tabular Constraints</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">sdv.metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html#sdv-metrics-demos">sdv.metrics.demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html#sdv-metrics-tabular">sdv.metrics.tabular</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html#sdv-metrics-relational">sdv.metrics.relational</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">sdv.demo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="demo.html#tabular-demos">Tabular Demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="demo.html#relational-demos">Relational Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo.html#timeseries-demos">Timeseries Demos</a></li>
 </ul>
 </li>
 </ul>
@@ -225,8 +273,8 @@ and classes in SDV.</p>
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../tutorials/05_Handling_Constraints.html" title="previous page">Handling Constraints</a>
-    <a class='right-next' id="next-link" href="tabular.html" title="next page">sdv.tabular</a>
+    <a class='left-prev' id="prev-link" href="../user_guides/benchmarking/single_table.html" title="previous page">Single Table Benchmarking</a>
+    <a class='right-next' id="next-link" href="sdv.html" title="next page">sdv</a>
 
               </div>
               
@@ -244,7 +292,7 @@ and classes in SDV.</p>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

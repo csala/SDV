@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SDV - The Synthetic Data Vault &#8212; SDV 0.3.7.dev0 documentation</title>
+    <title>SDV - The Synthetic Data Vault &#8212; SDV 0.5.1.dev0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
   <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
 
@@ -36,7 +36,9 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="_static/SDV-logo-b.ico"/>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="shortcut icon" href="_static/SDV-Logo-Black.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started" href="getting_started/index.html" />
@@ -50,7 +52,7 @@
 
     <a class="navbar-brand" href="#">
     
-      <img src="_static/SDV-logo.png" class="logo" alt="logo" />
+      <img src="_static/SDV-Logo-Color.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,11 +154,7 @@
             <a href="#overview" class="nav-link">Overview</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#features" class="nav-link">Features:</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#coming-soon" class="nav-link">Coming soon:</a>
+            <a href="#current-functionality-and-features" class="nav-link">Current functionality and features:</a>
         </li>
     
             </ul>
@@ -164,6 +162,10 @@
     
         <li class="nav-item toc-entry toc-h2">
             <a href="#try-it-out-now" class="nav-link">Try it out now!</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#join-our-slack-workspace" class="nav-link">Join our Slack Workspace</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
@@ -186,11 +188,11 @@
   <p align="left">
 <img width=15% src="https://dai.lids.mit.edu/wp-content/uploads/2018/06/Logo_DAI_highres.png" alt="DAI-Lab" />
 <i>An open source project from Data to AI Lab at MIT.</i>
-</p><p><a class="reference external" href="https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha"><img alt="Development Status" src="https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow" /></a> <a class="reference external" href="https://pypi.python.org/pypi/SDV"><img alt="PyPi Shield" src="https://img.shields.io/pypi/v/SDV.svg" /></a> <a class="reference external" href="https://travis-ci.org/sdv-dev/SDV"><img alt="Travis CI Shield" src="https://travis-ci.org/sdv-dev/SDV.svg?branch=master" /></a> <a class="reference external" href="https://codecov.io/gh/sdv-dev/SDV"><img alt="Coverage Status" src="https://codecov.io/gh/sdv-dev/SDV/branch/master/graph/badge.svg" /></a>
-<a class="reference external" href="https://pepy.tech/project/sdv"><img alt="Downloads" src="https://pepy.tech/badge/sdv" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/sdv-dev/SDV/master?filepath=tutorials"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</p><p><a class="reference external" href="https://pypi.org/search/?c=Development+Status+%3A%3A+2+-+Pre-Alpha"><img alt="Development Status" src="https://img.shields.io/badge/Development%20Status-2%20--%20Pre--Alpha-yellow" /></a> <a class="reference external" href="https://pypi.python.org/pypi/SDV"><img alt="PyPi Shield" src="https://img.shields.io/pypi/v/SDV.svg" /></a> <a class="reference external" href="https://github.com/sdv-dev/SDV/actions?query=workflow%3A%22Run+Tests%22+branch%3Amaster"><img alt="Run Tests" src="https://github.com/sdv-dev/SDV/workflows/Run%20Tests/badge.svg" /></a> <a class="reference external" href="https://codecov.io/gh/sdv-dev/SDV"><img alt="Coverage Status" src="https://codecov.io/gh/sdv-dev/SDV/branch/master/graph/badge.svg" /></a>
+<a class="reference external" href="https://pepy.tech/project/sdv"><img alt="Downloads" src="https://pepy.tech/badge/sdv" /></a> <a class="reference external" href="https://mybinder.org/v2/gh/sdv-dev/SDV/master?filepath=tutorials"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a> <a class="reference external" href="https://join.slack.com/t/sdv-space/shared_invite/zt-gdsfcb5w-0QQpFMVoyB2Yd6SRiMplcw"><img alt="Slack" src="https://img.shields.io/badge/Slack%20Workspace-Join%20now!-36C5F0?logo=slack" /></a></p>
 <div class="section" id="sdv-the-synthetic-data-vault">
 <h1>SDV - The Synthetic Data Vault<a class="headerlink" href="#sdv-the-synthetic-data-vault" title="Permalink to this headline">¶</a></h1>
-<p><strong>Date</strong>: Nov 20, 2020 <strong>Version</strong>: 0.3.7.dev0</p>
+<p><strong>Date</strong>: Dec 19, 2020 <strong>Version</strong>: 0.5.1.dev0</p>
 <ul class="simple">
 <li><p>License: <a class="reference external" href="https://github.com/sdv-dev/SDV/blob/master/LICENSE">MIT</a></p></li>
 <li><p>Development Status:
@@ -200,33 +202,46 @@
 </ul>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The Synthetic Data Vault (SDV) is a tool that allows users to
-statistically model tabular as well as entire multi-table, relational
-datasets. Users can then use the statistical model to generate a
-synthetic dataset. Synthetic data can be used to supplement, augment and
-in some cases replace real data when training machine learning models.
-Additionally, it enables the testing of machine learning or other data
-dependent software systems without the risk of exposure that comes with
-data disclosure. Underneath the hood it uses a unique hierarchical
-generative modeling and recursive sampling techniques.</p>
-<div class="section" id="features">
-<h3>Features:<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Synthetic Data Vault (SDV)</strong> is a <strong>Synthetic Data Generation</strong>
+ecosystem of libraries that allows users to easily learn <a class="reference internal" href="user_guides/single_table/index.html#single-table"><span class="std std-ref">single-table</span></a>, <a class="reference internal" href="user_guides/relational/index.html#relational"><span class="std std-ref">multi-table</span></a> and <a class="reference internal" href="user_guides/timeseries/index.html#timeseries"><span class="std std-ref">timeseries</span></a>
+datasets to later on generate new <strong>Synthetic Data</strong> that has the <strong>same format and
+statistical properties</strong> as the original dataset.</p>
+<p>Synthetic data can then be used to supplement, augment and in some cases
+replace real data when training Machine Learning models. Additionally,
+it enables the testing of Machine Learning or other data dependent
+software systems without the risk of exposure that comes with data
+disclosure.</p>
+<p>Underneath the hood it uses several probabilistic graphical modeling and
+deep learning based techniques. To enable a variety of data storage
+structures, we employ unique hierarchical generative modeling and
+recursive sampling techniques.</p>
+<div class="section" id="current-functionality-and-features">
+<h3>Current functionality and features:<a class="headerlink" href="#current-functionality-and-features" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Modeling of single tables using Copulas and Deep Learning based
-models.</p></li>
-<li><p>Modeling of complex multi-table relational datasets using Copulas and
-unique recursive modeling techniques.</p></li>
-<li><p>Handling of multiple data types and missing data with minimum user
-input.</p></li>
-<li><p>Support for pre-defined and custom constraints and data validation.</p></li>
-<li><p>Definition of entire datasets with a custom and flexible Metadata
-JSON schema.</p></li>
+<li><p>Synthetic data generators for <a class="reference internal" href="user_guides/single_table/index.html#single-table"><span class="std std-ref">single table datasets</span></a> with the following
+features:</p>
+<ul>
+<li><p>Using <a class="reference internal" href="user_guides/single_table/gaussian_copula.html#gaussian-copula"><span class="std std-ref">Copulas</span></a> and <a class="reference internal" href="user_guides/single_table/ctgan.html#ctgan"><span class="std std-ref">Deep Learning</span></a> based models.</p></li>
+<li><p>Handling of multiple data types and missing data with minimum user input.</p></li>
+<li><p>Support for <a class="reference internal" href="user_guides/single_table/constraints.html#single-table-constraints"><span class="std std-ref">pre-defined and custom constraints</span></a> and data
+validation.</p></li>
 </ul>
-</div>
-<div class="section" id="coming-soon">
-<h3>Coming soon:<a class="headerlink" href="#coming-soon" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Time Series modeling with Autoregressive and Deep Learning models.</p></li>
+</li>
+<li><p>Synthetic data generators for <a class="reference internal" href="user_guides/relational/index.html#relational"><span class="std std-ref">complex, multi-table, relational datasets</span></a>
+with the following features:</p>
+<ul>
+<li><p>Definition of entire <a class="reference internal" href="user_guides/relational/relational_metadata.html#relational-metadata"><span class="std std-ref">multi-table datasets metadata</span></a> with a custom
+and flexible <a class="reference internal" href="developer_guides/sdv/metadata.html#metadata-schema"><span class="std std-ref">JSON schema</span></a>.</p></li>
+<li><p>Using Copulas and recursive modeling techniques.</p></li>
+</ul>
+</li>
+<li><p>Synthetic data generators for <a class="reference internal" href="user_guides/timeseries/index.html#timeseries"><span class="std std-ref">multi-type, multi-variate timeseries datasets</span></a>
+with the following features:</p>
+<ul>
+<li><p>Using statistical, Autoregressive and Deep Learning models.</p></li>
+<li><p>Conditional sampling based on contextual attributes.</p></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -235,6 +250,13 @@ JSON schema.</p></li>
 <p>If you want to quickly discover <strong>SDV</strong>, simply click the button below
 and follow the tutorials!</p>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/sdv-dev/SDV/master?filepath=tutorials"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+<div class="section" id="join-our-slack-workspace">
+<h2>Join our Slack Workspace<a class="headerlink" href="#join-our-slack-workspace" title="Permalink to this headline">¶</a></h2>
+<p>If you want to be part of the SDV community to receive announcements of the latest releases,
+ask questions, suggest new features or participate in the development meetings, please join
+our Slack Workspace!</p>
+<p><a class="reference external" href="https://join.slack.com/t/sdv-space/shared_invite/zt-gdsfcb5w-0QQpFMVoyB2Yd6SRiMplcw"><img alt="Slack" src="https://img.shields.io/badge/Slack%20Workspace-Join%20now!-36C5F0?logo=slack" /></a></p>
 </div>
 <div class="section" id="explore-sdv">
 <h2>Explore SDV<a class="headerlink" href="#explore-sdv" title="Permalink to this headline">¶</a></h2>
@@ -275,7 +297,7 @@ and follow the tutorials!</p>
   <div class="container">
     <p>
           &copy; Copyright 2018, MIT Data To AI Lab.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
     </p>
   </div>
 </footer>

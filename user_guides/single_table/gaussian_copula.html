@@ -375,11 +375,11 @@ on, but filled with new data which resembles the original one.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[8]: </span><span class="go"></span>
 <span class="go">   student_id gender  second_perc  high_perc high_spec  degree_perc degree_type  work_experience  experience_years  employability_perc mba_spec   mba_perc        salary  placed start_date   end_date duration</span>
-<span class="go">0       17299      F    68.709711  64.074899  Commerce    67.578541    Sci&amp;Tech            False                 1           83.985896  Mkt&amp;Fin  64.463639  29001.523665    True 2020-08-05 2020-11-15      3.0</span>
-<span class="go">1       17382      F    63.410871  64.606578  Commerce    67.910225   Comm&amp;Mgmt            False                 0           90.544841   Mkt&amp;HR  71.511646  32520.413394    True 2020-07-09 2020-07-21      3.0</span>
-<span class="go">2       17365      F    80.737364  70.477565  Commerce    73.303907   Comm&amp;Mgmt            False                 1           60.289158  Mkt&amp;Fin  57.918601  22468.628154    True 2020-01-05 2020-03-18      3.0</span>
-<span class="go">3       17420      M    53.043910  50.630483  Commerce    57.321763   Comm&amp;Mgmt            False                 0           64.911446  Mkt&amp;Fin  60.299417           NaN   False        NaT        NaT      NaN</span>
-<span class="go">4       17420      F    64.893282  66.823154  Commerce    67.788929   Comm&amp;Mgmt            False                 0           55.525292  Mkt&amp;Fin  58.849773  28366.292091    True 2020-01-17 2020-10-02     12.0</span>
+<span class="go">0       17409      F    71.724889  67.682642      Arts    56.374086   Comm&amp;Mgmt            False                 1           67.640791   Mkt&amp;HR  73.711058  29769.659187    True 2020-02-11 2020-12-10     12.0</span>
+<span class="go">1       17361      M    61.768543  63.049770  Commerce    64.770450   Comm&amp;Mgmt            False                 1           54.496226  Mkt&amp;Fin  59.569478  23908.182633    True 2020-02-27 2020-06-23      3.0</span>
+<span class="go">2       17298      F    73.757504  76.347579  Commerce    68.449817   Comm&amp;Mgmt            False                 1           94.102436  Mkt&amp;Fin  67.598465  24807.805236    True 2020-06-24 2020-08-09      3.0</span>
+<span class="go">3       17318      M    69.831555  55.920367   Science    66.540411    Sci&amp;Tech            False                 0           53.520808   Mkt&amp;HR  55.375017           NaN   False        NaT        NaT      NaN</span>
+<span class="go">4       17376      F    58.345619  67.984061   Science    70.579371   Comm&amp;Mgmt            False                 2           72.153943  Mkt&amp;Fin  61.828660  25215.681950    True 2020-01-28 2020-04-04      3.0</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -461,11 +461,11 @@ that there are some values that appear more than once:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">new_data</span><span class="p">[</span><span class="n">new_data</span><span class="o">.</span><span class="n">student_id</span> <span class="o">==</span> <span class="n">new_data</span><span class="o">.</span><span class="n">student_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="gh">Out[13]: </span><span class="go"></span>
 <span class="go">     student_id gender  second_perc  high_perc high_spec  degree_perc degree_type  work_experience  experience_years  employability_perc mba_spec   mba_perc        salary  placed start_date   end_date duration</span>
-<span class="go">122       17464      F    68.332387  76.369583   Science    78.420900   Comm&amp;Mgmt            False                 1           89.337826  Mkt&amp;Fin  53.624260  25653.096344    True 2020-01-03 2020-10-14     12.0</span>
-<span class="go">134       17464      M    65.819390  69.253639  Commerce    51.947350      Others            False                 1           57.247045   Mkt&amp;HR  68.104845           NaN   False        NaT        NaT      NaN</span>
-<span class="go">149       17464      F    65.432415  46.337865   Science    65.656914   Comm&amp;Mgmt            False                 0           93.678860   Mkt&amp;HR  61.361726           NaN   False        NaT        NaT      NaN</span>
-<span class="go">152       17464      M    78.736974  87.668951   Science    73.100282   Comm&amp;Mgmt            False                 0           79.578448   Mkt&amp;HR  65.488768  28601.478443    True 2020-01-04 2020-10-09     12.0</span>
-<span class="go">155       17464      F    64.129019  61.026328   Science    54.248107    Sci&amp;Tech            False                 1           54.857186  Mkt&amp;Fin  54.549999  26892.125753    True 2020-01-02 2020-09-20     12.0</span>
+<span class="go">50        17339      F    65.025642  39.086551   Science    61.594074   Comm&amp;Mgmt            False                 2           60.478418   Mkt&amp;HR  54.906990  29901.232982    True 2020-02-13 2020-11-02     12.0</span>
+<span class="go">141       17339      M    64.641206  93.468446  Commerce    60.404696   Comm&amp;Mgmt            False                 0           81.061765   Mkt&amp;HR  57.187544  29691.646943    True 2020-01-11 2020-07-14      NaN</span>
+<span class="go">188       17339      M    64.006424  52.416934   Science    62.902828    Sci&amp;Tech            False                 0           58.672470   Mkt&amp;HR  55.022441           NaN   False        NaT        NaT      3.0</span>
+<span class="go">194       17339      M    75.667533  76.857208  Commerce    67.450286   Comm&amp;Mgmt            False                 1           59.302404  Mkt&amp;Fin  67.293938  27771.808358    True 2020-02-16 2020-10-26     12.0</span>
+<span class="go">195       17339      M    58.427731  53.276425   Science    66.898869   Comm&amp;Mgmt            False                 0           63.626241  Mkt&amp;Fin  71.077347           NaN   False        NaT        NaT      NaN</span>
 </pre></div>
 </div>
 <p>This happens because the model was not notified at any point about the
@@ -485,11 +485,11 @@ indicating the name of the column that is the index of the table.</p>
 <span class="gp">In [17]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[17]: </span><span class="go"></span>
 <span class="go">   student_id gender  second_perc  high_perc high_spec  degree_perc degree_type  work_experience  experience_years  employability_perc mba_spec   mba_perc        salary  placed start_date   end_date duration</span>
-<span class="go">0           0      M    87.306639  79.457765   Science    84.184794    Sci&amp;Tech            False                 0           87.703914  Mkt&amp;Fin  63.750797  26680.449221    True 2020-02-19 2020-06-15      3.0</span>
-<span class="go">1           1      M    45.776523  47.485516  Commerce    54.843787   Comm&amp;Mgmt            False                 1           71.613728  Mkt&amp;Fin  53.302212           NaN   False        NaT        NaT      NaN</span>
-<span class="go">2           2      M    74.222388  51.261545   Science    67.076649   Comm&amp;Mgmt            False                 0           69.665952   Mkt&amp;HR  58.206057           NaN   False        NaT        NaT      NaN</span>
-<span class="go">3           3      F    73.576036  65.558092  Commerce    69.466088   Comm&amp;Mgmt            False                 0           65.337312  Mkt&amp;Fin  62.190985           NaN   False        NaT        NaT      NaN</span>
-<span class="go">4           4      F    61.956839  67.150652   Science    62.767307    Sci&amp;Tech            False                 0           56.751913   Mkt&amp;HR  77.616199           NaN   False        NaT        NaT      NaN</span>
+<span class="go">0           0      F    51.324928  49.676529   Science    70.047926   Comm&amp;Mgmt            False                 0           56.188967  Mkt&amp;Fin  59.743034           NaN   False        NaT        NaT      NaN</span>
+<span class="go">1           1      M    81.555765  64.272115   Science    68.375167    Sci&amp;Tech            False                 0           93.262466  Mkt&amp;Fin  60.159443  26441.979984    True 2020-03-06 2020-10-08      3.0</span>
+<span class="go">2           2      F    71.622080  82.457489   Science    67.711087   Comm&amp;Mgmt            False                 0           64.060767   Mkt&amp;HR  61.696648  28910.788596    True 2020-02-20 2020-03-02      3.0</span>
+<span class="go">3           3      M    49.410966  49.899569   Science    64.521723   Comm&amp;Mgmt            False                 0           68.958901  Mkt&amp;Fin  53.805959  23242.358299    True 2020-07-11 2020-12-17      NaN</span>
+<span class="go">4           4      M    67.037426  69.313181  Commerce    64.258356   Comm&amp;Mgmt            False                 1           67.386932  Mkt&amp;Fin  63.028037  28914.591343    True 2020-03-12 2020-09-21      3.0</span>
 </pre></div>
 </div>
 <p>As a result, the model will learn that this column must be unique and
@@ -543,12 +543,12 @@ students:</p>
 
 <span class="gp">In [24]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[24]: </span><span class="go"></span>
-<span class="go">   student_id                                            address gender  second_perc  high_perc high_spec  degree_perc degree_type  work_experience  experience_years  employability_perc mba_spec   mba_perc        salary  placed start_date   end_date duration</span>
-<span class="go">0           0                200 Rivera Club\nCarlfort, SC 50953      M    54.456817  77.110323  Commerce    64.458962    Sci&amp;Tech            False                 0           89.255032  Mkt&amp;Fin  64.536426  30775.444933    True 2020-02-04 2020-07-03      3.0</span>
-<span class="go">1           1        37594 Olson Trail\nEast Jamesview, KS 30707      M    56.134337  66.991342  Commerce    68.634945   Comm&amp;Mgmt            False                 0           51.089282  Mkt&amp;Fin  63.644035           NaN   False        NaT        NaT      NaN</span>
-<span class="go">2           2                   Unit 7455 Box 2916\nDPO AE 28179      M    64.701478  48.051895  Commerce    67.446386   Comm&amp;Mgmt            False                 1           68.808160  Mkt&amp;Fin  61.446630           NaN   False        NaT        NaT      NaN</span>
-<span class="go">3           3    6536 Lang Mews Suite 082\nPort Angela, KY 90554      F    69.661593  63.939827  Commerce    64.343739   Comm&amp;Mgmt            False                 1           97.828930  Mkt&amp;Fin  64.929645           NaN   False        NaT        NaT      NaN</span>
-<span class="go">4           4  2348 Washington Oval Apt. 978\nOwensbury, HI 7...      M    70.084477  71.680009   Science    65.803951    Sci&amp;Tech            False                 1           81.228321  Mkt&amp;Fin  69.388388  31624.772274    True 2020-01-30 2020-06-26      3.0</span>
+<span class="go">   student_id                                           address gender  second_perc  high_perc high_spec  degree_perc degree_type  work_experience  experience_years  employability_perc mba_spec   mba_perc        salary  placed start_date   end_date duration</span>
+<span class="go">0           0  50704 Branch Pine Apt. 243\nJesseville, PA 26331      F    67.241857  64.946362   Science    65.988912    Sci&amp;Tech            False                 0           74.964716   Mkt&amp;HR  69.165290           NaN   False        NaT        NaT      NaN</span>
+<span class="go">1           1    418 Simmons Crescent\nLake Shawnview, SD 98853      M    66.093860  60.837436   Science    71.814300    Sci&amp;Tech            False                 1           91.589051  Mkt&amp;Fin  56.878418  28174.079959    True 2020-02-14 2020-08-10      3.0</span>
+<span class="go">2           2       84670 Nicholas Mall\nWest William, MD 16359      M    72.370252  64.398661  Commerce    68.133003   Comm&amp;Mgmt            False                 0           87.567438   Mkt&amp;HR  67.332102  25833.550734    True 2020-02-29 2020-08-05      3.0</span>
+<span class="go">3           3    418 Simmons Crescent\nLake Shawnview, SD 98853      M    68.553207  83.438387   Science    65.196883    Sci&amp;Tech            False                 2           50.644456  Mkt&amp;Fin  58.867057  32800.597061    True 2020-02-15 2020-12-23     12.0</span>
+<span class="go">4           4               200 Rivera Club\nCarlfort, SC 50953      M    65.942355  50.363388   Science    74.009421    Sci&amp;Tech            False                 2           76.315805  Mkt&amp;Fin  57.800909  20349.189502    True 2020-01-31 2020-09-01      3.0</span>
 </pre></div>
 </div>
 <p>More specifically, we can see how all the addresses that have been generated
@@ -602,11 +602,11 @@ replaced by other fake addresses:</p>
 <span class="gp">In [29]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[29]: </span><span class="go"></span>
 <span class="go">   student_id                                            address gender  second_perc  high_perc high_spec  degree_perc degree_type  work_experience  experience_years  employability_perc mba_spec   mba_perc        salary  placed start_date   end_date duration</span>
-<span class="go">0           0               5257 Ward Rest\nDuartebury, MA 65801      M    83.484001  69.212557   Science    72.919704    Sci&amp;Tech            False                 1           73.677855  Mkt&amp;Fin  56.349676  33868.116510    True 2020-01-08 2020-10-21      3.0</span>
-<span class="go">1           1  45584 Evans Landing Suite 145\nPeggyland, OH 9...      M    53.699573  66.294471  Commerce    73.961236   Comm&amp;Mgmt            False                 0           52.476009  Mkt&amp;Fin  67.136718  24022.812348    True 2020-09-19 2020-09-26      3.0</span>
-<span class="go">2           2         918 Eric Curve\nEast Brendashire, NC 72772      M    62.060977  48.706583  Commerce    59.220196   Comm&amp;Mgmt            False                 2           57.087431  Mkt&amp;Fin  57.318296  27847.331542    True 2020-01-23 2020-05-05      NaN</span>
-<span class="go">3           3         93574 Jasmine Oval\nEast Tiffany, VA 17420      M    71.111066  62.616214  Commerce    64.581298   Comm&amp;Mgmt            False                 0           59.923660  Mkt&amp;Fin  61.782904  20874.039300    True 2020-06-17 2020-10-18      3.0</span>
-<span class="go">4           4           67769 Hughes Forks\nNew Brandi, NH 47093      F    57.631610  42.429997   Science    62.355722    Sci&amp;Tech            False                -1           58.975586   Mkt&amp;HR  64.853227           NaN   False        NaT        NaT      NaN</span>
+<span class="go">0           0  001 Cruz Viaduct Suite 413\nSouth Sarahberg, H...      M    80.225919  59.535563   Science    71.264601   Comm&amp;Mgmt            False                 0           51.816573   Mkt&amp;HR  58.414122  24767.984952    True 2020-04-27 2020-12-19      3.0</span>
+<span class="go">1           1  686 Buckley Circles Suite 043\nAguilarbury, NY...      M    79.982875  64.154147  Commerce    81.461415   Comm&amp;Mgmt            False                 0           67.695589   Mkt&amp;HR  69.309696  30022.598049    True 2020-03-14 2020-03-06      3.0</span>
+<span class="go">2           2  53773 Deanna Viaduct Apt. 075\nLake Mark, AR 1...      F    59.664261  56.686287  Commerce    50.624411   Comm&amp;Mgmt            False                 1           66.233475   Mkt&amp;HR  58.783019           NaN   False        NaT        NaT      NaN</span>
+<span class="go">3           3          11086 Mccall Meadows\nWest Kyle, WV 66058      M    75.073818  71.551955   Science    81.671605   Comm&amp;Mgmt            False                 0           93.906563  Mkt&amp;Fin  62.321262  28825.571184    True 2020-01-01 2020-08-16     12.0</span>
+<span class="go">4           4                   PSC 0532, Box 6586\nAPO AP 26452      M    69.754781  55.503177   Science    67.454641   Comm&amp;Mgmt            False                 1           90.923850  Mkt&amp;Fin  65.244592  27201.775712    True 2020-01-04 2020-08-08     12.0</span>
 </pre></div>
 </div>
 <p>Which means that none of the original addresses can be found in the sampled
@@ -685,11 +685,11 @@ value, it just replaces each value with a unique integer value.</p>
 <span class="gp">In [34]: </span><span class="n">new_data_pii</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="gh">Out[34]: </span><span class="go"></span>
 <span class="go">   student_id                                            address gender  second_perc  high_perc high_spec  degree_perc degree_type  work_experience  experience_years  employability_perc mba_spec   mba_perc        salary  placed start_date   end_date duration</span>
-<span class="go">0           0   08575 Jacob Summit Apt. 345\nJoshuaton, WV 84466      M    76.494454  66.147852  Commerce    61.537446    Sci&amp;Tech            False                 0           74.435225  Mkt&amp;Fin  58.464099  29678.584639    True 2020-01-10 2020-08-05      3.0</span>
-<span class="go">1           1  3885 Thompson Mission Suite 292\nFisherville, ...      M    65.757544  69.234280   Science    68.744953   Comm&amp;Mgmt            False                 1           80.036448  Mkt&amp;Fin  74.419600  24604.081100    True 2020-01-20 2020-08-13      3.0</span>
-<span class="go">2           2  15458 Kyle Orchard Apt. 339\nLake Yvonneview, ...      M    64.566930  90.317541  Commerce    65.772301   Comm&amp;Mgmt            False                 1           63.865846  Mkt&amp;Fin  68.903954  36506.146812    True 2020-02-24 2020-10-13     12.0</span>
-<span class="go">3           3         83100 Sloan Springs\nNorth Julie, ME 81215      M    78.270890  46.782084   Science    54.346364    Sci&amp;Tech            False                 1           69.094940  Mkt&amp;Fin  54.746584  25674.040326    True 2020-01-14 2020-09-04     12.0</span>
-<span class="go">4           4  3612 Cooper Street Suite 099\nJennifermouth, I...      M    71.118806  62.833890   Science    72.565928    Sci&amp;Tech            False                 0           95.571813  Mkt&amp;Fin  69.533740           NaN   False        NaT        NaT      NaN</span>
+<span class="go">0           0  587 Michael Falls Apt. 750\nSouth Tamaraview, ...      M    82.607368  60.887519   Science    71.600980    Sci&amp;Tech            False                 1           65.082929  Mkt&amp;Fin  57.832438  26560.965502    True 2020-02-17 2020-05-14      3.0</span>
+<span class="go">1           1           3153 Andrews Flats\nBrownhaven, RI 23645      M    70.424357  53.831501   Science    66.055860    Sci&amp;Tech            False                 1           52.404513   Mkt&amp;HR  57.015195  26775.291371    True 2020-01-01 2020-10-02     12.0</span>
+<span class="go">2           2  09596 Derek Mill Apt. 618\nSouth Meghan, CO 34484      F    49.682148  48.228385   Science    62.791071   Comm&amp;Mgmt            False                 0           68.911965   Mkt&amp;HR  53.016837  20983.551335    True 2020-03-21 2021-01-30     12.0</span>
+<span class="go">3           3                           USS Sexton\nFPO AE 51839      F    73.761587  60.337065   Science    67.098129    Sci&amp;Tech            False                 0           66.480516  Mkt&amp;Fin  79.323118  30661.940495    True 2020-05-14 2020-06-24      3.0</span>
+<span class="go">4           4       40422 Daniel Camp\nSouth Lisaburgh, TX 32107      M    45.424492  64.093063   Science    60.540306   Comm&amp;Mgmt            False                -1           53.462389   Mkt&amp;HR  52.911431  23017.671940    True 2020-01-06 2020-04-30      3.0</span>
 </pre></div>
 </div>
 </div>
@@ -808,10 +808,10 @@ generated values now contain negative values which are invalid for this
 column:</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [42]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="gh">Out[42]: </span><span class="go"></span>
-<span class="go"> 1    93</span>
-<span class="go"> 0    82</span>
-<span class="go">-1    14</span>
-<span class="go"> 2    11</span>
+<span class="go"> 0    104</span>
+<span class="go"> 1     76</span>
+<span class="go">-1     13</span>
+<span class="go"> 2      7</span>
 <span class="go">Name: experience_years, dtype: int64</span>
 
 <span class="gp">In [43]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
@@ -886,7 +886,8 @@ the valid values range.</p>
 <span class="gp">In [49]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="gh">Out[49]: </span><span class="go"></span>
 <span class="go">0    202</span>
-<span class="go">1     13</span>
+<span class="go">1     12</span>
+<span class="go">2      1</span>
 <span class="go">Name: experience_years, dtype: int64</span>
 
 <span class="gp">In [50]: </span><span class="n">new_data</span><span class="o">.</span><span class="n">experience_years</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>

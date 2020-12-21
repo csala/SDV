@@ -25,7 +25,7 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sdv.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
@@ -48,8 +48,7 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
     <a class="navbar-brand" href="../../index.html">
     
@@ -105,9 +104,17 @@
             </a>
           </li>
         
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://join.slack.com/t/sdv-space/shared_invite/zt-gdsfcb5w-0QQpFMVoyB2Yd6SRiMplcw" target="_blank" rel="noopener">
+              <img width="19px" style="margin-top:2px" src="../../_static/slack-32.png">
+            </a>
+          </li>
+        
       </ul>
     </div>
 </div>
+
     </nav>
     
 
@@ -119,10 +126,8 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
     <div class="bd-toc-item active">
     
-  
     <ul class="nav bd-sidenav">
         
         
@@ -148,18 +153,34 @@
             
           
             
-  
                 <li class="active">
                     <a href="index.html">Synthetic Data Evaluation</a>
                     <ul>
                     
-                        <li class="">
-                            <a href="evaluation_framework.html">Evaluation Framework</a>
-                        </li>
+                        
+                            <li class="">
+                                <a href="evaluation_framework.html">Evaluation Framework</a>
+                            </li>
+                        
+
                     
-                        <li class="active">
-                            <a href="synthetic_data_metrics.html">Synthetic Data Metrics</a>
-                        </li>
+                        
+                            <li class="active">
+                                <a href="synthetic_data_metrics.html">Synthetic Data Metrics</a>
+                                <ul>
+                                
+                                    <li class="active">
+                                        <a href="">Single Table Metrics</a>
+                                    </li>
+                                
+                                    <li class="">
+                                        <a href="multi_table_metrics.html">Multi Table Metrics</a>
+                                    </li>
+                                
+                                </ul>
+                            </li>
+                        
+
                     
                     </ul>
                 </li>
@@ -167,7 +188,7 @@
           
             
                 <li class="">
-                    <a href="../benchmarking/index.html">Benchmarking</a>
+                    <a href="../benchmarking/index.html">Benchmarking Framework</a>
                 </li>
             
           
@@ -452,17 +473,26 @@ proportional to how hard that Machine Problem is.</p>
 </div>
 <p>The metrics on this family are organized by Machine Learning problem type and model.</p>
 <ul class="simple">
-<li><p>Binary Classification Metrics:
-* <code class="docutils literal notranslate"><span class="pre">BinaryDecisionTreeClassifier</span></code>
-* <code class="docutils literal notranslate"><span class="pre">BinaryAdaBoostClassifier</span></code>
-* <code class="docutils literal notranslate"><span class="pre">BinaryLogisticRegression</span></code>
-* <code class="docutils literal notranslate"><span class="pre">BinaryMLPClassifier</span></code></p></li>
-<li><p>Multiclass Classification Metrics:
-* <code class="docutils literal notranslate"><span class="pre">MulticlassDecisionTreeClassifier</span></code>
-* <code class="docutils literal notranslate"><span class="pre">MulticlassMLPClassifier</span></code></p></li>
-<li><p>Regression Metrics:
-* <code class="docutils literal notranslate"><span class="pre">LinearRegressionClassifier</span></code>
-* <code class="docutils literal notranslate"><span class="pre">MLPRegressor</span></code></p></li>
+<li><p>Binary Classification Metrics:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">BinaryDecisionTreeClassifier</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BinaryAdaBoostClassifier</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BinaryLogisticRegression</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BinaryMLPClassifier</span></code></p></li>
+</ul>
+</li>
+<li><p>Multiclass Classification Metrics:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">MulticlassDecisionTreeClassifier</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MulticlassMLPClassifier</span></code></p></li>
+</ul>
+</li>
+<li><p>Regression Metrics:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">LinearRegressionClassifier</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MLPRegressor</span></code></p></li>
+</ul>
+</li>
 </ul>
 <p>In order to run these metrics we will need to select a column from our dataset which we will
 use as the target for the prediction problem. For example, in the demo dataset there are multiple
